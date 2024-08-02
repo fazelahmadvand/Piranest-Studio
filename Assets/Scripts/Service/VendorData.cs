@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace Piranest
 {
-
     [CreateAssetMenu(fileName = nameof(VendorData), menuName = Utility.SCRIPTABLE_PATH + nameof(VendorData))]
     public class VendorData : BaseServiceData
     {
@@ -31,7 +30,7 @@ namespace Piranest
                 Vendors = response.List;
                 OnLoadVendors?.Invoke(Vendors);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
 
                 throw;
