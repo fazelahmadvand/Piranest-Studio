@@ -9,15 +9,17 @@ namespace Piranest
         [SerializeField] private AuthData authData;
         [SerializeField] private VendorData vendorData;
 
-        public event Action OnInitializing;
-        public event Action OnInitialized;
+        public event Action OnGettingData;
+        public event Action OnDataLoaded;
 
         private async void Start()
         {
-            OnInitializing?.Invoke();
+            OnGettingData?.Invoke();
             await Task.Delay(1000);
             await vendorData.FillVendors();
+            await Task.Delay(500);
 
+            OnDataLoaded?.Invoke();
 
         }
 
