@@ -7,31 +7,31 @@ namespace Piranest.Model
     {
         [JsonProperty("id")]
         [field: SerializeField]
-        public object Id { get; set; }
+        public int Id { get; set; }
         [field: SerializeField]
         [JsonProperty("owner")]
-        public object Owner { get; set; }
+        public string Owner { get; set; }
         [field: SerializeField]
         [JsonProperty("name")]
-        public object Name { get; set; }
+        public string Name { get; set; }
         [field: SerializeField]
         [JsonProperty("vendor_category_id ")]
-        public object VendorCategoryId { get; set; }
+        public int VendorCategoryId { get; set; }
         [field: SerializeField]
         [JsonProperty("image")]
-        public object Image { get; set; }
+        public string ImageUrl { get; set; }
         [field: SerializeField]
         [JsonProperty("city")]
-        public object City { get; set; }
+        public string City { get; set; }
         [field: SerializeField]
         [JsonProperty("location_lat")]
-        public object LocationLat { get; set; }
+        public float LocationLat { get; set; }
         [field: SerializeField]
         [JsonProperty("location_long")]
-        public object LocationLong { get; set; }
+        public float LocationLong { get; set; }
         [field: SerializeField]
         [JsonProperty("max_coupon")]
-        public object MaxCoupon { get; set; }
+        public int MaxCoupon { get; set; }
 
 
     }

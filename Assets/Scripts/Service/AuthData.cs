@@ -13,15 +13,21 @@ namespace Piranest
 
         public User User { get; set; }
 
+
+        public event Action<User> OnLogin;
+        public event Action<User> OnSignUp;
+        public event Action<User> OnUpdateUser;
+
         public async Task SignUp(RegisterWithEmailParams register, Action<User> OnSuccess, Action OnFail)
         {
             try
             {
                 var response = await ServiceHub.Authentication.RegisterWithEmail(register);
                 User = response.User;
+                OnSignUp?.Invoke(User);
                 OnSuccess?.Invoke(response.User);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 OnFail?.Invoke();
                 throw;
@@ -34,6 +40,7 @@ namespace Piranest
             {
                 var response = await ServiceHub.Authentication.LoginWithEmail(loginParam);
                 User = response.User;
+                OnLogin?.Invoke(User);
                 OnSuccess?.Invoke(response.User);
             }
             catch (Exception)
@@ -53,6 +60,7 @@ namespace Piranest
                 };
                 var response = await ServiceHub.Services.Users.EditCurrentUser(editCurrentParam);
                 User = response;
+                OnUpdateUser?.Invoke(User);
                 OnSuccess?.Invoke(response);
             }
             catch (Exception)

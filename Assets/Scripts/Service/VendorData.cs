@@ -1,7 +1,9 @@
 using DynamicPixels.GameService;
 using DynamicPixels.GameService.Services.Table.Models;
 using Piranest.Model;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Piranest
@@ -12,13 +14,14 @@ namespace Piranest
     {
         [field: SerializeField]
         public List<Vendor> Vendors { get; set; }
-
+        public event Action<List<Vendor>> OnLoadVendors;
 
         private const string VendorTableId = "6550d76675e62b435ba7450c";
-        public async void GetVendors()
+        public async Task FillVendors()
         {
             var findParam = new FindParams()
             {
+                options = new(),
                 tableId = VendorTableId,
             };
 
@@ -26,6 +29,7 @@ namespace Piranest
             {
                 var response = await ServiceHub.Table.Find<Vendor, FindParams>(findParam);
                 Vendors = response.List;
+                OnLoadVendors?.Invoke(Vendors);
             }
             catch (System.Exception)
             {

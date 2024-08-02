@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 1224709932}
   - component: {fileID: 1224709931}
   m_Layer: 0
-  m_Name: SampleOne
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -504,6 +504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57b5e2beacba144e91e04a1bae7ae26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
+  vendorData: {fileID: 11400000, guid: e92c7cd44ec02e44abf4c36d9470b2cd, type: 2}
 --- !u!4 &1224709932
 Transform:
   m_ObjectHideFlags: 0
