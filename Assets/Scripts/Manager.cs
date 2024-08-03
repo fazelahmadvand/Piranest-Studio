@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -9,11 +10,20 @@ namespace Piranest
         [SerializeField] private AuthData authData;
         [SerializeField] private VendorData vendorData;
 
+
+        [SerializeField] private List<View> views;
+
         public event Action OnGettingData;
         public event Action OnDataLoaded;
 
         private async void Start()
         {
+
+            foreach (var view in views)
+            {
+                view.InitView();
+            }
+
             OnGettingData?.Invoke();
             await Task.Delay(1000);
             await vendorData.FillVendors();
