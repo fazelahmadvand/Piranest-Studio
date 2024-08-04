@@ -1,3 +1,4 @@
+using DynamicPixels.GameService.Services.Authentication.Models;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,12 +12,40 @@ namespace Piranest.Auth
         [SerializeField] private Button confirmBtn, signUpBtn;
 
         [SerializeField] private View signUpView;
+        [SerializeField] private AuthData authData;
         [SerializeField] private SaveData saveData;
-
         public override void InitView()
         {
             base.InitView();
+            confirmBtn.onClick.RemoveAllListeners();
+            confirmBtn.onClick.AddListener(Login);
 
+
+
+            signUpBtn.onClick.RemoveAllListeners();
+            signUpBtn.onClick.AddListener(() =>
+            {
+                Hide();
+                signUpView.Show();
+            });
+        }
+
+        public (string, string) LoginData()
+        {
+            return (emailTxt.text, passwordTxt.text);
+        }
+
+        public async void Login()
+        {
+            var login = new LoginWithEmailParams()
+            {
+                email = emailTxt.text,
+                password = passwordTxt.text,
+            };
+            await authData.Login(login, (e) =>
+            {
+                Debug.Log($"login View:{e.Message}", gameObject);
+            });
         }
 
     }

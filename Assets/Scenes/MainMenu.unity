@@ -251,6 +251,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 33110994}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &33110996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4127528959108303374, guid: faa7d78c114058b418889b6aba8a9ff4,
+    type: 3}
+  m_PrefabInstance: {fileID: 33110994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &147855798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -606,6 +612,7 @@ MonoBehaviour:
   loginBtn: {fileID: 1896011459}
   loginView: {fileID: 1337207979}
   saveData: {fileID: 11400000, guid: 5423ea4604b1916409c5afc2f399da8a, type: 2}
+  authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
 --- !u!224 &447317315 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2475100497444405709, guid: 7b0562433c403ca4fa3652515d5ccaf7,
@@ -1666,6 +1673,7 @@ MonoBehaviour:
   confirmBtn: {fileID: 1049096658}
   signUpBtn: {fileID: 1049096657}
   signUpView: {fileID: 447211115}
+  authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
   saveData: {fileID: 11400000, guid: 5423ea4604b1916409c5afc2f399da8a, type: 2}
 --- !u!1 &1362624772
 GameObject:
@@ -1697,9 +1705,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 0}
-  authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
   signView: {fileID: 447211115}
   loginView: {fileID: 1337207979}
+  saveData: {fileID: 11400000, guid: 5423ea4604b1916409c5afc2f399da8a, type: 2}
+  authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
 --- !u!4 &1362624774
 Transform:
   m_ObjectHideFlags: 0
@@ -1741,6 +1750,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1966732284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1966732285}
+  - component: {fileID: 1966732286}
+  m_Layer: 0
+  m_Name: LoadingHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1966732285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966732284}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2092285815}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1966732286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966732284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2d600b0250cd849ab1cd0d2fa57d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 33110996}
 --- !u!1001 &1986558567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2118,6 +2172,7 @@ Transform:
   m_Children:
   - {fileID: 2147274894}
   - {fileID: 1362624774}
+  - {fileID: 1966732285}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2147274893

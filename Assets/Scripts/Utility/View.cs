@@ -29,5 +29,10 @@ namespace Piranest
             }
         }
 
+        public bool IsActive()
+        {
+            return root.activeSelf;
+        }
+
     }
 }

@@ -26,9 +26,9 @@ namespace Piranest
             }
         }
 
-        public bool HasLocalUser()
+        public bool HasUser()
         {
-            return string.IsNullOrWhiteSpace(SaveInfo.email) && string.IsNullOrWhiteSpace(SaveInfo.password);
+            return !string.IsNullOrWhiteSpace(SaveInfo.email) && !string.IsNullOrWhiteSpace(SaveInfo.password);
         }
 
 
@@ -45,6 +45,16 @@ namespace Piranest
             OnSaveChange?.Invoke(SaveInfo);
         }
 
+        public void LoginAndSignUpSaveUserData(string email, string pass)
+        {
+            if (HasUser()) return;
+            SaveInfo = new SaveInfo()
+            {
+                email = email,
+                password = pass,
+            };
+            Save();
+        }
     }
 
 

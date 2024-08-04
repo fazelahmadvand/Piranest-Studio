@@ -1,4 +1,5 @@
 using DynamicPixels.GameService;
+using DynamicPixels.GameService.Models;
 using DynamicPixels.GameService.Services.Table.Models;
 using Piranest.Model;
 using System;
@@ -30,7 +31,7 @@ namespace Piranest
                 Vendors = response.List;
                 OnLoadVendors?.Invoke(Vendors);
             }
-            catch (Exception)
+            catch (DynamicPixelsException)
             {
 
                 throw;

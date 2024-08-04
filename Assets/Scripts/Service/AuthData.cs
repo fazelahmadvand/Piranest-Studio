@@ -1,4 +1,5 @@
 using DynamicPixels.GameService;
+using DynamicPixels.GameService.Models;
 using DynamicPixels.GameService.Services.Authentication.Models;
 using DynamicPixels.GameService.Services.User.Models;
 using System;
@@ -18,7 +19,7 @@ namespace Piranest
         public event Action<User> OnSignUp;
         public event Action<User> OnUpdateUser;
 
-        public async Task SignUp(RegisterWithEmailParams register, Action OnFail)
+        public async Task SignUp(RegisterWithEmailParams register, Action<DynamicPixelsException> OnFail)
         {
             try
             {
@@ -26,9 +27,9 @@ namespace Piranest
                 User = response.User;
                 OnSignUp?.Invoke(User);
             }
-            catch (Exception)
+            catch (DynamicPixelsException e)
             {
-                OnFail?.Invoke();
+                OnFail?.Invoke(e);
                 throw;
             }
         }
@@ -36,7 +37,7 @@ namespace Piranest
 
 
 
-        public async Task Login(LoginWithEmailParams loginParam, Action OnFail)
+        public async Task Login(LoginWithEmailParams loginParam, Action<DynamicPixelsException> OnFail)
         {
             try
             {
@@ -44,14 +45,15 @@ namespace Piranest
                 User = response.User;
                 OnLogin?.Invoke(User);
             }
-            catch (Exception)
+            catch (DynamicPixelsException e)
             {
-                OnFail?.Invoke();
+
+                OnFail?.Invoke(e);
                 throw;
             }
         }
 
-        public async Task UpdateUser(UserEditParams editParam, Action OnFail)
+        public async Task UpdateUser(UserEditParams editParam, Action<DynamicPixelsException> OnFail)
         {
             try
             {
@@ -63,9 +65,9 @@ namespace Piranest
                 User = response;
                 OnUpdateUser?.Invoke(User);
             }
-            catch (Exception)
+            catch (DynamicPixelsException e)
             {
-                OnFail?.Invoke();
+                OnFail?.Invoke(e);
                 throw;
             }
         }
