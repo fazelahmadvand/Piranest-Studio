@@ -9,7 +9,7 @@ namespace Piranest
     {
         [SerializeField] private AuthData authData;
 
-
+        [SerializeField] private View signView, loginView;
 
 
 
@@ -17,7 +17,8 @@ namespace Piranest
         public override void InitView()
         {
             base.InitView();
-
+            signView.InitView();
+            loginView.InitView();
 
 
             authData.OnLogin += OnLoginSuccess;

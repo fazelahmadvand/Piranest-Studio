@@ -9,12 +9,18 @@ namespace Piranest
     {
         [SerializeField] private AuthData authData;
         [SerializeField] private VendorData vendorData;
+        [SerializeField] private SaveData saveData;
 
 
         [SerializeField] private List<View> views;
 
         public event Action OnGettingData;
         public event Action OnDataLoaded;
+
+        private void Awake()
+        {
+            saveData.Init();
+        }
 
         private async void Start()
         {
@@ -30,6 +36,8 @@ namespace Piranest
             await Task.Delay(500);
 
             OnDataLoaded?.Invoke();
+
+
 
         }
 
