@@ -13,7 +13,6 @@ namespace Piranest.Auth
 
         [SerializeField] private View signUpView;
         [SerializeField] private AuthData authData;
-        [SerializeField] private SaveData saveData;
         public override void InitView()
         {
             base.InitView();

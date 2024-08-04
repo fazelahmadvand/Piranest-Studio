@@ -1,6 +1,7 @@
 using DynamicPixels.GameService.Services.Authentication.Models;
 using DynamicPixels.GameService.Services.User.Models;
 using Piranest.Auth;
+using Piranest.SaveSystem;
 using UnityEngine;
 
 namespace Piranest
@@ -11,7 +12,7 @@ namespace Piranest
         [SerializeField] private SignUpView signView;
         [SerializeField] private LoginView loginView;
 
-        [SerializeField] private SaveData saveData;
+        [SerializeField] private UserSaveData userSaveData;
         [SerializeField] private AuthData authData;
 
         public override async void InitView()
@@ -25,13 +26,13 @@ namespace Piranest
             authData.OnLogin += OnLoginSuccess;
             authData.OnSignUp += OnSignUpSuccess;
 
-            if (saveData.HasUser())
+            if (userSaveData.HasUser())
             {
-                var info = saveData.SaveInfo;
+                var data = userSaveData.Data;
                 var loginParam = new LoginWithEmailParams()
                 {
-                    email = info.email,
-                    password = info.password,
+                    email = data.email,
+                    password = data.password,
                 };
                 await authData.Login(loginParam, (e) =>
                 {
@@ -69,14 +70,14 @@ namespace Piranest
         {
             Hide();
             var data = signView.SignUpData();
-            saveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2);
+            userSaveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2);
         }
 
         private void OnLoginSuccess(User user)
         {
             Hide();
             var data = loginView.LoginData();
-            saveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2);
+            userSaveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2);
         }
     }
 }

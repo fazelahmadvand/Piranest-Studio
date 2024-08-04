@@ -1,4 +1,5 @@
 using DynamicPixels.GameService.Services.Authentication.Models;
+using Piranest.SaveSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,6 @@ namespace Piranest.Auth
 
         [SerializeField] private View loginView;
 
-        [SerializeField] private SaveData saveData;
         [SerializeField] private AuthData authData;
 
 

@@ -1,3 +1,4 @@
+using Piranest.SaveSystem;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,7 +10,10 @@ namespace Piranest
     {
         [SerializeField] private AuthData authData;
         [SerializeField] private VendorData vendorData;
-        [SerializeField] private SaveData saveData;
+        [SerializeField] private TextureDownloader textureDownloader;
+        [Header("Saved Data")]
+        [SerializeField] private UserSaveData userSaveDataes;
+        [SerializeField] private TextureSaveData textureSaveData;
 
 
         [SerializeField] private List<View> views;
@@ -19,7 +23,8 @@ namespace Piranest
 
         private void Awake()
         {
-            saveData.Init();
+            userSaveDataes.Init();
+            textureSaveData.Init();
         }
 
         private async void Start()
@@ -34,7 +39,7 @@ namespace Piranest
             await Task.Delay(1000);
             await vendorData.FillVendors();
             await Task.Delay(500);
-
+            StartCoroutine(textureDownloader.Download());
             OnDataLoaded?.Invoke();
 
 
