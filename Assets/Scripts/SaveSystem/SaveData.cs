@@ -26,7 +26,10 @@ namespace Piranest
             }
         }
 
-
+        public bool HasLocalUser()
+        {
+            return string.IsNullOrWhiteSpace(SaveInfo.email) && string.IsNullOrWhiteSpace(SaveInfo.password);
+        }
 
 
         public void Save()
