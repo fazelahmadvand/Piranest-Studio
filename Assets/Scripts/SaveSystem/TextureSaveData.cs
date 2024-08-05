@@ -26,10 +26,14 @@ namespace Piranest
 
         public Sprite GetSprite(int id)
         {
-            if (!Data.ContainsKey(id)) return null;
-            var texture = new Texture2D(id, id);
-            texture.LoadRawTextureData(Data[id]);
-            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100f, 0);
+            if (!Data.ContainsKey(id))
+            {
+                Debug.LogError("Texture Not Found: " + id);
+                return null;
+            }
+            var tex = new Texture2D(id, id);
+            tex.LoadRawTextureData(Data[id]);
+            Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
             return sprite;
         }
 

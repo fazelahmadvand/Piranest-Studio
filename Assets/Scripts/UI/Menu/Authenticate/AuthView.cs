@@ -17,7 +17,7 @@ namespace Piranest
 
         public override async void InitView()
         {
-            base.InitView();
+            Show();
             signView.InitView();
             loginView.InitView();
 
