@@ -1588,6 +1588,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas-Vendors
       objectReference: {fileID: 0}
+    - target: {fileID: 8387481135958058777, guid: fb33a47829664424bba0abde0f663e1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
