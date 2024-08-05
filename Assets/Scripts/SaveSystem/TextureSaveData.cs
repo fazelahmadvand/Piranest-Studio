@@ -20,7 +20,7 @@ namespace Piranest
         {
             if (!Data.ContainsKey(id))
             {
-                Data.Add(id, texture.EncodeToJPG());
+                Data.Add(id, texture.EncodeToPNG());
             }
         }
 
@@ -31,9 +31,9 @@ namespace Piranest
                 Debug.LogError("Texture Not Found: " + id);
                 return null;
             }
-            var tex = new Texture2D(id, id);
+            var tex = new Texture2D(2, 2);
             tex.LoadRawTextureData(Data[id]);
-            Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
+            Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(tex.width / 2, tex.height / 2));
             return sprite;
         }
 
