@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "********\u200B"
+  m_text: "*****\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ecb17a62973a2647a4868a887012a4c, type: 2}
   m_sharedMaterial: {fileID: 7312392020737170497, guid: 8ecb17a62973a2647a4868a887012a4c,
@@ -2274,7 +2274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "********\u200B"
+  m_text: "*****\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ecb17a62973a2647a4868a887012a4c, type: 2}
   m_sharedMaterial: {fileID: 7312392020737170497, guid: 8ecb17a62973a2647a4868a887012a4c,
@@ -2507,7 +2507,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: '********'
+  m_Text: '*****'
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -2734,7 +2734,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: '********'
+  m_Text: '*****'
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
