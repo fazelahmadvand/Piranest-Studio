@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc37534bbf698fd41962d675c9ae84b4, type: 3}
   m_Name: TextureSaveData
   m_EditorClassIdentifier: 
+  <Data>k__BackingField: []

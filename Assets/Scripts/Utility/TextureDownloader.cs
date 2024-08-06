@@ -13,11 +13,13 @@ namespace Piranest
         {
             foreach (var item in vendorData.Vendors)
             {
-                if (saveData.HasTexture(item.Id)) continue;
+                if (saveData.HasTexture(item.ImageUrl)) continue;
+                Debug.Log(item.ImageUrl);
                 var tex = await API.API.DownloadTexture(item.ImageUrl);
                 if (tex != null)
-                    saveData.AddTexture(item.Id, tex);
+                    saveData.AddTexture(item.ImageUrl, tex);
             }
+            Debug.Log("Download");
             saveData.Save();
 
         }

@@ -8,16 +8,27 @@ namespace Piranest.UI.Menu
         [SerializeField] private VendorCardView vendorCard;
         [SerializeField] private Transform vendorHolder;
 
-
-        private readonly List<VendorCardView> vendorCards = new();
         [SerializeField] private TextureSaveData textureData;
         [SerializeField] private VendorData vendorData;
+
+        private readonly List<VendorCardView> vendorCards = new();
 
         public override void InitView()
         {
             base.InitView();
 
-            vendorData.OnLoadVendors += OnLoadVendors;
+            Manager.Instance.OnInitialized += OnInitialized;
+        }
+
+        private void OnDestroy()
+        {
+            if (Manager.Instance)
+                Manager.Instance.OnInitialized -= OnInitialized;
+        }
+
+        private void OnInitialized()
+        {
+            OnLoadVendors(vendorData.Vendors);
         }
 
         private void OnLoadVendors(List<Model.Vendor> vendors)
@@ -26,7 +37,7 @@ namespace Piranest.UI.Menu
             foreach (Model.Vendor vendor in vendors)
             {
                 var newCard = Instantiate(vendorCard, vendorHolder);
-                newCard.UpdateCard(vendor, textureData.GetSprite(vendor.Id), () =>
+                newCard.UpdateCard(vendor, textureData.GetSprite(vendor.ImageUrl), () =>
                 {
                     Debug.Log(vendor.Id);
                 });

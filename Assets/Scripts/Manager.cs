@@ -38,7 +38,8 @@ namespace Piranest
             await vendorData.FillVendors();
             await Task.Delay(10);
             await textureDownloader.Download();
-
+            await Task.Delay(500);
+            Debug.Log("Manager");
             OnInitialized?.Invoke();
 
         }

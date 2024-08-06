@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -23,8 +21,8 @@ namespace Piranest.API
             }
             else
             {
-                Texture2D myTexture = ((DownloadHandlerTexture)req.downloadHandler).texture;
-                return myTexture;
+                Texture2D texture = DownloadHandlerTexture.GetContent(req);
+                return texture;
             }
 
         }
