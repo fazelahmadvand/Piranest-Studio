@@ -20,9 +20,20 @@ namespace Piranest.UI.Menu
                 });
 
             }
+            Manager.Instance.OnInitialized += OnInitialized;
+
+        }
+
+        private void OnDestroy()
+        {
+            if (Manager.Instance)
+                Manager.Instance.OnInitialized -= OnInitialized;
+        }
+
+        private void OnInitialized()
+        {
             footerPage[0].view.Show();
             selectImg.sprite = footerPage[0].selectSprite;
-
         }
 
         private void HideAll()
