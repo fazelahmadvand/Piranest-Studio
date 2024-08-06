@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Piranest
@@ -8,15 +9,14 @@ namespace Piranest
         [SerializeField] private TextureSaveData saveData;
         [SerializeField] private VendorData vendorData;
 
-        public IEnumerator Download()
+        public async Task Download()
         {
             foreach (var item in vendorData.Vendors)
             {
                 if (saveData.HasTexture(item.Id)) continue;
-                yield return API.API.DownloadTexture(item.ImageUrl, (tex) =>
-                {
+                var tex = await API.API.DownloadTexture(item.ImageUrl);
+                if (tex != null)
                     saveData.AddTexture(item.Id, tex);
-                });
             }
             saveData.Save();
 

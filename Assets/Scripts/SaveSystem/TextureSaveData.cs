@@ -24,7 +24,7 @@ namespace Piranest
             }
         }
 
-        public Sprite GetSprite(int id)
+        public Texture2D GetSprite(int id)
         {
             if (!Data.ContainsKey(id))
             {
@@ -33,8 +33,9 @@ namespace Piranest
             }
             var tex = new Texture2D(2, 2);
             tex.LoadRawTextureData(Data[id]);
-            Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(tex.width / 2, tex.height / 2));
-            return sprite;
+            return tex;
+            //Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(tex.width / 2, tex.height / 2));
+            //return sprite;
         }
 
     }

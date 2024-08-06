@@ -1,35 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Piranest.UI.Menu
 {
     public class PageHandlerView : View
     {
+        [SerializeField] private Image selectImg;
         [SerializeField] private List<FooterPage> footerPage;
-
         public override void InitView()
         {
             foreach (var page in footerPage)
             {
-                page.btn.UpdateButton(() =>
+                page.btn.onClick.AddListener(() =>
                 {
                     HideAll();
-                    page.page.Show();
-                    page.btn.HandleBorder(true);
+                    page.view.Show();
+                    selectImg.sprite = page.selectSprite;
                 });
+
             }
-
-
+            footerPage[0].view.Show();
+            selectImg.sprite = footerPage[0].selectSprite;
 
         }
 
         private void HideAll()
         {
             foreach (var page in footerPage)
-            {
-                page.page.Hide();
-                page.btn.HandleBorder(false);
-            }
+                page.view.Hide();
         }
 
     }
@@ -38,7 +37,8 @@ namespace Piranest.UI.Menu
     [System.Serializable]
     public struct FooterPage
     {
-        public View page;
-        public ButtonView btn;
+        public View view;
+        public Button btn;
+        public Sprite selectSprite;
     }
 }

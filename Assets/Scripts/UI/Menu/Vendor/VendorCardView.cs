@@ -8,13 +8,13 @@ namespace Piranest.UI.Menu
 {
     public class VendorCardView : ButtonView
     {
-        [SerializeField] private Image img;
+        [SerializeField] private RawImage img;
         [SerializeField] private TMP_Text coopanTxt;
 
-        public void UpdateCard(Vendor vendor, Sprite sprite, Action OnClick)
+        public void UpdateCard(Vendor vendor, Texture2D sprite, Action OnClick)
         {
             Show();
-            img.sprite = sprite;
+            img.texture = sprite;
             coopanTxt.text = $"{vendor.MaxCoupon}%";
             UpdateButton(vendor.Name, OnClick);
 

@@ -15,17 +15,37 @@ namespace Piranest
         [SerializeField] private UserSaveData userSaveData;
         [SerializeField] private AuthData authData;
 
-        public override async void InitView()
+        public override void InitView()
         {
             Show();
             signView.InitView();
             loginView.InitView();
 
-            LoadingHandler.Instance.Show();
 
+            Manager.Instance.OnInitialized += OnInitialized;
             authData.OnLogin += OnLoginSuccess;
             authData.OnSignUp += OnSignUpSuccess;
 
+        }
+
+        private void OnDestroy()
+        {
+            if (Manager.Instance)
+                Manager.Instance.OnInitialized -= OnInitialized;
+            authData.OnLogin -= OnLoginSuccess;
+            authData.OnSignUp -= OnSignUpSuccess;
+        }
+
+        public override void Hide()
+        {
+            base.Hide();
+            LoadingHandler.Instance.Hide();
+            signView.Hide();
+            loginView.Hide();
+        }
+
+        private async void OnInitialized()
+        {
             if (userSaveData.HasUser())
             {
                 var data = userSaveData.Data;
@@ -38,7 +58,7 @@ namespace Piranest
                 {
                     Debug.Log($"---->Login Error: {e.Message}");
                 });
-
+                await authData.GetProfiles();
 
             }
             else
@@ -47,23 +67,6 @@ namespace Piranest
                 LoadingHandler.Instance.Hide();
 
             }
-
-
-        }
-
-        private void OnDestroy()
-        {
-            authData.OnLogin -= OnLoginSuccess;
-            authData.OnSignUp -= OnSignUpSuccess;
-
-        }
-
-        public override void Hide()
-        {
-            base.Hide();
-            LoadingHandler.Instance.Hide();
-            signView.Hide();
-            loginView.Hide();
         }
 
         private void OnSignUpSuccess(User user)

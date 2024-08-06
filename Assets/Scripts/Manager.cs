@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Piranest
 {
-    public class Manager : MonoBehaviour
+    public class Manager : Singleton<Manager>
     {
         [SerializeField] private AuthData authData;
         [SerializeField] private VendorData vendorData;
@@ -18,8 +18,7 @@ namespace Piranest
 
         [SerializeField] private List<View> views;
 
-        public event Action OnGettingData;
-        public event Action OnDataLoaded;
+        public event Action OnInitialized;
 
         private void Awake()
         {
@@ -29,20 +28,18 @@ namespace Piranest
 
         private async void Start()
         {
-
+            LoadingHandler.Instance.Show();
             foreach (var view in views)
             {
                 view.InitView();
             }
 
-            OnGettingData?.Invoke();
             await Task.Delay(1000);
             await vendorData.FillVendors();
-            await Task.Delay(500);
-            StartCoroutine(textureDownloader.Download());
-            OnDataLoaded?.Invoke();
+            await Task.Delay(10);
+            await textureDownloader.Download();
 
-
+            OnInitialized?.Invoke();
 
         }
 

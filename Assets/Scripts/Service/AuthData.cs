@@ -1,7 +1,9 @@
 using DynamicPixels.GameService;
 using DynamicPixels.GameService.Models;
 using DynamicPixels.GameService.Services.Authentication.Models;
+using DynamicPixels.GameService.Services.Table.Models;
 using DynamicPixels.GameService.Services.User.Models;
+using Piranest.Model;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -14,7 +16,7 @@ namespace Piranest
 
         public User User { get; set; }
 
-
+        private const string PROFILE_TABLE_ID = "";
         public event Action<User> OnLogin;
         public event Action<User> OnSignUp;
         public event Action<User> OnUpdateUser;
@@ -33,9 +35,6 @@ namespace Piranest
                 throw;
             }
         }
-
-
-
 
         public async Task Login(LoginWithEmailParams loginParam, Action<DynamicPixelsException> OnFail)
         {
@@ -70,6 +69,28 @@ namespace Piranest
                 OnFail?.Invoke(e);
                 throw;
             }
+        }
+
+        public async Task GetProfiles(Action<DynamicPixelsException> OnFail = null)
+        {
+            var findParam = new FindParams()
+            {
+                tableId = PROFILE_TABLE_ID,
+                options = new()
+            };
+
+            try
+            {
+                //var response = await ServiceHub.Table.Find<Vendor, FindParams>(findParam);
+
+            }
+            catch (DynamicPixelsException e)
+            {
+                OnFail.Invoke(e);
+                throw;
+            }
+
+
         }
 
     }
