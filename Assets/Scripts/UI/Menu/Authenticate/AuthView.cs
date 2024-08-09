@@ -57,7 +57,6 @@ namespace Piranest
                 {
                     Debug.Log($"---->Login Error: {e.Message}");
                 });
-                await authData.GetProfiles();
 
             }
             else
@@ -72,7 +71,7 @@ namespace Piranest
         {
             Hide();
             var data = signView.SignUpData();
-            userSaveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2 );
+            userSaveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2);
         }
 
         private void OnLoginSuccess(User user)

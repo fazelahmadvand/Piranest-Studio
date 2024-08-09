@@ -1,10 +1,14 @@
 using DynamicPixels.GameService;
 using DynamicPixels.GameService.Models;
+using DynamicPixels.GameService.Models.inputs;
 using DynamicPixels.GameService.Services.Authentication.Models;
+using DynamicPixels.GameService.Services.Table;
 using DynamicPixels.GameService.Services.Table.Models;
 using DynamicPixels.GameService.Services.User.Models;
 using Piranest.Model;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -13,12 +17,16 @@ namespace Piranest
     [CreateAssetMenu(fileName = nameof(AuthData), menuName = Utility.SCRIPTABLE_PATH + nameof(AuthData))]
     public class AuthData : BaseServiceData
     {
-
+        [field: SerializeField]
         public User User { get; set; }
+        [field: SerializeField]
+        public Account Account { get; set; }
 
-        private const string PROFILE_TABLE_ID = "";
         public event Action<User> OnAuthSuccess;
         public event Action<User> OnUpdateUser;
+        public event Action<Account> OnGetAccount;
+
+        private const string ACCOUNT_TABLE_ID = "65494a30f96187a5a8dcfe19";
 
         public async Task SignUp(RegisterWithEmailParams register, Action<DynamicPixelsException> OnFail)
         {
@@ -42,10 +50,10 @@ namespace Piranest
                 var response = await ServiceHub.Authentication.LoginWithEmail(loginParam);
                 User = response.User;
                 OnAuthSuccess?.Invoke(User);
+
             }
             catch (DynamicPixelsException e)
             {
-
                 OnFail?.Invoke(e);
                 throw;
             }
@@ -70,23 +78,31 @@ namespace Piranest
             }
         }
 
-        public async Task GetProfiles(Action<DynamicPixelsException> OnFail = null)
+        public async Task GetAccount(int userId, Action<DynamicPixelsException> OnFail = null)
         {
-            var findParam = new FindParams()
+            var findParam = new FindParams
             {
-                tableId = PROFILE_TABLE_ID,
-                options = new()
+                tableId = ACCOUNT_TABLE_ID,
+                options = new FindOptions
+                {
+                    Limit = 1,
+                    Skip = 0,
+                    Conditions = new Eq(Account.USER_ID, userId).ToQuery(),
+                    Sorts = new Dictionary<string, Order>(),
+                    Joins = new List<JoinParams>(),
+                }
             };
 
             try
             {
-                //var response = await ServiceHub.Table.Find<Vendor, FindParams>(findParam);
-
+                var response = await ServiceHub.Table.Find<Account, FindParams>(findParam);
+                Account = response.List.Where(l => l.UserId == userId).FirstOrDefault();
+                OnGetAccount?.Invoke(Account);
             }
             catch (DynamicPixelsException e)
             {
-                OnFail.Invoke(e);
-                throw;
+                OnFail?.Invoke(e);
+                Debug.LogError($"Get Account:{e.Message}");
             }
 
 
