@@ -31,7 +31,7 @@ namespace Piranest
             return Data.FirstOrDefault(d => d.Key.Equals(url)).Value;
         }
 
-        public Texture2D GetSprite(string url)
+        public Sprite GetSprite(string url)
         {
             if (!HasTexture(url))
             {
@@ -40,12 +40,12 @@ namespace Piranest
             }
 
             var tex = new Texture2D(2, 2);
-            tex.LoadRawTextureData(GetValue(url));
-            return tex;
-            Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
-
-            //Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(tex.width / 2, tex.height / 2));
-            //return sprite;
+            if (!tex.LoadImage(GetValue(url)))
+            {
+                Debug.LogError("Cant Convert To Image");
+                return null;
+            }
+            return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
         }
     }
 

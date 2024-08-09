@@ -11,17 +11,17 @@ namespace Piranest
         [SerializeField] private VendorData vendorData;
 
 
-        private Dictionary<string, Texture2D> textures = new();
+        //private Dictionary<string, Texture2D> textures = new();
 
         public async Task Download()
         {
             foreach (var item in vendorData.Vendors)
             {
-                //if (saveData.HasTexture(item.ImageUrl)) continue;
+                if (saveData.HasTexture(item.ImageUrl)) continue;
                 var tex = await API.API.DownloadTexture(item.ImageUrl);
                 if (tex != null)
                 {
-                    textures.Add(item.ImageUrl, tex);
+                    //textures.Add(item.ImageUrl, tex);
                     saveData.AddTexture(item.ImageUrl, tex);
                 }
             }
@@ -29,17 +29,17 @@ namespace Piranest
 
         }
 
-        public Sprite GetTexture(string url)
-        {
-            if (!textures.ContainsKey(url))
-            {
-                Debug.LogError($"Not Found: {url}");
-                return null;
-            }
+        //public Sprite GetSprite(string url)
+        //{
+        //    if (!textures.ContainsKey(url))
+        //    {
+        //        Debug.LogError($"Not Found: {url}");
+        //        return null;
+        //    }
 
-            return Utility.GetSprite(textures[url]);
+        //    return Utility.GetSprite(textures[url]);
 
-        }
+        //}
 
     }
 }
