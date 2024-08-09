@@ -4,15 +4,14 @@ using UnityEngine;
 
 namespace Piranest.UI.Menu
 {
-    public class GameView : View
+    public class LeaderboardView : View
     {
         [SerializeField] private HeaderView headerView;
 
-
         public override void Show()
         {
-            headerView.UpdatePage("Game");
             base.Show();
+            headerView.UpdatePage("Leaderboard");
         }
 
     }

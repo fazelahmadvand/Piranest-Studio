@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +7,8 @@ namespace Piranest.UI.Menu
     {
         [SerializeField] private Button editProfileButton;
         [SerializeField] private EditProfileView editProfileView;
-        [SerializeField] private HeaerView headerView;
+        [SerializeField] private HeaderView headerView;
+
 
         public override void InitView()
         {
@@ -19,12 +18,23 @@ namespace Piranest.UI.Menu
             {
                 editProfileView.Show();
                 Hide();
-                headerView.UpdateButton(() => 
+                headerView.UpdateHeader("Edit Profile", () =>
                 {
                     editProfileView.Hide();
                     Show();
+                    headerView.HandleBackButton(false);
+
                 });
             });
         }
+
+        public override void Show()
+        {
+            base.Show();
+            headerView.UpdatePage("Profile");
+        }
+
+
+
     }
 }

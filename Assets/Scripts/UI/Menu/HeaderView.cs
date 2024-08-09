@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 namespace Piranest.UI.Menu
 {
-    public class HeaerView : View
+    public class HeaderView : View
     {
+        [SerializeField] private TMP_Text headerTxt;
         [SerializeField] private Button backBtn;
         [SerializeField] private TMP_Text gemTxt;
 
@@ -27,12 +28,32 @@ namespace Piranest.UI.Menu
         private void OnInitialized()
         {
             Show();
+            HandleBackButton(false);
+        }
+
+        public void UpdatePage(string pageName)
+        {
+            headerTxt.text = pageName;
+        }
+
+        public void UpdateHeader(string pageName, Action OnBackClick)
+        {
+            HandleBackButton(false);
+            UpdatePage(pageName);
+            UpdateButton(OnBackClick);
         }
 
         public void UpdateButton(Action OnClick)
         {
+            HandleBackButton(true);
             backBtn.onClick.RemoveAllListeners();
             backBtn.onClick.AddListener(() => OnClick?.Invoke());
         }
+
+        public void HandleBackButton(bool isActive)
+        {
+            backBtn.gameObject.SetActive(isActive);
+        }
+
     }
 }

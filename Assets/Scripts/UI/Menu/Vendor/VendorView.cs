@@ -9,7 +9,7 @@ namespace Piranest.UI.Menu
         [SerializeField] private Transform vendorHolder;
 
         [SerializeField] private VendorInfoView vendorInfo;
-        [SerializeField] private HeaerView headerView;
+        [SerializeField] private HeaderView headerView;
 
         [SerializeField] private TextureSaveData textureData;
         [SerializeField] private VendorData vendorData;
@@ -21,6 +21,12 @@ namespace Piranest.UI.Menu
             base.InitView();
             vendorInfo.InitView();
             Manager.Instance.OnInitialized += OnInitialized;
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            headerView.UpdatePage("Vendors");
         }
 
         private void OnDestroy()
@@ -40,16 +46,16 @@ namespace Piranest.UI.Menu
             foreach (Model.Vendor vendor in vendors)
             {
                 var newCard = Instantiate(vendorCard, vendorHolder);
-                //var sprite = TextureDownloader.Instance.GetSprite(vendor.ImageUrl);
                 var sprite = textureData.GetSprite(vendor.ImageUrl);
                 newCard.UpdateCard(vendor, sprite, () =>
                 {
                     Hide();
                     vendorInfo.UpdateCard(vendor.Id);
-                    headerView.UpdateButton(() =>
+                    headerView.UpdateHeader(vendor.Name, () =>
                     {
                         Show();
                         vendorInfo.Hide();
+                        headerView.HandleBackButton(false);
                     });
                 });
                 vendorCards.Add(newCard);
