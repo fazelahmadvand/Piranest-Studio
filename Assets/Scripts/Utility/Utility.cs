@@ -14,9 +14,9 @@ namespace Piranest
         }
 
 
-        public static void OpenGoogleMap(float locationLat, float locationLng)
+        public static void OpenGoogleMap(float locationLat, float locationLong)
         {
-            string url = $"https://www.google.com/maps/search/?api=1&query={locationLat},{locationLng}";
+            string url = $"https://www.google.com/maps/search/?api=1&query={locationLat},{locationLong}";
             Application.OpenURL(url);
         }
 

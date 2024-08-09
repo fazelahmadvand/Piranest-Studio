@@ -17,8 +17,7 @@ namespace Piranest
         public User User { get; set; }
 
         private const string PROFILE_TABLE_ID = "";
-        public event Action<User> OnLogin;
-        public event Action<User> OnSignUp;
+        public event Action<User> OnAuthSuccess;
         public event Action<User> OnUpdateUser;
 
         public async Task SignUp(RegisterWithEmailParams register, Action<DynamicPixelsException> OnFail)
@@ -27,7 +26,7 @@ namespace Piranest
             {
                 var response = await ServiceHub.Authentication.RegisterWithEmail(register);
                 User = response.User;
-                OnSignUp?.Invoke(User);
+                OnAuthSuccess?.Invoke(User);
             }
             catch (DynamicPixelsException e)
             {
@@ -42,7 +41,7 @@ namespace Piranest
             {
                 var response = await ServiceHub.Authentication.LoginWithEmail(loginParam);
                 User = response.User;
-                OnLogin?.Invoke(User);
+                OnAuthSuccess?.Invoke(User);
             }
             catch (DynamicPixelsException e)
             {

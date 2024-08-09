@@ -4,6 +4,7 @@ using DynamicPixels.GameService.Services.Table.Models;
 using Piranest.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -15,6 +16,12 @@ namespace Piranest
         [field: SerializeField]
         public List<Vendor> Vendors { get; set; }
         public event Action<List<Vendor>> OnLoadVendors;
+
+        public Vendor GetVendor(int id)
+        {
+            return Vendors.FirstOrDefault(v => v.Id == id);
+        }
+
 
         private const string VendorTableId = "6550d76675e62b435ba7450c";
         public async Task FillVendors()

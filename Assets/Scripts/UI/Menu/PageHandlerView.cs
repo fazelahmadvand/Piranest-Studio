@@ -1,3 +1,4 @@
+using DynamicPixels.GameService.Services.User.Models;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,8 +9,12 @@ namespace Piranest.UI.Menu
     {
         [SerializeField] private Image selectImg;
         [SerializeField] private List<FooterPage> footerPage;
+
+        [SerializeField] private AuthData authData;
+
         public override void InitView()
         {
+            HideAll();
             foreach (var page in footerPage)
             {
                 page.btn.onClick.AddListener(() =>
@@ -20,18 +25,18 @@ namespace Piranest.UI.Menu
                 });
 
             }
-            Manager.Instance.OnInitialized += OnInitialized;
+            authData.OnAuthSuccess += OnInitialized;
 
         }
 
         private void OnDestroy()
         {
-            if (Manager.Instance)
-                Manager.Instance.OnInitialized -= OnInitialized;
+            authData.OnAuthSuccess -= OnInitialized;
         }
 
-        private void OnInitialized()
+        private void OnInitialized(User user)
         {
+            HideAll();
             footerPage[0].view.Show();
             selectImg.sprite = footerPage[0].selectSprite;
         }

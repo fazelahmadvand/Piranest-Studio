@@ -23,8 +23,8 @@ namespace Piranest
 
 
             Manager.Instance.OnInitialized += OnInitialized;
-            authData.OnLogin += OnLoginSuccess;
-            authData.OnSignUp += OnSignUpSuccess;
+            authData.OnAuthSuccess += OnLoginSuccess;
+            authData.OnAuthSuccess += OnSignUpSuccess;
 
         }
 
@@ -32,8 +32,8 @@ namespace Piranest
         {
             if (Manager.Instance)
                 Manager.Instance.OnInitialized -= OnInitialized;
-            authData.OnLogin -= OnLoginSuccess;
-            authData.OnSignUp -= OnSignUpSuccess;
+            authData.OnAuthSuccess -= OnLoginSuccess;
+            authData.OnAuthSuccess -= OnSignUpSuccess;
         }
 
         public override void Hide()

@@ -1,14 +1,13 @@
-using DynamicPixels.GameService.Services.User.Models;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace Piranest.UI.Menu.Header
+namespace Piranest.UI.Menu
 {
     public class HeaerView : View
     {
-
+        [SerializeField] private Button backBtn;
         [SerializeField] private TMP_Text gemTxt;
 
         [SerializeField] private AuthData authData;
@@ -30,6 +29,10 @@ namespace Piranest.UI.Menu.Header
             Show();
         }
 
-
+        public void UpdateButton(Action OnClick)
+        {
+            backBtn.onClick.RemoveAllListeners();
+            backBtn.onClick.AddListener(() => OnClick?.Invoke());
+        }
     }
 }
