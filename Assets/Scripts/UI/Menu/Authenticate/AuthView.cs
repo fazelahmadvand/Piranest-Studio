@@ -21,7 +21,6 @@ namespace Piranest
             signView.InitView();
             loginView.InitView();
 
-
             Manager.Instance.OnInitialized += OnInitialized;
             authData.OnAuthSuccess += OnLoginSuccess;
             authData.OnAuthSuccess += OnSignUpSuccess;
@@ -73,7 +72,7 @@ namespace Piranest
         {
             Hide();
             var data = signView.SignUpData();
-            userSaveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2);
+            userSaveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2 );
         }
 
         private void OnLoginSuccess(User user)
