@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7466841059136535900}
   - component: {fileID: 6681806739456058618}
   m_Layer: 5
-  m_Name: My Coupon
+  m_Name: My Coupon - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 120, y: -410}
-  m_SizeDelta: {x: 664.74, y: 210.44}
+  m_SizeDelta: {x: 650, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2068143431122773841
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 70562c8198101cb429e17f5120467d6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 483deac37888989499b4bfa960934a19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 5029152294480056819}
   - component: {fileID: 3647808644729376717}
   m_Layer: 5
-  m_Name: Gem num
+  m_Name: Gem num - TextMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,10 +188,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3721340568785123373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -83.79001}
-  m_SizeDelta: {x: 1266.32, y: 130.22}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -350, y: 0}
+  m_SizeDelta: {x: 500, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5029152294480056819
 CanvasRenderer:
@@ -221,18 +221,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 888
+  m_text: 153214
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0f0386aa7951b264bacd1a07076d7ba9, type: 2}
-  m_sharedMaterial: {fileID: -2055281937260622233, guid: 0f0386aa7951b264bacd1a07076d7ba9,
+  m_fontAsset: {fileID: 11400000, guid: 8ecb17a62973a2647a4868a887012a4c, type: 2}
+  m_sharedMaterial: {fileID: 7312392020737170497, guid: 8ecb17a62973a2647a4868a887012a4c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281735967
-  m_fontColor: {r: 0.121568635, g: 0.10588236, b: 0.21176472, a: 1}
+    rgba: 4294141802
+  m_fontColor: {r: 0.4156863, g: 0.4039216, b: 0.95294124, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 4072316531489976996}
   - component: {fileID: 2194242585141700529}
   m_Layer: 5
-  m_Name: Cup Score
+  m_Name: Score - TextMeshPro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,10 +323,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4006579264147630497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -83.79001}
-  m_SizeDelta: {x: 1266.32, y: 130.22}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -350, y: 0}
+  m_SizeDelta: {x: 500, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4072316531489976996
 CanvasRenderer:
@@ -356,18 +356,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 888
+  m_text: 80
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0f0386aa7951b264bacd1a07076d7ba9, type: 2}
-  m_sharedMaterial: {fileID: -2055281937260622233, guid: 0f0386aa7951b264bacd1a07076d7ba9,
+  m_fontAsset: {fileID: 11400000, guid: 8ecb17a62973a2647a4868a887012a4c, type: 2}
+  m_sharedMaterial: {fileID: 7312392020737170497, guid: 8ecb17a62973a2647a4868a887012a4c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281735967
-  m_fontColor: {r: 0.121568635, g: 0.10588236, b: 0.21176472, a: 1}
+    rgba: 4294141802
+  m_fontColor: {r: 0.4156863, g: 0.4039216, b: 0.95294124, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 7678720454399672847}
   - component: {fileID: 6885889544080099039}
   m_Layer: 5
-  m_Name: Avatar Name
+  m_Name: 'Avatar Name - TextMesh '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -579,7 +579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6183131706763315515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 1751854341747566523}
   - component: {fileID: 6657897536932760494}
   m_Layer: 5
-  m_Name: Edit Profile
+  m_Name: Edit Profile - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -699,7 +699,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -120, y: -410}
-  m_SizeDelta: {x: 664.74, y: 210.44}
+  m_SizeDelta: {x: 650, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6804665562077212653
 CanvasRenderer:
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f3f47e4249f96548b1b4157b9ed7d3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dffc03e329446344da27b7d45275138f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 2426440935221987748}
   - component: {fileID: 8413001643906087885}
   m_Layer: 5
-  m_Name: Gem
+  m_Name: Gem - Image( +Button)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -817,10 +817,10 @@ RectTransform:
   - {fileID: 4519838052943750666}
   m_Father: {fileID: 2627625767097709872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 125, y: -853}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1300}
+  m_SizeDelta: {x: 1600, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3295717323381538496
 CanvasRenderer:
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b616cbc5c7a792e46964b9d920e796eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12691bc3e421b14449eab5178fc33026, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 1772086745928485157}
   - component: {fileID: 3983914733755083451}
   m_Layer: 5
-  m_Name: Avatar
+  m_Name: Avatar - Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -997,7 +997,7 @@ GameObject:
   - component: {fileID: 8715410035034542046}
   - component: {fileID: 3804127891226588489}
   m_Layer: 5
-  m_Name: Cup
+  m_Name: Your Gems - Image( +Button)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,10 +1018,10 @@ RectTransform:
   - {fileID: 78219447500264570}
   m_Father: {fileID: 2627625767097709872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -120, y: -853}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: -900}
+  m_SizeDelta: {x: 1600, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1689175088590212317
 CanvasRenderer:
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e07aa9cc9efe694483b2beda669fa6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 878a4cad25ee40a41aad24890d3d7be3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

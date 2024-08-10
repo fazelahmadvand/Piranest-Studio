@@ -130,6 +130,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 463543933}
     m_Modifications:
+    - target: {fileID: 3011498090356965767, guid: faa7d78c114058b418889b6aba8a9ff4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 840
+      objectReference: {fileID: 0}
     - target: {fileID: 3426318821259436210, guid: faa7d78c114058b418889b6aba8a9ff4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -234,6 +239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Canvas-Loading '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099152454335423545, guid: faa7d78c114058b418889b6aba8a9ff4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1804,6 +1814,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas- Change Profile
       objectReference: {fileID: 0}
+    - target: {fileID: 2764570923434739322, guid: 9ae917bc84f15804abd35d8001012600,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5952920372463270113, guid: 9ae917bc84f15804abd35d8001012600,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2539,6 +2554,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas- Header
       objectReference: {fileID: 0}
+    - target: {fileID: 6045521571175139255, guid: 4f7dce2f89d33e147a14ebcc3697b4be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7603616899300976084, guid: 4f7dce2f89d33e147a14ebcc3697b4be,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2842,6 +2862,18 @@ MonoBehaviour:
     btn: {fileID: 154416181}
     selectSprite: {fileID: 21300000, guid: 9281217d2651120408e5a034f1ce7d06, type: 3}
   authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
+--- !u!114 &1433408907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6885889544080099039, guid: b99a4346f89d58640a936a42fd4919f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1596529236}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1460164288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1085336733784609042, guid: b2a95a25df6b4084b89063473e1d10bb,
@@ -3038,10 +3070,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 463543933}
     m_Modifications:
+    - target: {fileID: 2117863458678488304, guid: b99a4346f89d58640a936a42fd4919f6,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Username - TextMesh '
+      objectReference: {fileID: 0}
     - target: {fileID: 4527520630816005133, guid: b99a4346f89d58640a936a42fd4919f6,
         type: 3}
       propertyPath: m_Name
       value: Canvas- Profile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527520630816005133, guid: b99a4346f89d58640a936a42fd4919f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6183131706763315515, guid: b99a4346f89d58640a936a42fd4919f6,
         type: 3}
@@ -3498,6 +3540,7 @@ MonoBehaviour:
   root: {fileID: 925677316}
   usernameInputField: {fileID: 1675274305}
   usernameText: {fileID: 1691858695}
+  usernameTextInProfile: {fileID: 1433408907}
   saveChangesBtn: {fileID: 1583804049}
   cancelBtn: {fileID: 991666059}
   authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
