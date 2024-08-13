@@ -15,8 +15,7 @@ namespace Piranest.UI.Menu
         {
             Show();
             img.sprite = sprite;
-            coopanTxt.text = $"{vendor.MaxCoupon}%";
-            //locationBtn.onClick.AddListener(() => Utility.OpenGoogleMap(vendor.LocationLat, vendor.LocationLong));
+            coopanTxt.text = $"{vendor.MaxCoupon}";
             UpdateButton(vendor.Name, OnClick);
 
         }

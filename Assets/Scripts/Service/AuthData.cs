@@ -26,7 +26,7 @@ namespace Piranest
         public event Action<User> OnUpdateUser;
         public event Action<Account> OnGetAccount;
 
-        private const string ACCOUNT_TABLE_ID = "65494a30f96187a5a8dcfe19";
+        private const string ACCOUNT_TABLE_ID = "6550d82e75e62b435ba7451b";
 
         public async Task SignUp(RegisterWithEmailParams register, Action<DynamicPixelsException> OnFail)
         {

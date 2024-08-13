@@ -14,6 +14,7 @@ namespace Piranest.UI.Menu
 
         public override void InitView()
         {
+            Show();
             HideAll();
             foreach (var page in footerPage)
             {

@@ -5,9 +5,8 @@ namespace Piranest.UI.Menu
 {
     public class VendorInfoView : View
     {
-        [SerializeField] private Image img;
+        //[SerializeField] private Image img;
         [SerializeField] private Button locationBtn;
-        [SerializeField] private TMP_Text coopanTxt;
 
 
         [SerializeField] private VendorData vendorData;
@@ -26,9 +25,10 @@ namespace Piranest.UI.Menu
             locationBtn.onClick.AddListener(() =>
             {
                 Utility.OpenGoogleMap(vendor.LocationLat, vendor.LocationLong);
+                Debug.Log("Clicked");
             });
             var sprite = textureSaveData.GetSprite(vendor.ImageUrl);
-            img.sprite = sprite;
+            //img.sprite = sprite;
 
         }
 
