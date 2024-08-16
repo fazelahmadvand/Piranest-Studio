@@ -17,16 +17,24 @@ namespace Piranest.UI.Menu
         public override void InitView()
         {
             base.InitView();
-            Manager.Instance.OnInitialized += OnInitialized;
+            //Manager.Instance.OnInitialized += OnInitialized;
             authData.OnAccountChange += OnAccountChange;
+            authData.OnAuthSuccess += OnAuthSuccess;
+
         }
 
         private void OnDestroy()
         {
-            if (Manager.Instance)
-                Manager.Instance.OnInitialized -= OnInitialized;
+            authData.OnAuthSuccess -= OnAuthSuccess;
+            //if (Manager.Instance)
+            //    Manager.Instance.OnInitialized -= OnInitialized;
             authData.OnAccountChange -= OnAccountChange;
 
+        }
+
+        private void OnAuthSuccess(DynamicPixels.GameService.Services.User.Models.User obj)
+        {
+            OnInitialized();
         }
 
         private void OnInitialized()
