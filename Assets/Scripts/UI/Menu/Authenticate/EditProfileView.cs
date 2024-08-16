@@ -46,12 +46,10 @@ namespace Piranest.UI.Menu
         public async void UpdateUsername()
         {
             var username = usernameInputField.text;
-
             var editParams = new UserEditParams() { Username = username };
 
             try
             {
-                // Update on server
                 await authData.UpdateUser(editParams, (e) =>
                 {
                     Debug.LogError("Update Username Error: " + e.Message);

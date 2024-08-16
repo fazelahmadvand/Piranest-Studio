@@ -21,8 +21,8 @@ namespace Piranest.UI.Menu
             editProfileView.InitView();
             editProfileButton.onClick.AddListener(() =>
             {
-                editProfileView.Show();
                 Hide();
+                editProfileView.Show();
                 headerView.UpdateHeader("Edit Profile", () =>
                 {
                     editProfileView.Hide();
@@ -40,7 +40,7 @@ namespace Piranest.UI.Menu
             authData.OnAccountChange -= OnAccountChange;
         }
 
-        private void OnAccountChange(Piranest.Model.Account account)
+        private void OnAccountChange(Model.Account account)
         {
             gemTxt.text = account.Remaining.ToString();
         }
@@ -51,6 +51,11 @@ namespace Piranest.UI.Menu
             headerView.UpdatePage("Profile");
         }
 
+        public override void Hide()
+        {
+            base.Hide();
+            editProfileView.Hide();
+        }
 
 
     }

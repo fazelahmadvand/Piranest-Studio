@@ -29,6 +29,12 @@ namespace Piranest.UI.Menu
             headerView.UpdatePage("Vendors");
         }
 
+        public override void Hide()
+        {
+            base.Hide();
+            vendorInfo.Hide();
+        }
+
         private void OnDestroy()
         {
             if (Manager.Instance)
