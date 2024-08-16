@@ -9,13 +9,13 @@ namespace Piranest.UI.Menu
         [SerializeField] private Button locationBtn;
 
         [SerializeField] private Transform couponParent;
-        [SerializeField] private CouponCardView couponCard;
+        [SerializeField] private VendorCouponCardView couponCard;
 
         [SerializeField] private VendorData vendorData;
         [SerializeField] private TextureSaveData textureSaveData;
 
 
-        private List<CouponCardView> cards = new();
+        private List<VendorCouponCardView> cards = new();
 
         public void UpdateCard(int id)
         {

@@ -1,27 +1,21 @@
-using System;
+using Piranest.Model;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-
 namespace Piranest.UI.Menu
 {
     public class CouponCardView : View
     {
 
-        [SerializeField] private Button btn;
-        [SerializeField] private TMP_Text gemCountTxt;
-        [SerializeField] private TMP_Text infoTxt;
+        [SerializeField] private TMP_Text codeTxt;
+        [SerializeField] private TMP_Text discountTxt;
 
 
-        public void UpdateCard(string discount, int gem, Action OnClick)
+
+        public void UpdateCard(Coupon coupon)
         {
-            Show();
-            infoTxt.text = discount;
-            gemCountTxt.text = gem.ToString();
-            btn.AddEvent(OnClick);
-
+            codeTxt.text = coupon.Code;
+            discountTxt.text = coupon.Amount.ToString();
         }
-
 
     }
 }

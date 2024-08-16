@@ -22,11 +22,16 @@ namespace Piranest
         [field: SerializeField]
         public Account Account { get; set; }
 
+        [field: SerializeField]
+        public List<Coupon> Coupons { get; set; }
+
         public event Action<User> OnAuthSuccess;
         public event Action<User> OnUpdateUser;
         public event Action<Account> OnAccountChange;
+        public event Action<List<Coupon>> OnCouponsChange;
 
         private const string ACCOUNT_TABLE_ID = "6550d82e75e62b435ba7451b";
+        private const string VOUCHER_TABLE_ID = "6550d82e75e62b435ba7451d";
 
         public async Task SignUp(RegisterWithEmailParams register, Action<DynamicPixelsException> OnFail)
         {
@@ -101,6 +106,7 @@ namespace Piranest
                 var response = await ServiceHub.Table.Find<Account, FindParams>(findParam);
                 Account = response.List.Where(l => l.UserId == userId).FirstOrDefault();
                 OnAccountChange?.Invoke(Account);
+                await GetCoupons(userId);
             }
             catch (DynamicPixelsException e)
             {
@@ -108,7 +114,31 @@ namespace Piranest
                 Debug.LogError($"Get Account:{e.Message}");
             }
 
+        }
 
+        public async Task GetCoupons(int userId, Action<DynamicPixelsException> OnFail = null)
+        {
+            var findParam = new FindParams
+            {
+                tableId = VOUCHER_TABLE_ID,
+                options = new FindOptions
+                {
+                    Conditions = new Eq(Account.USER_ID, userId).ToQuery(),
+                }
+            };
+
+            try
+            {
+                var response = await ServiceHub.Table.Find<Coupon, FindParams>(findParam);
+                Coupons = response.List;
+                OnCouponsChange?.Invoke(Coupons);
+
+            }
+            catch (DynamicPixelsException e)
+            {
+                OnFail?.Invoke(e);
+                Debug.LogError($"Get Account:{e.Message}");
+            }
         }
 
     }

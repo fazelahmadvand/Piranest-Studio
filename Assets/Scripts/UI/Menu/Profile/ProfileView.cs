@@ -6,26 +6,42 @@ namespace Piranest.UI.Menu
 {
     public class ProfileView : View
     {
-        [SerializeField] private Button editProfileButton;
+        [SerializeField] private CouponView couponView;
+        [SerializeField] private Button editProfileButton, couponBtn;
         [SerializeField] private EditProfileView editProfileView;
         [SerializeField] private HeaderView headerView;
 
         [Space]
         [SerializeField] private TMP_Text gemTxt;
         [SerializeField] private TMP_Text rankTxt;
+
         [SerializeField] private AuthData authData;
 
         public override void InitView()
         {
             base.InitView();
+            rankTxt.text = "1";
             editProfileView.InitView();
-            editProfileButton.onClick.AddListener(() =>
+            editProfileButton.AddEvent(() =>
             {
                 Hide();
                 editProfileView.Show();
                 headerView.UpdateHeader("Edit Profile", () =>
                 {
                     editProfileView.Hide();
+                    Show();
+                    headerView.HandleBackButton(false);
+
+                });
+            });
+
+            couponBtn.AddEvent(() =>
+            {
+                Hide();
+                couponView.Show();
+                headerView.UpdateHeader("My Coupons", () =>
+                {
+                    couponView.Hide();
                     Show();
                     headerView.HandleBackButton(false);
 
@@ -55,6 +71,7 @@ namespace Piranest.UI.Menu
         {
             base.Hide();
             editProfileView.Hide();
+            couponView.Hide();
         }
 
 
