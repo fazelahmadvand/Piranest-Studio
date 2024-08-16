@@ -24,7 +24,7 @@ namespace Piranest
 
         public event Action<User> OnAuthSuccess;
         public event Action<User> OnUpdateUser;
-        public event Action<Account> OnGetAccount;
+        public event Action<Account> OnAccountChange;
 
         private const string ACCOUNT_TABLE_ID = "6550d82e75e62b435ba7451b";
 
@@ -34,7 +34,9 @@ namespace Piranest
             {
                 var response = await ServiceHub.Authentication.RegisterWithEmail(register);
                 User = response.User;
+                await GetAccount(User.Id);
                 OnAuthSuccess?.Invoke(User);
+
             }
             catch (DynamicPixelsException e)
             {
@@ -49,6 +51,7 @@ namespace Piranest
             {
                 var response = await ServiceHub.Authentication.LoginWithEmail(loginParam);
                 User = response.User;
+                await GetAccount(User.Id);
                 OnAuthSuccess?.Invoke(User);
 
             }
@@ -97,7 +100,7 @@ namespace Piranest
             {
                 var response = await ServiceHub.Table.Find<Account, FindParams>(findParam);
                 Account = response.List.Where(l => l.UserId == userId).FirstOrDefault();
-                OnGetAccount?.Invoke(Account);
+                OnAccountChange?.Invoke(Account);
             }
             catch (DynamicPixelsException e)
             {

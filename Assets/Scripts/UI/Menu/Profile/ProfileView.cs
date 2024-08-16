@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,10 @@ namespace Piranest.UI.Menu
         [SerializeField] private EditProfileView editProfileView;
         [SerializeField] private HeaderView headerView;
 
+        [Space]
+        [SerializeField] private TMP_Text gemTxt;
+        [SerializeField] private TMP_Text rankTxt;
+        [SerializeField] private AuthData authData;
 
         public override void InitView()
         {
@@ -26,6 +31,18 @@ namespace Piranest.UI.Menu
 
                 });
             });
+
+            authData.OnAccountChange += OnAccountChange;
+        }
+
+        private void OnDestroy()
+        {
+            authData.OnAccountChange -= OnAccountChange;
+        }
+
+        private void OnAccountChange(Piranest.Model.Account account)
+        {
+            gemTxt.text = account.Remaining.ToString();
         }
 
         public override void Show()

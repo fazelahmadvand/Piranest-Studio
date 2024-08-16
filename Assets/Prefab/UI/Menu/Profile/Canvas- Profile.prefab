@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.70007324, y: -184.50977}
+  m_AnchoredPosition: {x: 0.7001953, y: -184.50977}
   m_SizeDelta: {x: 1.4, y: -368.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &989529729372073649
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 5029152294480056819}
   - component: {fileID: 3647808644729376717}
   m_Layer: 5
-  m_Name: Gem num - TextMesh
+  m_Name: Rank num - TextMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 7678720454399672847}
   - component: {fileID: 6885889544080099039}
   m_Layer: 5
-  m_Name: 'Avatar Name - TextMesh '
+  m_Name: 'Username - TextMesh '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 2426440935221987748}
   - component: {fileID: 8413001643906087885}
   m_Layer: 5
-  m_Name: Gem - Image( +Button)
+  m_Name: Rank - Image( +Button)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

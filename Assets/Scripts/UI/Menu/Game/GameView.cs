@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Piranest.UI.Menu
@@ -8,6 +6,12 @@ namespace Piranest.UI.Menu
     {
         [SerializeField] private HeaderView headerView;
 
+        [SerializeField] private AuthData authData;
+
+        public override void InitView()
+        {
+            base.InitView();
+        }
 
         public override void Show()
         {

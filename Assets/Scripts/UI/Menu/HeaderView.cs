@@ -1,3 +1,4 @@
+using Piranest.Model;
 using System;
 using TMPro;
 using UnityEngine;
@@ -17,12 +18,15 @@ namespace Piranest.UI.Menu
         {
             base.InitView();
             Manager.Instance.OnInitialized += OnInitialized;
+            authData.OnAccountChange += OnAccountChange;
         }
 
         private void OnDestroy()
         {
             if (Manager.Instance)
                 Manager.Instance.OnInitialized -= OnInitialized;
+            authData.OnAccountChange -= OnAccountChange;
+
         }
 
         private void OnInitialized()
@@ -30,6 +34,12 @@ namespace Piranest.UI.Menu
             Show();
             HandleBackButton(false);
         }
+
+        private void OnAccountChange(Account account)
+        {
+            gemTxt.text = account.Remaining.ToString();
+        }
+
 
         public void UpdatePage(string pageName)
         {

@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902520da206febd46a03cf3fe0c13e97, type: 3}
   m_Name: AuthData
   m_EditorClassIdentifier: 
+  <Account>k__BackingField:
+    <UserId>k__BackingField: 72
+    <CurrencyId>k__BackingField: 0
+    <Earned>k__BackingField: 2000
+    <Spent>k__BackingField: 20
+    <Remaining>k__BackingField: 1980
