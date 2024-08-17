@@ -11,7 +11,7 @@ namespace Piranest.UI.Menu
         [SerializeField] private Transform couponParent;
         [SerializeField] private VendorCouponCardView couponCard;
 
-        [SerializeField] private VendorData vendorData;
+        [SerializeField] private ItemData itemData;
         [SerializeField] private TextureSaveData textureSaveData;
 
 
@@ -19,7 +19,7 @@ namespace Piranest.UI.Menu
 
         public void UpdateCard(int id)
         {
-            var vendor = vendorData.GetVendor(id);
+            var vendor = itemData.GetVendor(id);
             if (vendor == null)
             {
                 Debug.Log($"No Vendor Found:{id}");
@@ -35,24 +35,25 @@ namespace Piranest.UI.Menu
             var sprite = textureSaveData.GetSprite(vendor.ImageUrl);
             img.sprite = sprite;
 
-            FakeCoupon();
+            CreateCoupons(vendor.Id);
         }
 
 
-        private void FakeCoupon()
+        private void CreateCoupons(int vendorId)
         {
             couponParent.DestroyChildren();
-            for (int i = 0; i < 5; i++)
+            var coupons = itemData.GetVendorCoupon(vendorId);
+
+            foreach (var coupon in coupons)
             {
-                int start = 10 + (i * 10);
-                int gem = start * 120;
                 var card = Instantiate(couponCard, couponParent);
-                card.UpdateCard($"{start}", gem, () =>
+                card.UpdateCard($"{coupon.DiscountPercentage}", coupon.PriceAmount, () =>
                 {
                     Debug.Log("Coupon");
                 });
                 cards.Add(card);
             }
+
         }
 
 

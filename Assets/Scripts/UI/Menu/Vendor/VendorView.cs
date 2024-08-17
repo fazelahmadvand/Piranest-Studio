@@ -12,7 +12,7 @@ namespace Piranest.UI.Menu
         [SerializeField] private HeaderView headerView;
 
         [SerializeField] private TextureSaveData textureData;
-        [SerializeField] private VendorData vendorData;
+        [SerializeField] private ItemData itemData;
 
         private readonly List<VendorCardView> vendorCards = new();
 
@@ -43,7 +43,7 @@ namespace Piranest.UI.Menu
 
         private void OnInitialized()
         {
-            OnLoadVendors(vendorData.Vendors);
+            OnLoadVendors(itemData.Vendors);
         }
 
         private void OnLoadVendors(List<Model.Vendor> vendors)

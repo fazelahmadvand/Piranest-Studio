@@ -8,7 +8,7 @@ namespace Piranest
     public class TextureDownloader : Singleton<TextureDownloader>
     {
         [SerializeField] private TextureSaveData saveData;
-        [SerializeField] private VendorData vendorData;
+        [SerializeField] private ItemData vendorData;
 
 
         //private Dictionary<string, Texture2D> textures = new();

@@ -407,7 +407,7 @@ MonoBehaviour:
   couponParent: {fileID: 4168497218082655155}
   couponCard: {fileID: 3169113687239617246, guid: a3d4538fdf842ab4f99e1e2c992f24aa,
     type: 3}
-  vendorData: {fileID: 11400000, guid: e92c7cd44ec02e44abf4c36d9470b2cd, type: 2}
+  itemData: {fileID: 11400000, guid: e92c7cd44ec02e44abf4c36d9470b2cd, type: 2}
   textureSaveData: {fileID: 11400000, guid: 247bc65bb53f63f4eb6f8bc86f579634, type: 2}
 --- !u!1 &1837417285863955135
 GameObject:

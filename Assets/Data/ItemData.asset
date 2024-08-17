@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdfbc2aa15376b4d95fe6eb1464bc32, type: 3}
+  m_Name: ItemData
+  m_EditorClassIdentifier: 
+  <Vendors>k__BackingField:
+  - <Id>k__BackingField: 3
+    <Owner>k__BackingField: 
+    <Name>k__BackingField: Cafe Kavan
+    <VendorCategoryId>k__BackingField: 0
+    <ImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/photo_2024-02-04_14-36-31.jpg
+    <City>k__BackingField: Tehran
+    <LocationLat>k__BackingField: 35.803432
+    <LocationLong>k__BackingField: 51.433315
+    <MaxCoupon>k__BackingField: 0
+  - <Id>k__BackingField: 2
+    <Owner>k__BackingField: 
+    <Name>k__BackingField: VEGGIE
+    <VendorCategoryId>k__BackingField: 0
+    <ImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/httpsstoragegoogleapiscomgame-652520b9b6aed5393bb0dc4d2023-10-06jpg-min.jpg
+    <City>k__BackingField: rotterdam
+    <LocationLat>k__BackingField: 51.927948
+    <LocationLong>k__BackingField: 4.502182
+    <MaxCoupon>k__BackingField: 100
+  - <Id>k__BackingField: 1
+    <Owner>k__BackingField: 
+    <Name>k__BackingField: Eetcafe Concordia
+    <VendorCategoryId>k__BackingField: 0
+    <ImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/httpsstoragegoogleapiscomgame-652520b9b6aed5393bb0dc4deetcafe-concordiajpg-min.jpg
+    <City>k__BackingField: rotterdam
+    <LocationLat>k__BackingField: 51.920208
+    <LocationLong>k__BackingField: 4.5118017
+    <MaxCoupon>k__BackingField: 50
+  <VendorCoupons>k__BackingField:
+  - <Id>k__BackingField: 1
+    <DiscountPercentage>k__BackingField: 100
+    <MaxPercentageAmount>k__BackingField: 5
+    <MaxIssued>k__BackingField: 20
+    <VendorId>k__BackingField: 1
+    <PriceAmount>k__BackingField: 45
+    <PriceCurrencyId>k__BackingField: 1
+    <DiscountAmount>k__BackingField: 0
+  - <Id>k__BackingField: 2
+    <DiscountPercentage>k__BackingField: 100
+    <MaxPercentageAmount>k__BackingField: 5
+    <MaxIssued>k__BackingField: 20
+    <VendorId>k__BackingField: 2
+    <PriceAmount>k__BackingField: 45
+    <PriceCurrencyId>k__BackingField: 1
+    <DiscountAmount>k__BackingField: 0
+  - <Id>k__BackingField: 3
+    <DiscountPercentage>k__BackingField: 20
+    <MaxPercentageAmount>k__BackingField: 0
+    <MaxIssued>k__BackingField: 20
+    <VendorId>k__BackingField: 3
+    <PriceAmount>k__BackingField: 90
+    <PriceCurrencyId>k__BackingField: 1
+    <DiscountAmount>k__BackingField: 0

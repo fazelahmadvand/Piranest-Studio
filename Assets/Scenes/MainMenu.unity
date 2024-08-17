@@ -1704,7 +1704,7 @@ MonoBehaviour:
   vendorInfo: {fileID: 1788654074}
   headerView: {fileID: 150753908}
   textureData: {fileID: 11400000, guid: 247bc65bb53f63f4eb6f8bc86f579634, type: 2}
-  vendorData: {fileID: 11400000, guid: e92c7cd44ec02e44abf4c36d9470b2cd, type: 2}
+  itemData: {fileID: 11400000, guid: e92c7cd44ec02e44abf4c36d9470b2cd, type: 2}
 --- !u!1 &849273404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4299265487443868882, guid: faa7d78c114058b418889b6aba8a9ff4,
@@ -4158,6 +4158,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1899240936}
     m_Modifications:
+    - target: {fileID: 210723650710941566, guid: 3e6115e0f63cd3048b9a2923ec9f3ef2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 959.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785369544124360899, guid: 3e6115e0f63cd3048b9a2923ec9f3ef2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785369544124360899, guid: 3e6115e0f63cd3048b9a2923ec9f3ef2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785369544124360899, guid: 3e6115e0f63cd3048b9a2923ec9f3ef2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785369544124360899, guid: 3e6115e0f63cd3048b9a2923ec9f3ef2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2839518499963202656, guid: 3e6115e0f63cd3048b9a2923ec9f3ef2,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4262,6 +4287,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas-Games
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221446069978240520, guid: 3e6115e0f63cd3048b9a2923ec9f3ef2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 959.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221446069978240520, guid: 3e6115e0f63cd3048b9a2923ec9f3ef2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2258.8037
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

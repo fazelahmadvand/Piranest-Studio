@@ -9,7 +9,7 @@ namespace Piranest
     public class Manager : Singleton<Manager>
     {
         [SerializeField] private AuthData authData;
-        [SerializeField] private VendorData vendorData;
+        [SerializeField] private ItemData vendorData;
         [SerializeField] private TextureDownloader textureDownloader;
         [Header("Saved Data")]
         [SerializeField] private UserSaveData userSaveDataes;
@@ -35,7 +35,7 @@ namespace Piranest
             }
 
             await Task.Delay(1000);
-            await vendorData.FillVendors();
+            await vendorData.GetItems();
             await Task.Delay(10);
             await textureDownloader.Download();
             await Task.Delay(500);
