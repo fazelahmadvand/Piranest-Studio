@@ -33,6 +33,12 @@ namespace Piranest
         private const string ACCOUNT_TABLE_ID = "6550d82e75e62b435ba7451b";
         private const string VOUCHER_TABLE_ID = "6550d82e75e62b435ba7451d";
 
+
+        public override async Task Init()
+        {
+            await Task.Yield();
+        }
+
         public async Task SignUp(RegisterWithEmailParams register, Action<DynamicPixelsException> OnFail)
         {
             try

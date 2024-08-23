@@ -24,6 +24,10 @@ namespace Piranest
         private const string VEDNOR_TABLE_ID = "6550d76675e62b435ba7450c";
         private const string VENDOR_COUPON_TABLE_ID = "6558da665762ed93c7f44ee4";
 
+        public async override Task Init()
+        {
+            await GetItems();
+        }
 
         public Vendor GetVendor(int id)
         {
