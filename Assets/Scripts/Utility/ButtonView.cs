@@ -8,6 +8,7 @@ namespace Piranest.UI
     public class ButtonView : View
     {
         [SerializeField] protected Button btn;
+        [SerializeField] protected Image img;
         [SerializeField] protected TMP_Text txt;
         [SerializeField] protected GameObject borderObj;
 
@@ -18,7 +19,6 @@ namespace Piranest.UI
             {
                 OnClick?.Invoke();
             });
-
             txt.text = name;
         }
 
@@ -31,6 +31,10 @@ namespace Piranest.UI
             });
         }
 
+        public void SetImage(Sprite sprite)
+        {
+            img.sprite = sprite;
+        }
 
         public void HandleBorder(bool isActive)
         {

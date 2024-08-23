@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace Piranest
         [SerializeField] private GameData gameData;
 
 
-        public async Task Download()
+        public async Task Download(Action<int, int> OnDownload)
         {
             var urls = new List<string>();
             urls.AddRange(itemData.Vendors.Select(v => v.ImageUrl));
@@ -22,14 +23,16 @@ namespace Piranest
             urls.AddRange(gameData.GameChapterQuestions.Select(g => g.MediaUrl));
             urls.AddRange(gameData.GameChapterQuestions.Select(g => g.AnswerMediaUrl));
 
-
-            foreach (var item in itemData.Vendors)
+            int index = 1;
+            foreach (var url in urls)
             {
-                if (saveData.HasTexture(item.ImageUrl)) continue;
-                var tex = await API.API.DownloadTexture(item.ImageUrl);
+                OnDownload?.Invoke(urls.Count, index);
+                index++;
+                if (saveData.HasTexture(url)) continue;
+                var tex = await API.API.DownloadTexture(url);
                 if (tex != null)
                 {
-                    saveData.AddTexture(item.ImageUrl, tex);
+                    saveData.AddTexture(url, tex);
                 }
             }
 

@@ -3,6 +3,7 @@ using DynamicPixels.GameService.Models;
 using DynamicPixels.GameService.Services.Table.Models;
 using Piranest.Model;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -22,6 +23,17 @@ namespace Piranest
         private const string GAME_TABLE_ID = "6529a1ab65751b5e5cc1c8a3";
         private const string GAME_CHAPTER_TABLE_ID = "652eedcbe4c6eeb88af4c7fa";
         private const string GAME_CHAPTER_QUESTIONS_TABLE_ID = "653803246fd64f40ff22209b";
+
+
+        public List<GameChapter> GetChapter(int gameId)
+        {
+            return gameChapters.Where(g => g.GameId == gameId).ToList();
+        }
+
+        public List<GameChapterQuestion> GetQuestions(int gameChapterId)
+        {
+            return gameChapterQuestions.Where(g => g.GameChapterId == gameChapterId).ToList();
+        }
 
         public override async Task Init()
         {

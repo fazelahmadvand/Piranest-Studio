@@ -26,21 +26,31 @@ namespace Piranest
 
         private async void Start()
         {
-            LoadingHandler.Instance.Show();
+            var loading = LoadingHandler.Instance;
+            loading.Show();
+            loading.UpdateText("Initialize View");
             foreach (var view in views)
             {
                 view.InitView();
             }
 
             await Task.Delay(1000);
+            loading.UpdateText("Getting Data From Server");
             foreach (var data in servicesData)
             {
                 await data.Init();
             }
+
             await Task.Delay(10);
-            await textureDownloader.Download();
-            await Task.Delay(500);
+            await textureDownloader.Download((total, current) =>
+            {
+                loading.UpdateText($"Downloadng Images {total} / {current}");
+            });
+
+            loading.UpdateText($"");
+            await Task.Delay(50);
             OnInitialized?.Invoke();
+            GameManager.Instance.Init();
 
         }
 
