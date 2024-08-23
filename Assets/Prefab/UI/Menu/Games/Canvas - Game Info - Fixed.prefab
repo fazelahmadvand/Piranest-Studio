@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 8191607427069301886}
   - component: {fileID: 8518401239043583386}
   m_Layer: 5
-  m_Name: Time limit - Buton (1)
+  m_Name: Time limit - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 7364952081907932956}
   - component: {fileID: 6374523271147247600}
   m_Layer: 5
-  m_Name: Created by
+  m_Name: Created by - Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 8577451939264543161}
   - component: {fileID: 7697058858824879597}
   m_Layer: 5
-  m_Name: Show finish point - Buton  (1)
+  m_Name: Show finish point - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -877,8 +877,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.5
-  m_fontSizeBase: 52.5
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 5074363075764565493}
   - component: {fileID: 2039415040273584547}
   m_Layer: 5
-  m_Name: Show starting point - Buton  (1)
+  m_Name: Show starting point - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1417,7 +1417,7 @@ GameObject:
   - component: {fileID: 4334428168901569885}
   - component: {fileID: 3890387225413543840}
   m_Layer: 5
-  m_Name: Second (1)
+  m_Name: Second - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1946,7 +1946,7 @@ GameObject:
   - component: {fileID: 8689453150752229905}
   - component: {fileID: 3249259758501112529}
   m_Layer: 5
-  m_Name: Creator name - Text (TMP)  (1)
+  m_Name: Creator name - Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2220,7 +2220,7 @@ GameObject:
   - component: {fileID: 4683727637422337004}
   - component: {fileID: 937946540570079514}
   m_Layer: 5
-  m_Name: First
+  m_Name: First - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2342,7 +2342,7 @@ GameObject:
   - component: {fileID: 3662775183785719733}
   - component: {fileID: 6582058144523021255}
   m_Layer: 5
-  m_Name: Game Pic - Image (1)
+  m_Name: Game Pic - Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2557,7 +2557,7 @@ GameObject:
   - component: {fileID: 8944016775339265298}
   - component: {fileID: 736467702487181827}
   m_Layer: 5
-  m_Name: Chapters - Buton  (1)
+  m_Name: Chapters - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3253,7 +3253,7 @@ GameObject:
   - component: {fileID: 6722031040116340167}
   - component: {fileID: 6883031157566754696}
   m_Layer: 5
-  m_Name: Prize - Image (1)
+  m_Name: Prize - Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3407,7 +3407,7 @@ GameObject:
   - component: {fileID: 1925785535327602150}
   - component: {fileID: 3559861354504990169}
   m_Layer: 5
-  m_Name: Second
+  m_Name: Second - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3745,7 +3745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9008872018757263452}
   m_Layer: 5
-  m_Name: Prize list
+  m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4026,7 +4026,7 @@ GameObject:
   - component: {fileID: 7535116296844454842}
   - component: {fileID: 1730679642069599064}
   m_Layer: 5
-  m_Name: Storyline - Image (1)
+  m_Name: 'Storyline - Image '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4184,8 +4184,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.5
-  m_fontSizeBase: 52.5
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4374,7 +4374,7 @@ GameObject:
   - component: {fileID: 1006485946976773365}
   - component: {fileID: 5599964500197294578}
   m_Layer: 5
-  m_Name: See more...
+  m_Name: See more... - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4628,7 +4628,7 @@ GameObject:
   - component: {fileID: 4094175410096847156}
   - component: {fileID: 2700423527529037683}
   m_Layer: 5
-  m_Name: Prize list
+  m_Name: Prize list - Vertical Layout Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4694,7 +4694,7 @@ GameObject:
   - component: {fileID: 5168364139836100770}
   - component: {fileID: 4962344630865976775}
   m_Layer: 5
-  m_Name: 'Prize name - Text (TMP) '
+  m_Name: 'Storyline - Text (TMP) '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
