@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Piranest
@@ -6,13 +8,12 @@ namespace Piranest
     {
         public const string SCRIPTABLE_PATH = "Data/";
 
-
-        public static Sprite GetSprite(Texture2D texture)
+        public static IEnumerator DoAfter(float duration, Action OnStart, Action OnEnd)
         {
-            Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(texture.width / 2, texture.height / 2));
-            return sprite;
+            OnStart?.Invoke();
+            yield return new WaitForSeconds(duration);
+            OnEnd?.Invoke();
         }
-
 
         public static void OpenGoogleMap(float locationLat, float locationLong)
         {

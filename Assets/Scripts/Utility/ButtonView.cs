@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,11 @@ namespace Piranest.UI
             txt.text = name;
         }
 
+        public void UpdateText(string val)
+        {
+            txt.text = val;
+        }
+
         public void UpdateButton(Action OnClick)
         {
             btn.onClick.RemoveAllListeners();
@@ -41,6 +47,10 @@ namespace Piranest.UI
             borderObj.SetActive(isActive);
         }
 
+        public Tween ChangeColor(float duration, Color color)
+        {
+            return img.DOColor(color, duration);
+        }
 
     }
 }

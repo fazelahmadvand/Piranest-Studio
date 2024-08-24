@@ -96,10 +96,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
+  m_fontSize: 72
   m_fontSizeBase: 70
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -493,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5697689863829161205
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1069,10 +1069,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 4605905559124620345}
-  whichAnswerTxt: {fileID: 0}
-  descriptionTxt: {fileID: 0}
-  answers: []
+  whichAnswerTxt: {fileID: 2283751202493838493}
+  descriptionTxt: {fileID: 7880517701295681953}
+  nonSelectedAnswerSprite: {fileID: 21300000, guid: 7ed044c2963126841acb640bda963c5f,
+    type: 3}
+  selectedAnswerSprite: {fileID: 21300000, guid: 34e5aba9ecbb60f4d88913b40fa49a1d,
+    type: 3}
+  answers:
+  - {fileID: 1656705048981524210}
+  - {fileID: 2508964215943690494}
+  - {fileID: 157131200102774393}
+  - {fileID: 4830371192182189748}
   submitBtn: {fileID: 8394713960920539809}
+  changeColorDuration: 1
+  rightAnswer: {r: 0.31346595, g: 1, b: 0, a: 1}
+  wrongAnswer: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &4788798437241607693
 GameObject:
   m_ObjectHideFlags: 0

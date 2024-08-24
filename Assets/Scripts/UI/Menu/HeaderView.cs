@@ -10,6 +10,7 @@ namespace Piranest.UI.Menu
     {
         [SerializeField] private TMP_Text headerTxt;
         [SerializeField] private Button backBtn;
+        [SerializeField] private GameObject gemObj;
         [SerializeField] private TMP_Text gemTxt;
 
         [SerializeField] private AuthData authData;
@@ -28,6 +29,12 @@ namespace Piranest.UI.Menu
             authData.OnAccountChange -= OnAccountChange;
         }
 
+        public override void Show()
+        {
+            base.Show();
+            HandleGem(true);
+        }
+
         private void OnAuthSuccess(DynamicPixels.GameService.Services.User.Models.User obj)
         {
             OnInitialized();
@@ -44,7 +51,6 @@ namespace Piranest.UI.Menu
             gemTxt.text = account.Remaining.ToString();
         }
 
-
         public void UpdatePage(string pageName)
         {
             headerTxt.text = pageName;
@@ -55,6 +61,11 @@ namespace Piranest.UI.Menu
             HandleBackButton(false);
             UpdatePage(pageName);
             UpdateButton(OnBackClick);
+        }
+
+        public void HandleGem(bool isActive)
+        {
+            gemObj.SetActive(isActive);
         }
 
         public void UpdateButton(Action OnClick)

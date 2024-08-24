@@ -181,7 +181,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3909534304422730223}
-  - component: {fileID: 748308131615700538}
   - component: {fileID: 5954915381785525543}
   m_Layer: 5
   m_Name: pivot
@@ -209,25 +208,6 @@ RectTransform:
   m_AnchoredPosition: {x: 80, y: -50}
   m_SizeDelta: {x: 184.69, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &748308131615700538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6446329421256706986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5877246ed0d32ae46aa2669e97b6e3f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imagePrefab: {fileID: 170280144418151037, guid: a6ff032973c16e54f8f555e4471ec3e6,
-    type: 3}
-  container: {fileID: 3909534304422730223}
-  numberOfImages: 5
-  totalWidth: 650
-  layoutGroup: {fileID: 5954915381785525543}
-  testScript: 1
 --- !u!114 &5954915381785525543
 MonoBehaviour:
   m_ObjectHideFlags: 0

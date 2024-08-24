@@ -12,6 +12,7 @@ namespace Piranest.UI
         [SerializeField] private float totalWidth = 100f;
         [SerializeField] private HorizontalLayoutGroup layoutGroup;
         [SerializeField] private bool testScript = false;
+
         void Start()
         {
             if (testScript)

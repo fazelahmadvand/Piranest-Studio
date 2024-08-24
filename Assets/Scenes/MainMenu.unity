@@ -442,6 +442,46 @@ MonoBehaviour:
     <SortNumber>k__BackingField: 0
     <AnswerMediaUrl>k__BackingField: 
     <LocationRadius>k__BackingField: 
+  currentGameState:
+    type: 0
+    currentGame:
+      <Id>k__BackingField: 0
+      <Name>k__BackingField: 
+      <Country>k__BackingField: 
+      <City>k__BackingField: 
+      <Story>k__BackingField: 
+      <TimeLimit>k__BackingField: 0
+      <CoverImageUrl>k__BackingField: 
+      <DetailsImageUrl>k__BackingField: 
+      <TotalDistance>k__BackingField: 
+      <Prize>k__BackingField: 0
+    chapters: []
+    questions: []
+    currentQuestion:
+      <Id>k__BackingField: 0
+      <GameChapterId>k__BackingField: 0
+      <Story>k__BackingField: 
+      <Question>k__BackingField: 
+      <QuestionType>k__BackingField: 
+      <Options>k__BackingField: 
+      <RightAnswer>k__BackingField: 
+      <MediaUrl>k__BackingField: 
+      <Prize>k__BackingField: 0
+      <Description>k__BackingField: 
+      <LocationLong>k__BackingField: 0
+      <LocationLat>k__BackingField: 0
+      <SortNumber>k__BackingField: 0
+      <AnswerMediaUrl>k__BackingField: 
+      <LocationRadius>k__BackingField: 
+    currentChapter:
+      <Id>k__BackingField: 0
+      <Title>k__BackingField: 
+      <MediaUrl>k__BackingField: 
+      <SortNumber>k__BackingField: 0
+      <GameId>k__BackingField: 0
+      <Description>k__BackingField: 
+    questionIndex: 0
+    chapterIndex: 0
   gameData: {fileID: 11400000, guid: ea28e4e049889964fac7e5b51c7da643, type: 2}
 --- !u!4 &104159342
 Transform:
@@ -505,6 +545,7 @@ MonoBehaviour:
   root: {fileID: 1316226442}
   headerTxt: {fileID: 1316226443}
   backBtn: {fileID: 991666059}
+  gemObj: {fileID: 1494116329}
   gemTxt: {fileID: 1316226441}
   authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
 --- !u!114 &154416181 stripped
@@ -1946,6 +1987,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5697689863829161205, guid: 465e69407383b1642a658abb7711a875,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 234.07501
+      objectReference: {fileID: 0}
     - target: {fileID: 7457079455142318044, guid: 465e69407383b1642a658abb7711a875,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2263,6 +2309,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 963479364}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &969942070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1428159816703206355, guid: 465e69407383b1642a658abb7711a875,
+    type: 3}
+  m_PrefabInstance: {fileID: 844765211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbcd83fbd107a04eaf48113e5545e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &991666059 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4584409846654354755, guid: 4f7dce2f89d33e147a14ebcc3697b4be,
@@ -3272,6 +3330,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   root: {fileID: 317854335}
   headerView: {fileID: 150753908}
+--- !u!1 &1494116329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5688669725850784131, guid: 4f7dce2f89d33e147a14ebcc3697b4be,
+    type: 3}
+  m_PrefabInstance: {fileID: 1316226439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1533988491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3831,7 +3895,8 @@ MonoBehaviour:
   headerView: {fileID: 150753908}
   gameInfo: {fileID: 2075286532}
   chapterView: {fileID: 1806494009}
-  pageHandler: {fileID: 0}
+  questionView: {fileID: 969942070}
+  pageHandler: {fileID: 1418471635}
   gameData: {fileID: 11400000, guid: ea28e4e049889964fac7e5b51c7da643, type: 2}
 --- !u!224 &1612512384 stripped
 RectTransform:
