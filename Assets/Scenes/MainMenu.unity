@@ -480,8 +480,6 @@ MonoBehaviour:
       <SortNumber>k__BackingField: 0
       <GameId>k__BackingField: 0
       <Description>k__BackingField: 
-    questionIndex: 0
-    chapterIndex: 0
   gameData: {fileID: 11400000, guid: ea28e4e049889964fac7e5b51c7da643, type: 2}
 --- !u!4 &104159342
 Transform:

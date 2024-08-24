@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 841154953962852998}
+  - component: {fileID: 3467858061322765179}
   - component: {fileID: 4402847570938159141}
   - component: {fileID: 3584567659088725464}
   m_Layer: 5
@@ -36,8 +37,30 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 65}
+  m_SizeDelta: {x: 250, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3467858061322765179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170280144418151037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60967edc1b48ce41b5e73fc2d2ca94f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 0}
+  img: {fileID: 3584567659088725464}
+  txt: {fileID: 3621127793545951493}
+  colors:
+  - Key: 0
+    Value: {r: 0.41202247, g: 1, b: 0, a: 1}
+  - Key: 1
+    Value: {r: 1, g: 0, b: 0, a: 1}
+  - Key: 2
+    Value: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
 --- !u!222 &4402847570938159141
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59,8 +82,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.86274517, g: 0.8745099, b: 0.9176471, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -108,10 +131,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 841154953962852998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 52.600002}
-  m_SizeDelta: {x: 294.2, y: 91.880005}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6943936539713893539
 CanvasRenderer:
@@ -141,7 +164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Q1
+  m_text: Q
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ae423413e4f6ff4caa8ce9d6afe71be, type: 2}
   m_sharedMaterial: {fileID: -8160156326781529683, guid: 5ae423413e4f6ff4caa8ce9d6afe71be,
@@ -169,10 +192,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
+  m_fontSize: 46.4
   m_fontSizeBase: 70
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

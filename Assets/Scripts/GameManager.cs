@@ -1,6 +1,7 @@
 using Piranest.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Piranest
@@ -32,12 +33,14 @@ namespace Piranest
             {
                 if (currentChapter == value) return;
                 currentChapter = value;
+                OnGameChange?.Invoke();
             }
         }
 
 
         public event Action<GameState> OnGameStateChange;
 
+        public event Action OnGameChange;
 
         public void Init()
         {
@@ -50,8 +53,26 @@ namespace Piranest
                 currentChapter = currentChapter,
                 chapters = gameData.GetChapter(CurrentGame.Id),
                 questions = gameData.GetQuestions(currentChapter.Id),
-                currentQuestion = gameData.GetQuestions(currentChapter.Id)[0]
+                currentQuestion = gameData.GetQuestions(currentChapter.Id)[0],
+                chaptersInfo = new()
             };
+
+            for (int i = 0; i < currentGameState.chapters.Count; i++)
+            {
+                var chapter = currentGameState.chapters[i];
+                var questions = gameData.GetQuestions(chapter.Id);
+                var chapterInfo = new ChapterInfo()
+                {
+                    chapterNumber = i + 1,
+                    questionStates = new()
+                };
+                foreach (var question in questions)
+                {
+                    chapterInfo.questionStates.Add(QuestionStateType.NotAnswer);
+                }
+                currentGameState.chaptersInfo.Add(chapterInfo);
+            }
+
             OnGameStateChange?.Invoke(currentGameState);
         }
 
@@ -74,6 +95,11 @@ namespace Piranest
             OnGameStateChange?.Invoke(currentGameState);
         }
 
+        public void SubmitAnswer(QuestionStateType state)
+        {
+            currentGameState.UpdateQuestionAnswer(state);
+        }
+
 
     }
 
@@ -87,9 +113,17 @@ namespace Piranest
         public List<GameChapterQuestion> questions;
         public GameChapterQuestion currentQuestion;
         public GameChapter currentChapter;
+        public List<ChapterInfo> chaptersInfo;
 
         private int questionIndex;
         private int chapterIndex;
+
+
+        public void UpdateQuestionAnswer(QuestionStateType questionState)
+        {
+            chaptersInfo[chapterIndex].questionStates[questionIndex] = questionState;
+        }
+
         public void NextQuestion(GameData gameData)
         {
             questionIndex++;
@@ -101,8 +135,6 @@ namespace Piranest
             }
             currentQuestion = questions[questionIndex];
         }
-
-
         public void NextChapter(GameData gameData)
         {
             chapterIndex++;
@@ -117,6 +149,19 @@ namespace Piranest
         }
 
     }
+
+    [Serializable]
+    public struct ChapterInfo
+    {
+        public int chapterNumber;
+        public List<QuestionStateType> questionStates;
+    }
+
+    public enum QuestionStateType
+    {
+        Right, Wrong, NotAnswer
+    }
+
 
     public enum GameStateType
     {

@@ -12,20 +12,35 @@ namespace Piranest.UI
     {
         [SerializeField] private TMP_Text whichAnswerTxt, descriptionTxt;
 
-        [SerializeField] private Sprite nonSelectedAnswerSprite, selectedAnswerSprite;
         [SerializeField] private List<ButtonView> answers = new();
-
+        [SerializeField] private Image questionImg;
         [SerializeField] private Button submitBtn;
+        [SerializeField] private Sprite nonSelectedAnswerSprite, selectedAnswerSprite;
 
         [Space]
         [SerializeField] private float changeColorDuration = .5f;
         [SerializeField] private Color rightAnswer, wrongAnswer;
 
+        [Header("Header")]
+        [SerializeField] private Transform chapterHeaderHolder;
+        [SerializeField] private ChapterHeaderInfo chapterInfo;
+        [SerializeField] private GameData gameData;
+        [SerializeField] private TextureSaveData textureData;
+
+
         private int index;
         private int rightAnswerIndex;
         private bool isAnswered;
 
-        public void UpdateInfo(GameChapterQuestion question, Action<int> OnSubmit)
+
+
+        public override void InitView()
+        {
+            base.InitView();
+
+        }
+
+        public void UpdateInfo(GameChapterQuestion question, Action<QuestionStateType> OnSubmit)
         {
             Show();
             isAnswered = false;
@@ -33,7 +48,7 @@ namespace Piranest.UI
             var questions = question.Options.Split(',').ToList();
             HandleAnswers(questions);
             rightAnswerIndex = questions.FindIndex(q => q.Equals(question.RightAnswer));
-
+            questionImg.sprite = textureData.GetSprite(question.MediaUrl);
             descriptionTxt.text = question.Description;
             whichAnswerTxt.text = question.Question;
 
@@ -43,7 +58,7 @@ namespace Piranest.UI
                 isAnswered = true;
                 StartCoroutine(Utility.DoAfter(changeColorDuration + .1f, ShowAnswer, () =>
                 {
-                    OnSubmit?.Invoke(index);
+                    OnSubmit?.Invoke(IsRightAnswer() ? QuestionStateType.Right : QuestionStateType.Wrong);
                 }));
             });
         }
@@ -70,15 +85,32 @@ namespace Piranest.UI
             }
         }
 
-
         private void ShowAnswer()
         {
             var card = answers[index];
-            var color = index == rightAnswerIndex ? rightAnswer : wrongAnswer;
+            var color = IsRightAnswer() ? rightAnswer : wrongAnswer;
 
             var tween = card.ChangeColor(changeColorDuration / 2, color);
-            tween.onComplete += () => { card.ChangeColor(changeColorDuration / 2, Color.white); };
+            tween.onComplete += () =>
+            {
+                card.ChangeColor(changeColorDuration / 2, Color.white);
+            };
+        }
 
+        public bool IsRightAnswer()
+        {
+            return index == rightAnswerIndex;
+        }
+
+        public void HandleChapterHeader(GameState state)
+        {
+            chapterHeaderHolder.DestroyChildren();
+
+            foreach (var info in state.chaptersInfo)
+            {
+                var newC = Instantiate(chapterInfo, chapterHeaderHolder);
+                newC.Create(info);
+            }
 
         }
 

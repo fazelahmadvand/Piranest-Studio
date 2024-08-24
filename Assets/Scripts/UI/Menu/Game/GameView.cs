@@ -17,6 +17,7 @@ namespace Piranest.UI.Menu
             base.InitView();
             gameInfo.InitView();
             chapterView.InitView();
+            questionView.InitView();
 
             var gm = GameManager.Instance;
             gm.OnGameStateChange += OnGameStateChanged;
@@ -37,7 +38,7 @@ namespace Piranest.UI.Menu
             chapterView.Hide();
             questionView.Hide();
             pageHandler.Hide();
-
+            questionView.HandleChapterHeader(state);
             if (state.type == GameStateType.Game)
             {
                 pageHandler.Show();
@@ -83,8 +84,9 @@ namespace Piranest.UI.Menu
             chapterView.Hide();
             pageHandler.Hide();
 
-            questionView.UpdateInfo(question, (answerIndex) =>
+            questionView.UpdateInfo(question, (answerState) =>
             {
+                GameManager.Instance.SubmitAnswer(answerState);
                 GameManager.Instance.NextState();
 
             });
