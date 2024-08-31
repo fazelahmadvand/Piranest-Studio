@@ -15,7 +15,7 @@ namespace Piranest
         }
 
 
-        public static void AddEvent(this Button btn, Action OnClick)
+        public static void SetEvent(this Button btn, Action OnClick)
         {
             btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(() => OnClick?.Invoke());

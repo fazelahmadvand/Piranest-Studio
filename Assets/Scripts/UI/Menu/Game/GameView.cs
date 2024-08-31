@@ -1,3 +1,5 @@
+using Piranest.Model;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Piranest.UI.Menu
@@ -9,8 +11,15 @@ namespace Piranest.UI.Menu
         [SerializeField] private GameChapterView chapterView;
         [SerializeField] private QuestionInfoView questionView;
 
+
+        [SerializeField] private Transform gameHolder;
+        [SerializeField] private GameCardView card;
+
         [SerializeField] private PageHandlerView pageHandler;
         [SerializeField] private GameData gameData;
+
+
+        private List<GameCardView> cards = new();
 
         public override void InitView()
         {
@@ -21,15 +30,20 @@ namespace Piranest.UI.Menu
 
             var gm = GameManager.Instance;
             gm.OnGameStateChange += OnGameStateChanged;
+            Manager.OnInitialized += OnInitialized;
         }
 
         private void OnDestroy()
         {
-
+            Manager.OnInitialized -= OnInitialized;
             var gm = GameManager.Instance;
             if (gm == null) return;
             gm.OnGameStateChange -= OnGameStateChanged;
+        }
 
+        private void OnInitialized()
+        {
+            CreateGameCards();
         }
 
         private void OnGameStateChanged(GameState state)
@@ -46,7 +60,7 @@ namespace Piranest.UI.Menu
             }
             else if (state.type == GameStateType.Chapter)
             {
-                OnChapterChange(state.currentChapter);
+                OnChapterChange(state.currentChapter, state.firstQuestionOfChapter, state.lastQuestionOfChapter);
             }
             else if (state.type == GameStateType.Question)
             {
@@ -60,26 +74,28 @@ namespace Piranest.UI.Menu
         }
 
 
-        private void OnGameChange(Model.Game game)
+        private void OnGameChange(Game game)
         {
+            headerView.UpdateHeader(game.Name, () =>
+            {
+                gameInfo.Hide();
+                Show();
+            });
             gameInfo.UpdateInfo(game, () =>
             {
-                headerView.HandleBackButton(false);
-                headerView.UpdatePage(game.Name);
                 GameManager.Instance.NextState();
-
             });
         }
 
-        private void OnChapterChange(Model.GameChapter chapter)
+        private void OnChapterChange(GameChapter chapter, GameChapterQuestion first, GameChapterQuestion last)
         {
-            chapterView.UpdateChapter(chapter, () =>
+            chapterView.UpdateChapter(chapter, first, last, () =>
             {
                 GameManager.Instance.NextState();
             });
         }
 
-        private void OnQuestionChange(Model.GameChapterQuestion question)
+        private void OnQuestionChange(GameChapterQuestion question)
         {
             chapterView.Hide();
             pageHandler.Hide();
@@ -105,8 +121,32 @@ namespace Piranest.UI.Menu
             base.Show();
         }
 
+        public override void Hide()
+        {
+            base.Hide();
+            gameInfo.Hide();
+            chapterView.Hide();
+            questionView.Hide();
+        }
+
+        private void CreateGameCards()
+        {
+            gameHolder.DestroyChildren();
+
+            foreach (var game in gameData.Games)
+            {
+                var newCard = Instantiate(card, gameHolder);
+
+                newCard.UpdateCard(game, () =>
+                {
+                    Hide();//must be first
+                    GameManager.Instance.SetGame(game);
+                });
+                cards.Add(newCard);
+            }
 
 
+        }
 
 
 

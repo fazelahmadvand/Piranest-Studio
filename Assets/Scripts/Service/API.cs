@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -27,6 +29,24 @@ namespace Piranest.API
 
         }
 
+
+        public static IEnumerator DownloadTexture(string url, Action<Texture2D> OnSuccess, Action OnFail = null)
+        {
+            var req = UnityWebRequestTexture.GetTexture(url);
+            yield return req.SendWebRequest();
+
+            if (req.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log($"Download Texture Failed:{req.error}");
+                OnFail?.Invoke();
+            }
+            else
+            {
+                Texture2D texture = DownloadHandlerTexture.GetContent(req);
+                OnSuccess?.Invoke(texture);
+            }
+
+        }
 
     }
 }

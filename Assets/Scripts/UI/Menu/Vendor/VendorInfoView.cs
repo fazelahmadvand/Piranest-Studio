@@ -27,7 +27,7 @@ namespace Piranest.UI.Menu
             }
             Show();
 
-            locationBtn.AddEvent(() =>
+            locationBtn.SetEvent(() =>
             {
                 Utility.OpenGoogleMap(vendor.LocationLat, vendor.LocationLong);
             });

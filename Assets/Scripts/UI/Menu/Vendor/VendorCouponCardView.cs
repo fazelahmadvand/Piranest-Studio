@@ -18,7 +18,7 @@ namespace Piranest.UI.Menu
             Show();
             discountTxt.text = discount;
             gemCountTxt.text = gem.ToString();
-            btn.AddEvent(OnClick);
+            btn.SetEvent(OnClick);
 
         }
 

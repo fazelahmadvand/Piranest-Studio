@@ -52,7 +52,7 @@ namespace Piranest.UI
             descriptionTxt.text = question.Description;
             whichAnswerTxt.text = question.Question;
 
-            submitBtn.AddEvent(() =>
+            submitBtn.SetEvent(() =>
             {
                 if (isAnswered) return;
                 isAnswered = true;

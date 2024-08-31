@@ -30,7 +30,7 @@ namespace Piranest.UI
             var chapters = gameData.GetChapter(game.Id);
             storyTxt.text = game.Story;
             chapterCountTxt.text = chapters.Count.ToString();
-            startLocationBtn.AddEvent(() =>
+            startLocationBtn.SetEvent(() =>
             {
                 var firstChapter = chapters[0];
                 var questions = gameData.GetQuestions(firstChapter.Id);
@@ -38,7 +38,7 @@ namespace Piranest.UI
                 Utility.OpenGoogleMap(first.LocationLat, first.LocationLong);
             });
 
-            endLocationBtn.AddEvent(() =>
+            endLocationBtn.SetEvent(() =>
             {
                 var lastChapter = chapters[^1];
                 var questions = gameData.GetQuestions(lastChapter.Id);
@@ -46,7 +46,7 @@ namespace Piranest.UI
                 Utility.OpenGoogleMap(last.LocationLat, last.LocationLong);
             });
 
-            beginBtn.AddEvent(OnBegin);
+            beginBtn.SetEvent(OnBegin);
 
         }
 

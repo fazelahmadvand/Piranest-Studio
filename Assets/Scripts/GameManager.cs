@@ -1,7 +1,6 @@
 using Piranest.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Piranest
@@ -42,18 +41,21 @@ namespace Piranest
 
         public event Action OnGameChange;
 
-        public void Init()
+        public void SetGame(Game game)
         {
-            CurrentGame = gameData.Games[0];
+            CurrentGame = game;
             CurrentChapter = gameData.GetChapter(CurrentGame.Id)[0];
+            var chapterQuestions = gameData.GetQuestions(currentChapter.Id);
             currentGameState = new()
             {
                 type = GameStateType.Game,
                 currentGame = currentGame,
                 currentChapter = currentChapter,
                 chapters = gameData.GetChapter(CurrentGame.Id),
-                questions = gameData.GetQuestions(currentChapter.Id),
+                questions = chapterQuestions,
                 currentQuestion = gameData.GetQuestions(currentChapter.Id)[0],
+                firstQuestionOfChapter = chapterQuestions[0],
+                lastQuestionOfChapter = chapterQuestions[^1],
                 chaptersInfo = new()
             };
 
@@ -113,8 +115,8 @@ namespace Piranest
         public List<GameChapterQuestion> questions;
         public GameChapterQuestion currentQuestion;
         public GameChapter currentChapter;
+        public GameChapterQuestion firstQuestionOfChapter, lastQuestionOfChapter;
         public List<ChapterInfo> chaptersInfo;
-
         private int questionIndex;
         private int chapterIndex;
 

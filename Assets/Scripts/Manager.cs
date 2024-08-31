@@ -16,7 +16,7 @@ namespace Piranest
 
         [SerializeField] private List<View> views;
 
-        public event Action OnInitialized;
+        public static event Action OnInitialized;
 
         private void Awake()
         {
@@ -50,14 +50,9 @@ namespace Piranest
             loading.UpdateText($"");
             await Task.Delay(50);
             OnInitialized?.Invoke();
-            GameManager.Instance.Init();
+
 
         }
-
-
-
-
-
 
     }
 }

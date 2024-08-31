@@ -22,7 +22,7 @@ namespace Piranest.UI.Menu
             base.InitView();
             rankTxt.text = "1";
             editProfileView.InitView();
-            editProfileButton.AddEvent(() =>
+            editProfileButton.SetEvent(() =>
             {
                 Hide();
                 editProfileView.Show();
@@ -35,7 +35,7 @@ namespace Piranest.UI.Menu
                 });
             });
 
-            couponBtn.AddEvent(() =>
+            couponBtn.SetEvent(() =>
             {
                 Hide();
                 couponView.Show();

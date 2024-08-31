@@ -12,6 +12,874 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd627a789a882f347a9bf2025ccc8ca4, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  games: []
-  gameChapters: []
-  gameChapterQuestions: []
+  games:
+  - <Id>k__BackingField: 5
+    <Name>k__BackingField: Who am I?
+    <Country>k__BackingField: hungary
+    <City>k__BackingField: Budapest
+    <Story>k__BackingField: The game before you, is a short game to guess the names
+      of some famous characters from Budapest, and it's up to you to figure out who
+      they are! Let's dive in!
+    <TimeLimit>k__BackingField: 7200
+    <CoverImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5
+      main-min.jpg
+    <DetailsImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5
+      intro-min.jpg
+    <TotalDistance>k__BackingField: 5.5 km
+    <Prize>k__BackingField: 105
+  - <Id>k__BackingField: 10
+    <Name>k__BackingField: Cafe game 2
+    <Country>k__BackingField: Netherlands
+    <City>k__BackingField: rotterdam
+    <Story>k__BackingField: Enjoy a short game whilst enjoying the Cafe!
+    <TimeLimit>k__BackingField: 1800
+    <CoverImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g7
+      main.jpg
+    <DetailsImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g7
+      intro.png
+    <TotalDistance>k__BackingField: 0
+    <Prize>k__BackingField: 100
+  - <Id>k__BackingField: 11
+    <Name>k__BackingField: Tennis match
+    <Country>k__BackingField: 
+    <City>k__BackingField: 
+    <Story>k__BackingField: Enjoy your tennis match as well as the reward afterwards!
+    <TimeLimit>k__BackingField: 3600
+    <CoverImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/tennis
+      main.png
+    <DetailsImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/tennis
+      intro.png
+    <TotalDistance>k__BackingField: 0
+    <Prize>k__BackingField: 100
+  - <Id>k__BackingField: 14
+    <Name>k__BackingField: test game
+    <Country>k__BackingField: Iran
+    <City>k__BackingField: Tehran
+    <Story>k__BackingField: this is the story of the test game of tehran
+    <TimeLimit>k__BackingField: 7200
+    <CoverImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <DetailsImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <TotalDistance>k__BackingField: 20km
+    <Prize>k__BackingField: 90
+  - <Id>k__BackingField: 6
+    <Name>k__BackingField: Cafe game
+    <Country>k__BackingField: Netherlands
+    <City>k__BackingField: rotterdam
+    <Story>k__BackingField: Enjoy a short game whilst enjoying the Cafe!
+    <TimeLimit>k__BackingField: 2700
+    <CoverImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/Capture.png
+    <DetailsImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/cover.png
+    <TotalDistance>k__BackingField: 0
+    <Prize>k__BackingField: 175
+  - <Id>k__BackingField: 2
+    <Name>k__BackingField: Rotterdam Short tour
+    <Country>k__BackingField: 
+    <City>k__BackingField: 
+    <Story>k__BackingField: 
+    <TimeLimit>k__BackingField: 7200
+    <CoverImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-main.jpg
+    <DetailsImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-intro.jpg
+    <TotalDistance>k__BackingField: 
+    <Prize>k__BackingField: 85
+  - <Id>k__BackingField: 3
+    <Name>k__BackingField: Nature Friendly Tour
+    <Country>k__BackingField: Netherland
+    <City>k__BackingField: Rotterdam
+    <Story>k__BackingField: "This is a small tour of Rotterdam, a young beautiful
+      city in Netherlands with fabulous architecture and harbors. In this course,
+      you will go for a small quest in the city and it\u2019ll make you admire its
+      beauty."
+    <TimeLimit>k__BackingField: 7200
+    <CoverImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-main.jpg
+    <DetailsImageUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-intro.jpg
+    <TotalDistance>k__BackingField: 8.5 km
+    <Prize>k__BackingField: 100
+  gameChapters:
+  - <Id>k__BackingField: 11
+    <Title>k__BackingField: Inside Cafe
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/5-teamb-2.jpg
+    <SortNumber>k__BackingField: 1
+    <GameId>k__BackingField: 6
+    <Description>k__BackingField: While enjoying the cafe, challenge yourself and
+      your friends to see if you can solve a few puzzles. Remember some of them may
+      connect to each other!
+  - <Id>k__BackingField: 2
+    <Title>k__BackingField: The bridge
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-ch2-min.jpg
+    <SortNumber>k__BackingField: 2
+    <GameId>k__BackingField: 2
+    <Description>k__BackingField: As you walk or ride alongside the river in the
+      heart of the city, you'll be captivated by the amazing structures surrounding
+      you. As you draw near to one of the town's renowned bridges, your next quest
+      of the day awaits, promising new adventures and discoveries.
+  - <Id>k__BackingField: 3
+    <Title>k__BackingField: The Schoonoord Historical Garden
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-ch3-min.jpg
+    <SortNumber>k__BackingField: 3
+    <GameId>k__BackingField: 2
+    <Description>k__BackingField: The Schoonoord Historical Garden is a hidden gem,
+      not widely known to everyone, yet a sight to behold. Located near Het Park,
+      this place exudes beauty and charm, and you can easily identify it by its distinctive
+      old-fashioned door.
+  - <Id>k__BackingField: 4
+    <Title>k__BackingField: Prinsemolenpark
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch1.jpg
+    <SortNumber>k__BackingField: 1
+    <GameId>k__BackingField: 3
+    <Description>k__BackingField: The Netherlands is renowned for its land reclamation
+      efforts. Mills play a vital role in managing water levels to keep the land
+      dry. In this park, you'll encounter a notable mill that aligns with this purpose.
+  - <Id>k__BackingField: 1
+    <Title>k__BackingField: Markthal Area
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/1i.png
+    <SortNumber>k__BackingField: 1
+    <GameId>k__BackingField: 2
+    <Description>k__BackingField: 'Markthal neighborhood is the first location of
+      the game in which you should seek out some items in the area. Careful about
+      the timer and watch the surroundings and you will find your answers :)
+
+
+      You
+      can start your journey here, in front of "St. Lawrence Church".'
+  - <Id>k__BackingField: 5
+    <Title>k__BackingField: Kralingse Bos
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch2.jpg
+    <SortNumber>k__BackingField: 2
+    <GameId>k__BackingField: 3
+    <Description>k__BackingField: 'At Kralingse Bos, there are some beautiful places
+      around it. If you wander around, you can come across them and enjoy the view.
+
+'
+  - <Id>k__BackingField: 6
+    <Title>k__BackingField: Begraafplaats Crooswijk
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch3.jpg
+    <SortNumber>k__BackingField: 3
+    <GameId>k__BackingField: 3
+    <Description>k__BackingField: Nestled within the heart of Rotterdam, this tranquil
+      graveyard exudes a unique charm. Despite its urban surroundings, it boasts
+      sculptures that pay homage to a variety of individuals, from the recently departed
+      to those who served during WWII. Let us approach this sacred ground with humility,
+      for it cradles the souls of great individuals.
+  - <Id>k__BackingField: 7
+    <Title>k__BackingField: Castle Area
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch1-min.jpg
+    <SortNumber>k__BackingField: 1
+    <GameId>k__BackingField: 5
+    <Description>k__BackingField: Budapest Castle District is a great attraction
+      for those who love castles and historical sights. Enjoy the area as there is
+      much to observe. First we go to the " holy trinity statue" and start the game.
+  - <Id>k__BackingField: 10
+    <Title>k__BackingField: Heroes' Square
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch2-min.jpg
+    <SortNumber>k__BackingField: 2
+    <GameId>k__BackingField: 5
+    <Description>k__BackingField: Every nation is proud of its heroes. And these
+      heroes deserve to be mentioned throughout history and should be respected.
+      This chapter is in the famous heroes square of Budapest, enjoy!
+  - <Id>k__BackingField: 13
+    <Title>k__BackingField: Inside Cafe 2
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g10-ch1.jpg
+    <SortNumber>k__BackingField: 1
+    <GameId>k__BackingField: 10
+    <Description>k__BackingField: While enjoying your time in a cafe, play this game
+      and try to beat the challenges!
+  - <Id>k__BackingField: 15
+    <Title>k__BackingField: Verifying the match (Tennis)
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/tennis-3554019_1280.jpg
+    <SortNumber>k__BackingField: 1
+    <GameId>k__BackingField: 11
+    <Description>k__BackingField: This section is merely for verification.
+  - <Id>k__BackingField: 16
+    <Title>k__BackingField: 'ch1 : test'
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <SortNumber>k__BackingField: 1
+    <GameId>k__BackingField: 14
+    <Description>k__BackingField: chapter 1 of the test game
+  - <Id>k__BackingField: 17
+    <Title>k__BackingField: 'ch2 : test '
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <SortNumber>k__BackingField: 2
+    <GameId>k__BackingField: 14
+    <Description>k__BackingField: this is the ch 2 of the test game of tehran
+  gameChapterQuestions:
+  - <Id>k__BackingField: 6
+    <GameChapterId>k__BackingField: 4
+    <Story>k__BackingField: Situated in the heart of the slender park, this mill's
+      location holds a special secret. Observing the park from maps reveals a unique
+      detail.
+    <Question>k__BackingField: What do you see on the maps, and where is the Prinsemolen
+      located?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: A pair of eyes - right one,A hand - middle finger,A
+      pair of eyes - left one,A hand - thumb
+    <RightAnswer>k__BackingField: A pair of eyes - left one
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch1-q1.jpg
+    <Prize>k__BackingField: 20
+    <Description>k__BackingField: 'Zooming in on the spot from a satellite map unveils
+      an eye-like resemblance, with the mill positioned on the left "eye."
+
+'
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-ch1-a1.jpg
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 1
+    <GameChapterId>k__BackingField: 1
+    <Story>k__BackingField: "Our journey begins with Erasmus statue in front of \u201CSt.
+      Lawrence Church\u201D. The few-centuries old monument which is holding a book
+      in his hands. But there is more to this, if you look around, you can find another
+      monument yet rather a new one, a 2D modern statue. If you find the new monument,
+      riddle me this one:"
+    <Question>k__BackingField: Which part of the new monument is missing?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: ears,nose,left eye,right eye
+    <RightAnswer>k__BackingField: left eye
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/1.png
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: If you manage to locate the Erasmus monument (the
+      new one), you'll notice that it appears to have no left eye! In reality, the
+      monument's unique shape conceals the left eye inside, giving the illusion of
+      it being missing at first glance.
+    <LocationLong>k__BackingField: 4.484561
+    <LocationLat>k__BackingField: 51.92142
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/1a.png
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 14
+    <GameChapterId>k__BackingField: 10
+    <Story>k__BackingField: 'look around and see the heroes before you! Look at both
+      sides and answer this:'
+    <Question>k__BackingField: How many horses do you see in this field?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: 7,9,11,13
+    <RightAnswer>k__BackingField: 11
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch2-q4-min.jpg
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: if you count carefully, there are 7 horses on the
+      ground and 4 horses up there on each side, a total number of 11
+    <LocationLong>k__BackingField: 19.077862
+    <LocationLat>k__BackingField: 47.514942
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch2-a4-min.jpg
+    <LocationRadius>k__BackingField: 50
+  - <Id>k__BackingField: 18
+    <GameChapterId>k__BackingField: 11
+    <Story>k__BackingField: 'This two pictures are two sides of a single paper! with
+      the information you''ve gather from the previous question, which number is
+      the correct answer?
+
+
+      hint: pay attention to the top corner signs!'
+    <Question>k__BackingField: which number is the answer?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: 1968,1965,9156,9186
+    <RightAnswer>k__BackingField: 1965
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g6-q3.png
+    <Prize>k__BackingField: 50
+    <Description>k__BackingField: 'Answer: the "eye" sign mean you should look at
+      the paper from this side and the "sun" sign mean you should shed a light to
+      that side so you can see the image flipped!
+
+
+      (the picture shows how
+      you will see the other side if you shed the light)'
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 3
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g6-a3.png
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 19
+    <GameChapterId>k__BackingField: 11
+    <Story>k__BackingField: "with the note below and the the picture given, fill
+      the blank with the correct letters, and find out what location it is (search
+      the result! it's in rotterdam)\n \nthe note is:\n\"(4,5)  (2,10)  48+5  (5,11)\"\n(hint:
+      look for rows and columns)"
+    <Question>k__BackingField: what is the location's name?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Euromast,Markthal,Witte Huis,Kralingse Bos
+    <RightAnswer>k__BackingField: Euromast
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g6-q4.png
+    <Prize>k__BackingField: 40
+    <Description>k__BackingField: The couple numbers are "row-column", if you find
+      the letters, you will get "wf48+5m" and if you search this, you get to the
+      "Euromast"
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 4
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g6-a4.png
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 15
+    <GameChapterId>k__BackingField: 10
+    <Story>k__BackingField: In the center of the square there is a remarkable statue
+      of an angel. On his crown side(look at the items in his hands) there are some
+      sculptures of kings and you should pay attention to the third king from the
+      left
+    <Question>k__BackingField: "Who am I? I\u2019m someone associated with what that
+      king is famous for?"
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: "Zoltan Hajos \u2013 scientist,Gedeon Barcza \u2013
+      chess player,B\xE9la Rajki-Reich \u2013 swimmer,L\xE1szl\xF3 Krasznahorkai
+      \u2013 writer"
+    <RightAnswer>k__BackingField: "L\xE1szl\xF3 Krasznahorkai \u2013 writer"
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch2-q5-min.jpg
+    <Prize>k__BackingField: 25
+    <Description>k__BackingField: "a writer is the answer since the king \u201CColoman
+      of Hungary\u201D was famous for being \u201Cbook-lover\u201D or being called
+      the \u201Cbookish\u201D king."
+    <LocationLong>k__BackingField: 19.07786
+    <LocationLat>k__BackingField: 47.51494
+    <SortNumber>k__BackingField: 2
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch2-a5-min.jpg
+    <LocationRadius>k__BackingField: 50
+  - <Id>k__BackingField: 17
+    <GameChapterId>k__BackingField: 11
+    <Story>k__BackingField: 'Find out the hidden message in this phrase. Use the
+      top picture as a help. Skipping some letters won''t hurt!
+
+
+      "RCEIASDT
+      TEHREC PIHARNANSUEM AEGRAAILNS"!'
+    <Question>k__BackingField: which is the answer?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Sisterian numbering,Cistercian numerals,Cistercian
+      numbers
+    <RightAnswer>k__BackingField: Cistercian numerals
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g6-q2.png
+    <Prize>k__BackingField: 25
+    <Description>k__BackingField: 'Look at the picture and it will reveal the code.
+
+
+      Like
+      the bunny, skip the the letters on in between, and you get first the message
+      : " read the phrase again!"
+
+
+      if you start with the second letter, you
+      get the phrase" Cistercian numerals"'
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 2
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g6-a2.png
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 12
+    <GameChapterId>k__BackingField: 7
+    <Story>k__BackingField: "The statue of independence or \u201CHonved-szobor\u201D
+      celebrates the freedom fighters of the Hungarian War of Independence. On this
+      statue, there is a quote which is a symbolic phrase."
+    <Question>k__BackingField: What does this quote mean?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Free the country,Free motherland,Victory is ours,Glory
+      of Victory
+    <RightAnswer>k__BackingField: Free motherland
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch1-q2-min.jpg
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: "the quote is \u201Cszabad hazaert\u201D which
+      is translated as \u201Cfree motherland\u201D\nTo the next stop on Buda castle!\n"
+    <LocationLong>k__BackingField: 19.035185
+    <LocationLat>k__BackingField: 47.49959
+    <SortNumber>k__BackingField: 2
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch1-a2-min.jpg
+    <LocationRadius>k__BackingField: 25
+  - <Id>k__BackingField: 4
+    <GameChapterId>k__BackingField: 2
+    <Story>k__BackingField: The grand white bridge of Rotterdam stands before you,
+      and its beauty can be appreciated from afar. Approach the bridge closely and
+      observe it carefully. As you gaze at this architectural wonder, you might notice
+      a nickname associated with it, adding to its allure. What is the nickname?
+    <Question>k__BackingField: What is the nickname of the bridge?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: white lady,white boat,swan
+    <RightAnswer>k__BackingField: swan
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-ch2-q4-min.jpg
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: 'The prominent white bridge, as you can easily
+      tell, bears a striking resemblance to a Swan, which is why it has earned the
+      famous nickname associated with it.
+
+
+
+      Now, for your next task, simply
+      continue along Wasteland street and then Westzeedijk street until you arrive
+      at Kievitslaan street on your left. Follow this street, and after covering
+      a distance of 100 meters, you will encounter the entrance to the historic Schoonoord
+      garden. Enjoy your journey!'
+    <LocationLong>k__BackingField: 4.482926
+    <LocationLat>k__BackingField: 51.912216
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-ch2-a4-min.jpg
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 11
+    <GameChapterId>k__BackingField: 7
+    <Story>k__BackingField: 'Holy trinity statue was built during the black plague
+      and was a symbol of warding off the disease. As you can see, there are many
+      people with different objects. '
+    <Question>k__BackingField: who am i if I am someone related to the thing that
+      "St. Joseph" holds?!
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: "G\xE1bor Ubrizsy - botanist,Gyula Aggh\xE1zy \u2013
+      painter,Lea Gottlieb \u2013 business woman,B\xE9la Guttmann-football player"
+    <RightAnswer>k__BackingField: "G\xE1bor Ubrizsy - botanist"
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch1-q1-min.jpg
+    <Prize>k__BackingField: 25
+    <Description>k__BackingField: "More information can be found by googling about
+      the statue but the item is \u201Clily\u201D and the person for the answer must 
+      be a botanist.\nOn to the next statue, which is a symbol of the War of Independence."
+    <LocationLong>k__BackingField: 19.033518
+    <LocationLat>k__BackingField: 47.501713
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch1-a1-min.jpg
+    <LocationRadius>k__BackingField: 40
+  - <Id>k__BackingField: 5
+    <GameChapterId>k__BackingField: 3
+    <Story>k__BackingField: 'This garden remained a private property for many years,
+      but recently, it has been opened to the public. Visitors have been captivated
+      by its allure, especially due to the presence of fascinating small waterfalls
+      and ponds scattered throughout the area.
+
+
+      Your next task is to seek
+      out a specific pond in which the water flows from an animal''s mouth! When
+      you discover this unique feature, take a moment to appreciate the creativity
+      and charm of this enchanting garden. Enjoy your exploration!'
+    <Question>k__BackingField: Which animal is it?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: dog,frog,cat,fish
+    <RightAnswer>k__BackingField: frog
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-ch3-q5-min.jpg
+    <Prize>k__BackingField: 20
+    <Description>k__BackingField: If you search the garden diligently enough, you
+      will undoubtedly come across the pond with a frog on top of it, from which
+      the water gracefully flows. Keep your eyes peeled for this delightful sight,
+      and once you find it, take a moment to admire the whimsical touch it adds to
+      the already captivating Schoonoord Historical Garden. Happy exploring!
+    <LocationLong>k__BackingField: 4.472839
+    <LocationLat>k__BackingField: 51.908714
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch3-a5-min.png
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 8
+    <GameChapterId>k__BackingField: 5
+    <Story>k__BackingField: As you navigate around the lake, keep an eye out for
+      a monument featuring an animal. Remarkably, this statue is situated on a concealed
+      church ground that dates back to the 17th century! Isn't that fascinating?
+      Your quest lies on the lake's east side; initiate your search there.
+    <Question>k__BackingField: Which stone-carved animal can be spotted in the park?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Dolphin,Pelican,Bee,Deer
+    <RightAnswer>k__BackingField: Pelican
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch2-q3.jpg
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: ' A pelican statue stands in the area.
+
+
+
+      For
+      the upcoming question, please follow the indicated point below:'
+    <LocationLong>k__BackingField: 4.5281606
+    <LocationLat>k__BackingField: 51.93743
+    <SortNumber>k__BackingField: 2
+    <AnswerMediaUrl>k__BackingField: 
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 9
+    <GameChapterId>k__BackingField: 6
+    <Story>k__BackingField: 'Within the graveyard, an area commemorates those who
+      perished during WWII. You''ll find "The Falling Man" monument within the Dutch
+      Military Field of Honor. Can you identify the animal carved on the stone?
+
+'
+    <Question>k__BackingField: Can you identify the animal carved on the stone?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Lion,Bear,Eagle,Tiger
+    <RightAnswer>k__BackingField: Lion
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch3-q4.jpg
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: A lion holding a sword is intricately carved beneath
+      the monument.
+    <LocationLong>k__BackingField: 4.4939766
+    <LocationLat>k__BackingField: 51.93463
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch3-a4.jpg
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 13
+    <GameChapterId>k__BackingField: 7
+    <Story>k__BackingField: 'Buda Castle is a fantastic place to be in and a must-see
+      castle in Budapest. There are many beauties in this castle and while you are
+      enjoying them all, try to spot the fountain inside. The Matthias Fountain,
+      with some people carved into it, is your next destination. '
+    <Question>k__BackingField: 'Who am I? Below King Matthias, there is a person
+      holding an object. I somehow relate to this object, who am I?! '
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: "Gergely Bog\xE1nyi \u2013 pianist,Michael Curtiz \u2013
+      film direct,Gyula Andr\xE1ssy \u2013 politician,J\xE1nos Irinyi -inventor"
+    <RightAnswer>k__BackingField: "Gergely Bog\xE1nyi \u2013 pianist"
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch1-q3-min.jpg
+    <Prize>k__BackingField: 25
+    <Description>k__BackingField: 'as you can see the man has a horn in his hand
+      and the musician is the answer!
+
+      To the next chapter where the heroes
+      stand, The Heroes'' Square!'
+    <LocationLong>k__BackingField: 19.039072
+    <LocationLat>k__BackingField: 47.495655
+    <SortNumber>k__BackingField: 3
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g5-ch1-a3-min.jpg
+    <LocationRadius>k__BackingField: 30
+  - <Id>k__BackingField: 16
+    <GameChapterId>k__BackingField: 11
+    <Story>k__BackingField: 'Decode the sentence using the words given top, which
+      is the answer?
+
+      You can use dictionary if you don''t know the languages!'
+    <Question>k__BackingField: (1)"...." the (2)"....." code ?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: tell / secret,find / hidden,discover / pass,give /
+      password
+    <RightAnswer>k__BackingField: find / hidden
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g6-q1.png
+    <Prize>k__BackingField: 25
+    <Description>k__BackingField: use google translate (or any other translators)
+      to find the answer.
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: 
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 10
+    <GameChapterId>k__BackingField: 6
+    <Story>k__BackingField: The legacy of war is invariably grim. History shows us
+      that it spares no one, especially the defenseless and innocent. Among the graves,
+      a monument depicting a mother and child, forever separated by death, stands
+      as a poignant reminder of this truth. Locate this monument and solve the riddle
+      inscribed beneath it.
+    <Question>k__BackingField: If (4,2) = M and (1,3) = R, can you decipher the word
+      using this pattern? (2,4) (3,5) (5,1) (3,2)
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Hide,Find,Home,Fold
+    <RightAnswer>k__BackingField: Hide
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch3-q5.jpg
+    <Prize>k__BackingField: 40
+    <Description>k__BackingField: "As you can see in this picture, the rows and the
+      columns were given in examples (M & R shown in the red circles) and if you
+      follow the rule you get to the word \u201Chide\u201D\n"
+    <LocationLong>k__BackingField: 4.491805
+    <LocationLat>k__BackingField: 51.939793
+    <SortNumber>k__BackingField: 2
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch3-a5.jpg
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 2
+    <GameChapterId>k__BackingField: 1
+    <Story>k__BackingField: Some artists like to leave behind subtle traces of the
+      materials used or the creative process involved in their art. Interestingly,
+      the Markthal was cleverly designed to incorporate this concept in a playful
+      manner. The ceiling of the Markthal is adorned with a magnificent picture,
+      and upon closer inspection, you will notice a metaphorical tool pointing upwards,
+      revealing the method behind its creation. This grand element serves as your
+      guide for the next step of your journey.
+    <Question>k__BackingField: What is the big tool you cannot miss seeing from Markthal?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Blaaktoren,Euromast,Witte Huis
+    <RightAnswer>k__BackingField: Blaaktoren
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/2.png
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: "When you stand inside the Markthal, or even outside
+      of it, you will readily notice that the building bears a striking resemblance
+      to a pencil, which amusingly earned it the nickname \"the pencil.\" And as
+      for the answer to this intriguing architectural puzzle, it lies in the name
+      of the building itself \u2013 \"Blaaktoren.\""
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 2
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/2a.png
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 3
+    <GameChapterId>k__BackingField: 1
+    <Story>k__BackingField: The Cube Houses truly stand out as unique buildings in
+      Rotterdam. There are numerous of them clustered together, displaying their
+      distinctive yellowish color. Notably, there is a passage that allows you to
+      stroll and appreciate the beauty of these architectural wonders. To locate
+      the "white house" (yes, that's correct, the white house!), simply inquire about
+      it and find your way to a spot where you can view it from the Cube Houses site.
+      Take your time and enjoy the captivating sight!
+    <Question>k__BackingField: Between you and the white house, there lies an old
+      festival of boats! What is that area called?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Old harbor,Dark harbor,Boat graveyard
+    <RightAnswer>k__BackingField: Old harbor
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-ch1-q3-min.jpg
+    <Prize>k__BackingField: 20
+    <Description>k__BackingField: 'If you find the perfect angle, you will be able
+      to spot the ",White House" also known as the "Witte Huis" in Dutch. It stands
+      as a white building on the other side of the water, with the "Oude Haven" or
+      the "Old Harbor" filled with old boats between you and the structure.
+
+
+
+      For
+      your next task, exit the Cube Houses area and cross over to the other side
+      of the Oude Haven. Pass by the Witte Huis and head southward, walking or riding
+      alongside the Nieuwe Maas. Continue westward for approximately 1 km, and there
+      you will witness the beauty of the next building in the game. Take your time
+      to appreciate the sights along the way!'
+    <LocationLong>k__BackingField: 4.4906645
+    <LocationLat>k__BackingField: 51.920135
+    <SortNumber>k__BackingField: 3
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g2-ch1-a3-min.jpg
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 7
+    <GameChapterId>k__BackingField: 5
+    <Story>k__BackingField: Begin by cycling around the park's expansive lake. This
+      serene lake provides an opportunity to immerse yourself in nature and enjoy
+      a leisurely time by the water.
+    <Question>k__BackingField: "can you tell where are these places comparing to
+      the center lake of the park? \u201CUitkijktoren Kralingseplas\u201D and \u201CHeemtuin
+      Kralingse Bos\u201D"
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: "North \u2013 west,East \u2013 north,West \u2013 north,East
+      \u2013 west"
+    <RightAnswer>k__BackingField: "West \u2013 north"
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch2-q2.jpg
+    <Prize>k__BackingField: 10
+    <Description>k__BackingField: 'As you can see on the map, the part mentioned
+      are on the west and north side of the lake.
+
+
+      And as from now, next questions
+      will be shown if you are in the location of the park! Go to the following location:'
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g3-ch2-a2.jpg
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 20
+    <GameChapterId>k__BackingField: 11
+    <Story>k__BackingField: 'Jim is sending hidden message to Pam to meet her after
+      work hours! but he doesn''t want anybody know where the place is. He only sent
+      1 message and it''s only the time the want to meet up. where do you think the
+      place is? The time Jim wants to see Pam is:
+
+      "6:15:23"
+
+      the hidden
+      message of Jim is: "Look at your watch I gave it to you and at the time given
+      come to the direction of which the clock is telling you!"'
+    <Question>k__BackingField: where does Jim want to meet Pam?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: "Angela\u2019s,Pizza by Alfredo,The mall,Phyllis\u2019s,Dwight\u2019s,Alfredo's
+      pizza cafe"
+    <RightAnswer>k__BackingField: Alfredo's pizza cafe
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g6-q5.png
+    <Prize>k__BackingField: 35
+    <Description>k__BackingField: if you draw the handles of the time, it'll creat
+      an arrow pointing to "Alfredo's pizza cafe" and that's the place they wanna
+      meet up!
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 5
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g6-a5.png
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 23
+    <GameChapterId>k__BackingField: 13
+    <Story>k__BackingField: 'Look at the pattern given. somehow the square shape
+      changes into the circles! now by analyzing the pattern:'
+    <Question>k__BackingField: Can you guess which shape will complete the pattern?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: 1,2,3,4
+    <RightAnswer>k__BackingField: 2
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g10-q2.PNG
+    <Prize>k__BackingField: 25
+    <Description>k__BackingField: by spinning the squares, you can see the colors
+      combine and make a new color. And by applying this rule, you can find out the
+      answer is 2
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 2
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g10-a2.PNG
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 25
+    <GameChapterId>k__BackingField: 13
+    <Story>k__BackingField: Here there are a few sticks (or matches as you like it)
+      and they put together to make this number (582). Now you only are allowed to
+      move 1 stick and put it wherever you like.
+    <Question>k__BackingField: 'What is the biggest number you can make but moving
+      only 1 stick?
+
+      Think outside the box!'
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: 992,1592,882,902
+    <RightAnswer>k__BackingField: 1592
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g10-q4.PNG
+    <Prize>k__BackingField: 30
+    <Description>k__BackingField: 'Thinking outside the box leads to taking one stick
+      out and put it before the numbers so we can have "1000" in our number.
+
+      And
+      by knowing that the stick that leads to do this and also not making other numbers
+      meaningless, the 8 will change into 9 and the result will be 1592'
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 4
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g10-a4.PNG
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 21
+    <GameChapterId>k__BackingField: 13
+    <Story>k__BackingField: There are 3 animals in each row. but in one of the rows
+      there is an imposter among the animals! (which means it does not belong to
+      that group)
+    <Question>k__BackingField: Which group of animals has the imposter among them?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: "Crocodile \u2013 Snake \u2013 Lizard,Eagle \u2013
+      Bat \u2013 Sparrow,Ant \u2013 Bee \u2013 Cockroach,Lion - Mouse - Horse"
+    <RightAnswer>k__BackingField: "Eagle \u2013 Bat \u2013 Sparrow"
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g10-q1.jpg
+    <Prize>k__BackingField: 20
+    <Description>k__BackingField: 'All options have their own category and in which
+      all the 3 animals are in that category (in order: mammals, reptiles, birds
+      and insects)
+
+      but "Bat" is not a bird and it is a mammal! so the answer
+      is 3!'
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g10-a1.jpg
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 24
+    <GameChapterId>k__BackingField: 13
+    <Story>k__BackingField: 'Here before you there are 4 portals. When you go into
+      one of them you will come out from another one (and not the same one). Here''s
+      the rules for these portals:
+
+      -If you go inside No.1, you will not come
+      out from No.2 .
+
+      -If you go inside No.2, you will come out from either
+      No. 1 or No.3 .
+
+      -If you go inside No.3, you will come out from an Odd
+      number!
+
+      -Each portal only opens to one specific portal and that is only
+      a one-way trip! (you cant go back to the same place from end to start!)'
+    <Question>k__BackingField: If you go inside No.4 , from which portal Number you
+      will come out?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: 1,2,3,4
+    <RightAnswer>k__BackingField: 2
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g10-q3.PNG
+    <Prize>k__BackingField: 25
+    <Description>k__BackingField: "You have to start with the last clue which leads
+      to No.3 into No.1. Then from that you can conclude No.2 will link to No.1.
+      And finally you will find out that No.1 will go into No.4. \nwith all said,
+      the only No. remaining is going to be No.2!"
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 3
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/g10-a3.PNG
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 26
+    <GameChapterId>k__BackingField: 15
+    <Story>k__BackingField: 'verifying:'
+    <Question>k__BackingField: 'select the verification code:'
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: 500832,631485,885412,712416
+    <RightAnswer>k__BackingField: 500832
+    <MediaUrl>k__BackingField: 
+    <Prize>k__BackingField: 100
+    <Description>k__BackingField: 
+    <LocationLong>k__BackingField: 0
+    <LocationLat>k__BackingField: 0
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: 
+    <LocationRadius>k__BackingField: 
+  - <Id>k__BackingField: 27
+    <GameChapterId>k__BackingField: 16
+    <Story>k__BackingField: you are in valiasr Square and this is a test game
+    <Question>k__BackingField: what is the name of this square
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Azadi,Valiasr,Vanak
+    <RightAnswer>k__BackingField: Valiasr
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: the answer is Valiasr!!!
+    <LocationLong>k__BackingField: 51.40705
+    <LocationLat>k__BackingField: 35.711517
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <LocationRadius>k__BackingField: 200
+  - <Id>k__BackingField: 28
+    <GameChapterId>k__BackingField: 16
+    <Story>k__BackingField: second Q of the first test chapter
+    <Question>k__BackingField: what is the shape of the Valiasr square!?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: square,circle,triangle
+    <RightAnswer>k__BackingField: circle
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: the shape is round = circle
+    <LocationLong>k__BackingField: 51.40705
+    <LocationLat>k__BackingField: 35.71167
+    <SortNumber>k__BackingField: 2
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <LocationRadius>k__BackingField: 200
+  - <Id>k__BackingField: 29
+    <GameChapterId>k__BackingField: 16
+    <Story>k__BackingField: east of the valiasr square
+    <Question>k__BackingField: what is the name of the bolivar there!?
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: keshavarz,azadi,tehransar
+    <RightAnswer>k__BackingField: keshavarz
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: answer is keshavarz!
+    <LocationLong>k__BackingField: 51.40001
+    <LocationLat>k__BackingField: 35.70955
+    <SortNumber>k__BackingField: 3
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <LocationRadius>k__BackingField: 1000
+  - <Id>k__BackingField: 30
+    <GameChapterId>k__BackingField: 17
+    <Story>k__BackingField: we are going to Vanak square!
+    <Question>k__BackingField: what is the name of the square
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Vanak,Valiasr,Azadi
+    <RightAnswer>k__BackingField: Vanak
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: this is Vanak square
+    <LocationLong>k__BackingField: 51.41
+    <LocationLat>k__BackingField: 35.757473
+    <SortNumber>k__BackingField: 1
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <LocationRadius>k__BackingField: 200
+  - <Id>k__BackingField: 31
+    <GameChapterId>k__BackingField: 17
+    <Story>k__BackingField: a country name is around here!
+    <Question>k__BackingField: name that country-named street connected to vanak
+      square?!
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: Brazil,Germany,France
+    <RightAnswer>k__BackingField: Brazil
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: the brazil is the answer
+    <LocationLong>k__BackingField: 51.407825
+    <LocationLat>k__BackingField: 35.75576
+    <SortNumber>k__BackingField: 2
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <LocationRadius>k__BackingField: 1000
+  - <Id>k__BackingField: 32
+    <GameChapterId>k__BackingField: 17
+    <Story>k__BackingField: highway all the way!
+    <Question>k__BackingField: what is highway east to the vanak square?!
+    <QuestionType>k__BackingField: 
+    <Options>k__BackingField: haghani,azadi,tehranpars
+    <RightAnswer>k__BackingField: haghani
+    <MediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <Prize>k__BackingField: 15
+    <Description>k__BackingField: haghani is the right answer
+    <LocationLong>k__BackingField: 51.413216
+    <LocationLat>k__BackingField: 35.757626
+    <SortNumber>k__BackingField: 3
+    <AnswerMediaUrl>k__BackingField: https://storage.googleapis.com/game-652520b9b6aed5393bb0dc4d/test.png
+    <LocationRadius>k__BackingField: 400
