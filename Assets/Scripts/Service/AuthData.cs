@@ -25,6 +25,8 @@ namespace Piranest
         [field: SerializeField]
         public List<Coupon> Coupons { get; set; }
 
+
+
         public event Action<User> OnAuthSuccess;
         public event Action<User> OnUpdateUser;
         public event Action<Account> OnAccountChange;
@@ -32,6 +34,7 @@ namespace Piranest
 
         private const string ACCOUNT_TABLE_ID = "6550d82e75e62b435ba7451b";
         private const string VOUCHER_TABLE_ID = "6550d82e75e62b435ba7451d";
+        private const string USER_TABLE_ID = "652520bbb6aed5393bb0dc8a";
 
 
         public override async Task Init()
@@ -119,8 +122,8 @@ namespace Piranest
                 OnFail?.Invoke(e);
                 Debug.LogError($"Get Account:{e.Message}");
             }
-
         }
+
 
         public async Task GetCoupons(int userId, Action<DynamicPixelsException> OnFail = null)
         {
@@ -146,6 +149,26 @@ namespace Piranest
                 Debug.LogError($"Get Account:{e.Message}");
             }
         }
+
+        public async Task<User> GetUser(int userId)
+        {
+
+            var find = new FindByIdParams
+            {
+                RowId = userId,
+                TableId = USER_TABLE_ID
+            };
+            try
+            {
+                var res = await ServiceHub.Table.FindById<User, FindByIdParams>(find);
+                return res.Row;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
 
     }
 }

@@ -18,3 +18,22 @@ MonoBehaviour:
     <Earned>k__BackingField: 2000
     <Spent>k__BackingField: 20
     <Remaining>k__BackingField: 1980
+  <Coupons>k__BackingField:
+  - <Id>k__BackingField: 11
+    <VendourCouponId>k__BackingField: 1
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: 45
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: 64UKSF
+  - <Id>k__BackingField: 12
+    <VendourCouponId>k__BackingField: 1
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: 45
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: RDIPXA
+  - <Id>k__BackingField: 13
+    <VendourCouponId>k__BackingField: 1
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: 45
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: 6VG0BI
