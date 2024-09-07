@@ -17,10 +17,6 @@ namespace Piranest.UI
         [SerializeField] private Button submitBtn;
         [SerializeField] private Sprite nonSelectedAnswerSprite, selectedAnswerSprite;
 
-        [Space]
-        [SerializeField] private float changeColorDuration = .5f;
-        [SerializeField] private Color rightAnswer, wrongAnswer;
-
         [Header("Header")]
         [SerializeField] private Transform chapterHeaderHolder;
         [SerializeField] private ChapterHeaderInfo chapterInfo;
@@ -30,9 +26,6 @@ namespace Piranest.UI
 
         private int index;
         private int rightAnswerIndex;
-        private bool isAnswered;
-
-
 
         public override void InitView()
         {
@@ -43,7 +36,6 @@ namespace Piranest.UI
         public void UpdateInfo(GameChapterQuestion question, Action<QuestionStateType> OnSubmit)
         {
             Show();
-            isAnswered = false;
             submitBtn.interactable = false;
             var questions = question.Options.Split(',').ToList();
             HandleAnswers(questions);
@@ -54,12 +46,7 @@ namespace Piranest.UI
 
             submitBtn.SetEvent(() =>
             {
-                if (isAnswered) return;
-                isAnswered = true;
-                StartCoroutine(Utility.DoAfter(changeColorDuration + .1f, ShowAnswer, () =>
-                {
-                    OnSubmit?.Invoke(IsRightAnswer() ? QuestionStateType.Right : QuestionStateType.Wrong);
-                }));
+                OnSubmit?.Invoke(IsRightAnswer() ? QuestionStateType.Right : QuestionStateType.Wrong);
             });
         }
 
@@ -85,17 +72,6 @@ namespace Piranest.UI
             }
         }
 
-        private void ShowAnswer()
-        {
-            var card = answers[index];
-            var color = IsRightAnswer() ? rightAnswer : wrongAnswer;
-
-            var tween = card.ChangeColor(changeColorDuration / 2, color);
-            tween.onComplete += () =>
-            {
-                card.ChangeColor(changeColorDuration / 2, Color.white);
-            };
-        }
 
         public bool IsRightAnswer()
         {

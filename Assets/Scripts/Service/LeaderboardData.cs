@@ -16,7 +16,7 @@ namespace Piranest
     {
 
         [field: SerializeField]
-        public List<Account> AllAcounts { get; set; }
+        public List<Account> AllAccounts { get; set; }
 
         private const string ACCOUNT_TABLE_ID = "6550d82e75e62b435ba7451b";
 
@@ -38,8 +38,8 @@ namespace Piranest
             try
             {
                 var response = await ServiceHub.Table.Find<Account, FindParams>(findParam);
-                AllAcounts = response.List;
-                AllAcounts = AllAcounts.OrderByDescending(a => a.Earned).ToList();
+                AllAccounts = response.List;
+                AllAccounts = AllAccounts.OrderByDescending(a => a.Earned).ToList();
                 OnGetLeaderboard?.Invoke();
             }
             catch (DynamicPixelsException e)
@@ -51,7 +51,7 @@ namespace Piranest
 
         public List<Account> GetTop3()
         {
-            return AllAcounts.Take(3).ToList();
+            return AllAccounts.Take(3).ToList();
         }
 
 

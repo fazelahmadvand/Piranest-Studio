@@ -52,7 +52,7 @@ namespace Piranest.UI.Menu
         private async void HandleLeaderboard()
         {
             UpdateTop3();
-            var all = leaderboardData.AllAcounts;
+            var all = leaderboardData.AllAccounts;
             int userIndex = all.FindIndex(a => a.UserId == authData.User.Id);
 
             bool isUserInTop3 = userIndex <= 2;
@@ -76,7 +76,7 @@ namespace Piranest.UI.Menu
                 {
                     int rank = all.IndexOf(data) + 1;
                     bool isLocalPlayer = data.UserId == authData.User.Id;
-                    card.UpdateCard(rank, user.Name, data.Remaining, isLocalPlayer);
+                    card.UpdateCard(rank, user.Name, data.Earned, isLocalPlayer);
                 }
             }
         }

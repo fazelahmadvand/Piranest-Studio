@@ -90,7 +90,10 @@ namespace Piranest
                     currentGameState.type = GameStateType.Question;
                     break;
                 case GameStateType.Question:
+                    break;
+                case GameStateType.QuestionResult:
                     currentGameState.NextQuestion(gameData);
+
                     break;
             }
 
@@ -100,6 +103,9 @@ namespace Piranest
         public void SubmitAnswer(QuestionStateType state)
         {
             currentGameState.UpdateQuestionAnswer(state);
+            currentGameState.type = GameStateType.QuestionResult;
+            OnGameStateChange?.Invoke(currentGameState);
+
         }
 
 
@@ -119,11 +125,12 @@ namespace Piranest
         public List<ChapterInfo> chaptersInfo;
         private int questionIndex;
         private int chapterIndex;
-
+        public bool asnwerIsTrue;
 
         public void UpdateQuestionAnswer(QuestionStateType questionState)
         {
             chaptersInfo[chapterIndex].questionStates[questionIndex] = questionState;
+            asnwerIsTrue = questionState == QuestionStateType.Right;
         }
 
         public void NextQuestion(GameData gameData)
@@ -136,7 +143,9 @@ namespace Piranest
                 return;
             }
             currentQuestion = questions[questionIndex];
+            type = GameStateType.Question;
         }
+
         public void NextChapter(GameData gameData)
         {
             chapterIndex++;
@@ -170,6 +179,7 @@ namespace Piranest
         Game,
         Chapter,
         Question,
+        QuestionResult,
         Finished
     }
 }

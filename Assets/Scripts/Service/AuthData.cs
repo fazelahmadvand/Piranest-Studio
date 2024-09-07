@@ -113,6 +113,13 @@ namespace Piranest
             try
             {
                 var response = await ServiceHub.Table.Find<Account, FindParams>(findParam);
+                //var find = new FindByIdParams()
+                //{
+                //    RowId = userId,
+                //    TableId = ACCOUNT_TABLE_ID,
+                //};
+                //var res = await ServiceHub.Table.FindById<Account, FindByIdParams>(find);
+                //Account = res.Row;
                 Account = response.List.Where(l => l.UserId == userId).FirstOrDefault();
                 OnAccountChange?.Invoke(Account);
                 await GetCoupons(userId);

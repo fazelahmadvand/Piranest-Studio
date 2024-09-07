@@ -16,11 +16,11 @@ namespace Piranest.UI.Menu
         [SerializeField] private TMP_Text rankTxt;
 
         [SerializeField] private AuthData authData;
+        [SerializeField] private LeaderboardData leaderboardData;
 
         public override void InitView()
         {
             base.InitView();
-            rankTxt.text = "1";
             editProfileView.InitView();
             editProfileButton.SetEvent(() =>
             {
@@ -49,16 +49,25 @@ namespace Piranest.UI.Menu
             });
 
             authData.OnAccountChange += OnAccountChange;
+            leaderboardData.OnGetLeaderboard += OnGetLeaderboard;
         }
 
         private void OnDestroy()
         {
             authData.OnAccountChange -= OnAccountChange;
+            leaderboardData.OnGetLeaderboard -= OnGetLeaderboard;
         }
 
         private void OnAccountChange(Model.Account account)
         {
             gemTxt.text = account.Remaining.ToString();
+        }
+
+        private void OnGetLeaderboard()
+        {
+            int rank = leaderboardData.AllAccounts.FindIndex(a => a.UserId == authData.User.Id);
+            rank++;
+            rankTxt.text = rank.ToString();
         }
 
         public override void Show()

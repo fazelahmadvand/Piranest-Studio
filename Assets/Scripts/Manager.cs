@@ -36,15 +36,12 @@ namespace Piranest
 
             await Task.Delay(1000);
             loading.UpdateText("Getting Data From Server");
-            foreach (var data in servicesData)
-            {
-                await data.Init();
-            }
+            await GetServerData();
 
             await Task.Delay(10);
             await textureDownloader.Download((total, current) =>
             {
-                loading.UpdateText($"Downloadng Images {total} / {current}");
+                loading.UpdateText($"Downloading Images {total} / {current}");
             });
 
             loading.UpdateText($"");
@@ -53,6 +50,18 @@ namespace Piranest
 
 
         }
+
+        [ContextMenu("GetServerData")]
+        private async Task GetServerData()
+        {
+            foreach (var data in servicesData)
+            {
+                await data.Init();
+                Debug.Log($"Service: {data.name}");
+            }
+        }
+
+
 
     }
 }
