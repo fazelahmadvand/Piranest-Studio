@@ -10,7 +10,7 @@ namespace Piranest.UI.Menu
     public class EditProfileView : View
     {
         [SerializeField] private TMP_InputField usernameInputField;
-        [SerializeField] private TMP_Text usernameText , usernameTextInProfile;
+        [SerializeField] private TMP_Text usernameText, usernameTextInProfile;
         [SerializeField] private Button saveChangesBtn, cancelBtn;
         [SerializeField] private AuthData authData;
         [SerializeField] private UserSaveData userSaveData;
@@ -31,6 +31,7 @@ namespace Piranest.UI.Menu
             authData.OnAuthSuccess -= SetUserName;
             authData.OnUpdateUser -= OnUserUpdate;
         }
+
         private void SetUserName(User user)
         {
             usernameText.text = user.Username;

@@ -7,6 +7,7 @@ namespace Piranest.UI.Menu
 {
     public class LeaderboardView : View
     {
+        [SerializeField] private View authView;
         [SerializeField] private HeaderView headerView;
         [SerializeField] private List<TopLeaderboardCardView> top3Cards = new();
 
@@ -29,8 +30,15 @@ namespace Piranest.UI.Menu
 
         public override void Show()
         {
-            base.Show();
-            headerView.UpdatePage("Leaderboard");
+            if (AuthData.HasUser)
+            {
+                base.Show();
+                headerView.UpdatePage("Leaderboard");
+            }
+            else
+            {
+                authView.Show();
+            }
         }
 
         private void OnDestroy()

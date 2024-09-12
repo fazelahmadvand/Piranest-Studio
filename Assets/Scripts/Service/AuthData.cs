@@ -6,6 +6,7 @@ using DynamicPixels.GameService.Services.Table;
 using DynamicPixels.GameService.Services.Table.Models;
 using DynamicPixels.GameService.Services.User.Models;
 using Piranest.Model;
+using Piranest.SaveSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Piranest
         [field: SerializeField]
         public List<Coupon> Coupons { get; set; }
 
-
+        [SerializeField] private UserSaveData userSaveData;
 
         public event Action<User> OnAuthSuccess;
         public event Action<User> OnUpdateUser;
@@ -36,10 +37,24 @@ namespace Piranest
         private const string VOUCHER_TABLE_ID = "6550d82e75e62b435ba7451d";
         private const string USER_TABLE_ID = "652520bbb6aed5393bb0dc8a";
 
+        public static bool HasUser { get; private set; }
 
         public override async Task Init()
         {
-            await Task.Yield();
+            HasUser = userSaveData.HasUser();
+            if (userSaveData.HasUser())
+            {
+                var data = userSaveData.Data;
+                var loginParam = new LoginWithEmailParams()
+                {
+                    email = data.email,
+                    password = data.password,
+                };
+                await Login(loginParam, (e) =>
+                {
+                    Debug.Log($"---->Login Error: {e.Message}");
+                });
+            }
         }
 
         public async Task SignUp(RegisterWithEmailParams register, Action<DynamicPixelsException> OnFail)
@@ -48,8 +63,9 @@ namespace Piranest
             {
                 var response = await ServiceHub.Authentication.RegisterWithEmail(register);
                 User = response.User;
-                await GetAccount(User.Id);
+                await CreateAccount();
                 OnAuthSuccess?.Invoke(User);
+                HasUser = true;
 
             }
             catch (DynamicPixelsException e)
@@ -67,6 +83,7 @@ namespace Piranest
                 User = response.User;
                 await GetAccount(User.Id);
                 OnAuthSuccess?.Invoke(User);
+                HasUser = true;
 
             }
             catch (DynamicPixelsException e)
@@ -95,6 +112,32 @@ namespace Piranest
             }
         }
 
+        private async Task CreateAccount()
+        {
+            var newAccount = new Account()
+            {
+                CurrencyId = 1,
+                Earned = 200,
+                Spent = 0,
+                Remaining = 200,
+                UserId = User.Id,
+            };
+            var insertParam = new InsertParams()
+            {
+                Data = newAccount,
+                TableId = ACCOUNT_TABLE_ID,
+            };
+            try
+            {
+                var response = await ServiceHub.Table.Insert<Account, InsertParams>(insertParam);
+                OnAccountChange?.Invoke(newAccount);
+            }
+            catch (DynamicPixelsException e)
+            {
+                Debug.Log("Create Account: " + e.Message);
+            }
+        }
+
         public async Task GetAccount(int userId, Action<DynamicPixelsException> OnFail = null)
         {
             var findParam = new FindParams
@@ -113,13 +156,6 @@ namespace Piranest
             try
             {
                 var response = await ServiceHub.Table.Find<Account, FindParams>(findParam);
-                //var find = new FindByIdParams()
-                //{
-                //    RowId = userId,
-                //    TableId = ACCOUNT_TABLE_ID,
-                //};
-                //var res = await ServiceHub.Table.FindById<Account, FindByIdParams>(find);
-                //Account = res.Row;
                 Account = response.List.Where(l => l.UserId == userId).FirstOrDefault();
                 OnAccountChange?.Invoke(Account);
                 await GetCoupons(userId);

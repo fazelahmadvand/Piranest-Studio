@@ -6,6 +6,7 @@ namespace Piranest.UI.Menu
 {
     public class ProfileView : View
     {
+        [SerializeField] private View authView;
         [SerializeField] private CouponView couponView;
         [SerializeField] private Button editProfileButton, couponBtn;
         [SerializeField] private EditProfileView editProfileView;
@@ -72,8 +73,15 @@ namespace Piranest.UI.Menu
 
         public override void Show()
         {
-            base.Show();
-            headerView.UpdatePage("Profile");
+            if (AuthData.HasUser)
+            {
+                base.Show();
+                headerView.UpdatePage("Profile");
+            }
+            else
+            {
+                authView.Show();
+            }
         }
 
         public override void Hide()

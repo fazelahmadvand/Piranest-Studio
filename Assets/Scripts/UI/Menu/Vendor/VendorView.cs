@@ -5,6 +5,7 @@ namespace Piranest.UI.Menu
 {
     public class VendorView : View
     {
+        [SerializeField] private View authView;
         [SerializeField] private VendorCardView vendorCard;
         [SerializeField] private Transform vendorHolder;
 
@@ -25,6 +26,7 @@ namespace Piranest.UI.Menu
 
         public override void Show()
         {
+            authView.Hide();
             base.Show();
             headerView.UpdatePage("Vendors");
         }

@@ -2082,6 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 6457543873061539476}
+  authView: {fileID: 1362624773}
   vendorCard: {fileID: 8173791136184810284, guid: d714b09ff2cf2c247b144b5c87a855d9,
     type: 3}
   vendorHolder: {fileID: 6457543873061539477}
@@ -3584,6 +3585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 1331172128}
+  authView: {fileID: 1362624773}
   headerView: {fileID: 150753908}
   top3Cards:
   - {fileID: 6093888058563994101}
@@ -4156,6 +4158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 505570399}
+  authView: {fileID: 1362624773}
   headerView: {fileID: 150753908}
   gameInfo: {fileID: 2075286532}
   chapterView: {fileID: 1806494009}
@@ -4829,6 +4832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 1596529239}
+  authView: {fileID: 1362624773}
   couponView: {fileID: 1303760584}
   editProfileButton: {fileID: 1596529238}
   couponBtn: {fileID: 1246752979}

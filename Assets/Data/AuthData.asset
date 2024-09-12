@@ -37,3 +37,4 @@ MonoBehaviour:
     <Amount>k__BackingField: 45
     <CurrencyId>k__BackingField: 1
     <Code>k__BackingField: 6VG0BI
+  userSaveData: {fileID: 11400000, guid: 0fe1599394bb35242bb84e0d2bfd4dfc, type: 2}

@@ -6,6 +6,7 @@ namespace Piranest.UI.Menu
 {
     public class GameView : View
     {
+        [SerializeField] private View authView;
         [SerializeField] private HeaderView headerView;
         [SerializeField] private GameInfoView gameInfo;
         [SerializeField] private GameChapterView chapterView;
@@ -149,10 +150,17 @@ namespace Piranest.UI.Menu
 
         public override void Show()
         {
-            headerView.UpdatePage("Game");
-            headerView.HandleBackButton(false);
-            pageHandler.Show();
-            base.Show();
+            if (AuthData.HasUser)
+            {
+                headerView.UpdatePage("Game");
+                headerView.HandleBackButton(false);
+                pageHandler.Show();
+                base.Show();
+            }
+            else
+            {
+                authView.Show();
+            }
         }
 
         public override void Hide()

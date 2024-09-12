@@ -28,6 +28,13 @@ namespace Piranest.SaveSystem
         {
             return "UserSaveData";
         }
+
+        [ContextMenu("Delete Data")]
+        public void DeleteKey()
+        {
+            if (PlayerPrefs.HasKey(KeyName()))
+                PlayerPrefs.DeleteKey(KeyName());
+        }
     }
 
     [System.Serializable]

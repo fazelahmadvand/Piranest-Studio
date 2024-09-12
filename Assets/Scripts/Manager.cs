@@ -38,26 +38,27 @@ namespace Piranest
             loading.UpdateText("Getting Data From Server");
             await GetServerData();
 
-            await Task.Delay(10);
+            await Task.Delay(100);
             await textureDownloader.Download((total, current) =>
             {
-                loading.UpdateText($"Downloading Images {total} / {current}");
+                loading.UpdateText($"Downloading Images {current} / {total}");
             });
 
             loading.UpdateText($"");
-            await Task.Delay(50);
+            await Task.Delay(500);
+            if (userSaveDataes.HasUser())
+                loading.Hide();
             OnInitialized?.Invoke();
 
 
         }
 
-        [ContextMenu("GetServerData")]
         private async Task GetServerData()
         {
             foreach (var data in servicesData)
             {
                 await data.Init();
-                Debug.Log($"Service: {data.name}");
+                Debug.Log($"Init Service: {data.name}");
             }
         }
 

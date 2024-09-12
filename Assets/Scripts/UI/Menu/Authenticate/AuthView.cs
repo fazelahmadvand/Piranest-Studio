@@ -1,4 +1,3 @@
-using DynamicPixels.GameService.Services.Authentication.Models;
 using DynamicPixels.GameService.Services.User.Models;
 using Piranest.Auth;
 using Piranest.SaveSystem;
@@ -34,41 +33,25 @@ namespace Piranest
             authData.OnAuthSuccess -= OnSignUpSuccess;
         }
 
-        public override void Hide()
-        {
-            base.Hide();
-            LoadingHandler.Instance.Hide();
-            signView.Hide();
-            loginView.Hide();
-        }
 
-        private async void OnInitialized()
+        private void OnInitialized()
         {
             if (userSaveData.HasUser())
             {
-                var data = userSaveData.Data;
-                var loginParam = new LoginWithEmailParams()
-                {
-                    email = data.email,
-                    password = data.password,
-                };
-                await authData.Login(loginParam, (e) =>
-                {
-                    Debug.Log($"---->Login Error: {e.Message}");
-                });
 
             }
             else
             {
                 signView.Show();
                 LoadingHandler.Instance.Hide();
-
             }
         }
 
         private void OnSignUpSuccess(User user)
         {
             Hide();
+            signView.Hide();
+            loginView.Hide();
             var data = signView.SignUpData();
             userSaveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2);
         }
@@ -76,6 +59,8 @@ namespace Piranest
         private void OnLoginSuccess(User user)
         {
             Hide();
+            signView.Hide();
+            loginView.Hide();
             var data = loginView.LoginData();
             userSaveData.LoginAndSignUpSaveUserData(data.Item1, data.Item2);
         }
