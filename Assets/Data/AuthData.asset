@@ -13,28 +13,13 @@ MonoBehaviour:
   m_Name: AuthData
   m_EditorClassIdentifier: 
   <Account>k__BackingField:
-    <UserId>k__BackingField: 72
-    <CurrencyId>k__BackingField: 0
-    <Earned>k__BackingField: 2000
-    <Spent>k__BackingField: 20
-    <Remaining>k__BackingField: 1980
-  <Coupons>k__BackingField:
-  - <Id>k__BackingField: 11
-    <VendourCouponId>k__BackingField: 1
-    <UserId>k__BackingField: 72
-    <Amount>k__BackingField: 45
+    <Id>k__BackingField: 26
+    <Owner>k__BackingField: 0
+    <UserId>k__BackingField: 77
     <CurrencyId>k__BackingField: 1
-    <Code>k__BackingField: 64UKSF
-  - <Id>k__BackingField: 12
-    <VendourCouponId>k__BackingField: 1
-    <UserId>k__BackingField: 72
-    <Amount>k__BackingField: 45
-    <CurrencyId>k__BackingField: 1
-    <Code>k__BackingField: RDIPXA
-  - <Id>k__BackingField: 13
-    <VendourCouponId>k__BackingField: 1
-    <UserId>k__BackingField: 72
-    <Amount>k__BackingField: 45
-    <CurrencyId>k__BackingField: 1
-    <Code>k__BackingField: 6VG0BI
+    <Earned>k__BackingField: 200
+    <Spent>k__BackingField: 0
+    <Remaining>k__BackingField: 200
+    <Hashedvalue>k__BackingField: 
+  <Coupons>k__BackingField: []
   userSaveData: {fileID: 11400000, guid: 0fe1599394bb35242bb84e0d2bfd4dfc, type: 2}

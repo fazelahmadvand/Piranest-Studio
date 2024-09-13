@@ -27,7 +27,7 @@ namespace Piranest.UI
             cityNameTxt.text = game.City;
             timeTxt.text = $"{game.TimeLimit} min";
             gameImg.sprite = textureSave.GetSprite(game.CoverImageUrl);
-            var chapters = gameData.GetChapter(game.Id);
+            var chapters = gameData.GetChapters(game.Id);
             storyTxt.text = game.Story;
             chapterCountTxt.text = chapters.Count.ToString();
             startLocationBtn.SetEvent(() =>

@@ -14,15 +14,30 @@ namespace Piranest
     [CreateAssetMenu(fileName = nameof(LeaderboardData), menuName = Utility.SCRIPTABLE_PATH + nameof(LeaderboardData))]
     public class LeaderboardData : BaseServiceData
     {
-
         [field: SerializeField]
         public List<Account> AllAccounts { get; set; }
+
+
+        [SerializeField] private AuthData authData;
+
 
         private const string ACCOUNT_TABLE_ID = "6550d82e75e62b435ba7451b";
 
         public event Action OnGetLeaderboard;
 
         public override async Task Init()
+        {
+            await GetLeaderboard();
+            authData.OnAccountUpdate += OnAccountUpdate;
+        }
+
+        private void OnDestroy()
+        {
+            authData.OnAccountUpdate -= OnAccountUpdate;
+
+        }
+
+        private async void OnAccountUpdate(Account obj)
         {
             await GetLeaderboard();
         }

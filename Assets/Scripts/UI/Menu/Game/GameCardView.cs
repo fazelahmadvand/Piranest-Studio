@@ -14,6 +14,8 @@ namespace Piranest.UI
 
         [SerializeField] private TextureSaveData textureSaveData;
 
+        [SerializeField] private GameData gameData;
+
         public void UpdateCard(Game game, Action OnClick)
         {
             Show();
@@ -21,10 +23,12 @@ namespace Piranest.UI
             btn.SetEvent(OnClick);
 
             locationTxt.text = game.City;
-            rewardTxt.text = game.Prize.ToString();
+            rewardTxt.text = gameData.CalculateGameReward(game.Id).ToString();
             nameTxt.text = game.Name;
         }
 
+
+        
 
     }
 }

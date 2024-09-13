@@ -31,6 +31,7 @@ namespace Piranest
         public event Action<User> OnAuthSuccess;
         public event Action<User> OnUpdateUser;
         public event Action<Account> OnAccountChange;
+        public event Action<Account> OnAccountUpdate;
         public event Action<List<Coupon>> OnCouponsChange;
 
         private const string ACCOUNT_TABLE_ID = "6550d82e75e62b435ba7451b";
@@ -121,6 +122,7 @@ namespace Piranest
                 Spent = 0,
                 Remaining = 200,
                 UserId = User.Id,
+                Hashedvalue = ""
             };
             var insertParam = new InsertParams()
             {
@@ -212,6 +214,26 @@ namespace Piranest
             }
         }
 
+        public async Task UpdateAccount(int amount)
+        {
+            Account.Earned += amount;
+            Account.Remaining += amount;
+            var findById = new FindByIdAndUpdateParams()
+            {
+                Data = Account,
+                RowId = Account.Id,
+                TableId = ACCOUNT_TABLE_ID,
+            };
+            try
+            {
+                var response = await ServiceHub.Table.FindByIdAndUpdate<Account, FindByIdAndUpdateParams>(findById);
+                OnAccountUpdate?.Invoke(Account);
+            }
+            catch (DynamicPixelsException e)
+            {
+                Debug.Log($"Update Account: {e.Message}");
+            }
+        }
 
     }
 }

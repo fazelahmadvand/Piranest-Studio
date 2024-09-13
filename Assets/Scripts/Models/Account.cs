@@ -7,18 +7,18 @@ namespace Piranest.Model
     {
         [field: SerializeField]
         [JsonProperty("id")]
-        public object Id { get; set; }
+        public int Id { get; set; }
 
         [field: SerializeField]
         [JsonProperty("owner")]
-        public object Owner { get; set; }
+        public int Owner { get; set; }
 
         [field: SerializeField]
         [JsonProperty("user_id")]
         public int UserId { get; set; }
 
         [field: SerializeField]
-        [JsonProperty("currency_id ")]
+        [JsonProperty("currency_id")]
         public int CurrencyId { get; set; }
 
         [field: SerializeField]
@@ -35,7 +35,7 @@ namespace Piranest.Model
 
         [field: SerializeField]
         [JsonProperty("hashedvalue")]
-        public object Hashedvalue { get; set; }
+        public string Hashedvalue { get; set; }
 
 
         public const string USER_ID = "user_id";

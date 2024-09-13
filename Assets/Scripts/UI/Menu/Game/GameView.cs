@@ -69,7 +69,7 @@ namespace Piranest.UI.Menu
             else if (state.type == GameStateType.Question)
             {
                 headerView.HandleGem(false);
-                OnQuestionChange(state.currentQuestion);
+                OnQuestionChange(state);
             }
             else if (state.type == GameStateType.QuestionResult)
             {
@@ -111,14 +111,15 @@ namespace Piranest.UI.Menu
 
         }
 
-        private void OnQuestionChange(GameChapterQuestion question)
+        private void OnQuestionChange(GameState state)
         {
             chapterView.Hide();
             pageHandler.Hide();
 
-            questionView.UpdateInfo(question, (answerState) =>
+            questionView.UpdateInfo(state.currentQuestion, (answerState) =>
             {
                 GameManager.Instance.SubmitAnswer(answerState);
+                
             });
         }
 

@@ -49,7 +49,7 @@ namespace Piranest
             if (userSaveDataes.HasUser())
                 loading.Hide();
             OnInitialized?.Invoke();
-
+            Debug.Log("Manager OnInitialized");
 
         }
 

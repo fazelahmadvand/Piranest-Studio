@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23abfa61ead475439a38fce1c0a2f8e, type: 3}
   m_Name: LeaderboardData
   m_EditorClassIdentifier: 
-  <AllAcounts>k__BackingField: []
+  <AllAccounts>k__BackingField: []
+  authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}

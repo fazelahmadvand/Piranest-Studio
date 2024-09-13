@@ -1,6 +1,7 @@
 using Piranest.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Piranest
@@ -14,6 +15,7 @@ namespace Piranest
         [SerializeField] private GameState currentGameState;
 
         [SerializeField] private GameData gameData;
+        [SerializeField] private AuthData authData;
 
         public Game CurrentGame
         {
@@ -44,24 +46,23 @@ namespace Piranest
         public void SetGame(Game game)
         {
             CurrentGame = game;
-            CurrentChapter = gameData.GetChapter(CurrentGame.Id)[0];
-            var chapterQuestions = gameData.GetQuestions(currentChapter.Id);
+            var userInfoes = gameData.GetUserGameInfoesByGameId(game.Id);
+            var allGameChapters = gameData.GetChapters(CurrentGame.Id);
+            CurrentChapter = allGameChapters[0];
+            var chapterQuestions = gameData.GetQuestions(CurrentChapter.Id);
             currentGameState = new()
             {
                 type = GameStateType.Game,
-                currentGame = currentGame,
-                currentChapter = currentChapter,
-                chapters = gameData.GetChapter(CurrentGame.Id),
-                questions = chapterQuestions,
-                currentQuestion = gameData.GetQuestions(currentChapter.Id)[0],
-                firstQuestionOfChapter = chapterQuestions[0],
-                lastQuestionOfChapter = chapterQuestions[^1],
+                currentGame = CurrentGame,
+                chapters = allGameChapters,
                 chaptersInfo = new()
             };
 
-            for (int i = 0; i < currentGameState.chapters.Count; i++)
+            FillUserGameByLastState(game.Id, userInfoes, allGameChapters);
+
+            for (int i = 0; i < allGameChapters.Count; i++)
             {
-                var chapter = currentGameState.chapters[i];
+                var chapter = allGameChapters[i];
                 var questions = gameData.GetQuestions(chapter.Id);
                 var chapterInfo = new ChapterInfo()
                 {
@@ -70,7 +71,15 @@ namespace Piranest
                 };
                 foreach (var question in questions)
                 {
-                    chapterInfo.questionStates.Add(QuestionStateType.NotAnswer);
+                    var userInfo = userInfoes.FirstOrDefault(u => u.ChapterId == chapter.Id && u.QuestionId == question.Id);
+                    if (userInfo == null)
+                    {
+                        chapterInfo.questionStates.Add(QuestionStateType.NotAnswer);
+                    }
+                    else
+                    {
+                        chapterInfo.questionStates.Add(userInfo.IsAnswerTrue ? QuestionStateType.Right : QuestionStateType.Wrong);
+                    }
                 }
                 currentGameState.chaptersInfo.Add(chapterInfo);
             }
@@ -93,21 +102,60 @@ namespace Piranest
                     break;
                 case GameStateType.QuestionResult:
                     currentGameState.NextQuestion(gameData);
-
                     break;
             }
 
             OnGameStateChange?.Invoke(currentGameState);
         }
 
-        public void SubmitAnswer(QuestionStateType state)
+        public async void SubmitAnswer(QuestionStateType state)
         {
             currentGameState.UpdateQuestionAnswer(state);
             currentGameState.type = GameStateType.QuestionResult;
             OnGameStateChange?.Invoke(currentGameState);
 
+            var gameId = currentGameState.currentGame.Id;
+            var chapterId = currentGameState.currentChapter.Id;
+            var question = currentGameState.currentQuestion;
+            bool isTrue = state == QuestionStateType.Right;
+            await gameData.InsertUserGameInfo(gameId, chapterId, question.Id, isTrue);
+            if (isTrue)
+            {
+                int prize = question.Prize;
+                await authData.UpdateAccount(prize);
+            }
+
         }
 
+        private void FillUserGameByLastState(int gameId, List<UserGameInfo> userInfoes, List<GameChapter> allGameChapters)
+        {
+            var lastChapter = allGameChapters[^1];
+            var firstChapter = allGameChapters[0];
+            var allChapterQuestions = gameData.GetQuestions(lastChapter.Id);
+            var lastQuestion = allChapterQuestions[^1];
+
+            if (gameData.HasUserFinishedGame(gameId))//player already finished the game
+            {
+                var firstQuestion = gameData.GetQuestions(firstChapter.Id)[0];
+                currentGameState.SetCurrentChapterAndQuestions(gameData, allGameChapters[0], firstQuestion);
+                Debug.LogError("Finished Game");
+                return;
+            }
+
+            foreach (var chapter in allGameChapters)
+            {
+                var questions = gameData.GetQuestions(chapter.Id);
+                foreach (var question in questions)
+                {
+                    var lastPlayedQuestion = userInfoes.FirstOrDefault(u => u.ChapterId == chapter.Id && u.QuestionId == question.Id);
+                    if (lastPlayedQuestion == null)
+                    {
+                        currentGameState.SetCurrentChapterAndQuestions(gameData, chapter, question);
+                        return;
+                    }
+                }
+            }
+        }
 
     }
 
@@ -123,8 +171,8 @@ namespace Piranest
         public GameChapter currentChapter;
         public GameChapterQuestion firstQuestionOfChapter, lastQuestionOfChapter;
         public List<ChapterInfo> chaptersInfo;
-        private int questionIndex;
-        private int chapterIndex;
+        public int questionIndex;
+        public int chapterIndex;
         public bool asnwerIsTrue;
 
         public void UpdateQuestionAnswer(QuestionStateType questionState)
@@ -158,6 +206,18 @@ namespace Piranest
             questionIndex = 0;
             questions = gameData.GetQuestions(currentChapter.Id);
         }
+
+        public void SetCurrentChapterAndQuestions(GameData gameData, GameChapter chapter, GameChapterQuestion question)
+        {
+            currentChapter = chapter;
+            chapterIndex = chapters.IndexOf(chapter);
+            questions = gameData.GetQuestions(currentChapter.Id);
+            currentQuestion = question;
+            questionIndex = questions.IndexOf(question);
+            firstQuestionOfChapter = questions[0];
+            lastQuestionOfChapter = questions[^1];
+        }
+
 
     }
 
