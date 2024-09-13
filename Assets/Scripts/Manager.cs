@@ -20,6 +20,7 @@ namespace Piranest
 
         private void Awake()
         {
+            Utility.FixFrameRate();
             userSaveDataes.Init();
             textureSaveData.Init();
         }

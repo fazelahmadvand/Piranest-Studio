@@ -30,6 +30,10 @@ namespace Piranest.UI
             });
         }
 
+        public void HandleStartIfIsNearLocation(bool interactable)
+        {
+            startChapter.interactable = interactable;
+        }
 
         private void DownloadMap(GameChapterQuestion first, GameChapterQuestion last)
         {

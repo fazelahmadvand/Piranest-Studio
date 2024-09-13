@@ -39,6 +39,11 @@ namespace Piranest
                 $":red%7Clabel:E%7C{end.x},{end.y}&key={GOOGLE_MAP_API_KEY}";
         }
 
+        public static void FixFrameRate()
+        {
+            int hertz = (int)Screen.currentResolution.refreshRateRatio.value;
+            Application.targetFrameRate = hertz;
+        }
 
     }
 }

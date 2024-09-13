@@ -11,7 +11,7 @@ namespace Piranest.UI
         [SerializeField] private TMP_Text gameNameTxt, cityNameTxt, timeTxt, chapterCountTxt, storyTxt;
         [SerializeField] private Image gameImg;
         [SerializeField] private Button beginBtn, startLocationBtn, endLocationBtn;
-
+        [SerializeField] private TMP_Text beginTxt;
         [SerializeField] private TextureSaveData textureSave;
         [SerializeField] private GameData gameData;
 
@@ -51,7 +51,11 @@ namespace Piranest.UI
         }
 
 
-
+        public void HandleBeginButton(bool interactable, string val)
+        {
+            beginBtn.interactable = interactable;
+            beginTxt.text = val;
+        }
 
 
 

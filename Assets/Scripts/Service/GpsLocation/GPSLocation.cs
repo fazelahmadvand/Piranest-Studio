@@ -46,29 +46,28 @@ namespace Piranest
                 Debug.Log($"Location: {lastData.latitude} {lastData.longitude} {lastData.altitude} {lastData.horizontalAccuracy} {lastData.timestamp}");
             }
 
-            // Stops the location service if there is no need to query location updates continuously.
         }
 
-        private void Update()
-        {
-            if (Input.location.status == LocationServiceStatus.Running)
-            {
-                var lastData = Input.location.lastData;
-                Debug.Log($"Data:{lastData}");
-            }
 
-        }
-
-        public bool IsNearLocation(float lat1, float lon1, int distanceMeter)
+        public (bool, int) IsNearLocation(float lat1, float lon1, int distanceMeter)
         {
+#if UNITY_EDITOR
+            return (true, 0);
+#else
+var lastData = Input.location.lastData;
+            currentLat = lastData.latitude;
+            currentLong = lastData.longitude;
+
             var meter = CalculateDistance(currentLat, currentLong, lat1, lon1);
-            Debug.Log($"Meter:{meter}");
+            Debug.Log($"Meter :{meter}");
+            bool isNear = meter < distanceMeter;
+            return (isNear, meter);
+#endif
 
-            return meter < distanceMeter;
 
         }
 
-        public static double CalculateDistance(float lat1, float lon1, float lat2, float lon2)
+        public static int CalculateDistance(float lat1, float lon1, float lat2, float lon2)
         {
             const float R = 6371e3f; // Radius of the Earth in meters
 
@@ -82,7 +81,7 @@ namespace Piranest
                       Mathf.Sin(Δλ / 2) * Mathf.Sin(Δλ / 2);
             float c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a));
 
-            return R * c; // Distance in meters
+            return (int)Mathf.Round(R * c); // Distance in meters
         }
 
     }

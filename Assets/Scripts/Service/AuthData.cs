@@ -132,6 +132,7 @@ namespace Piranest
             try
             {
                 var response = await ServiceHub.Table.Insert<Account, InsertParams>(insertParam);
+                Account = newAccount;
                 OnAccountChange?.Invoke(newAccount);
             }
             catch (DynamicPixelsException e)
@@ -159,7 +160,10 @@ namespace Piranest
             {
                 var response = await ServiceHub.Table.Find<Account, FindParams>(findParam);
                 Account = response.List.Where(l => l.UserId == userId).FirstOrDefault();
-                OnAccountChange?.Invoke(Account);
+                if (Account != null)
+                    OnAccountChange?.Invoke(Account);
+                else
+                    await CreateAccount();
                 await GetCoupons(userId);
             }
             catch (DynamicPixelsException e)

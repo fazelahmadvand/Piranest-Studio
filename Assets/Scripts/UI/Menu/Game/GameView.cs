@@ -1,4 +1,5 @@
 using Piranest.Model;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +23,9 @@ namespace Piranest.UI.Menu
 
 
         private List<GameCardView> cards = new();
+
+
+        private Coroutine calculateDistance;
 
         public override void InitView()
         {
@@ -60,7 +64,7 @@ namespace Piranest.UI.Menu
             if (state.type == GameStateType.Game)
             {
                 pageHandler.Show();
-                OnGameChange(state.currentGame);
+                OnGameChange(state);
             }
             else if (state.type == GameStateType.Chapter)
             {
@@ -84,13 +88,17 @@ namespace Piranest.UI.Menu
         }
 
 
-        private void OnGameChange(Game game)
+        private void OnGameChange(GameState state)
         {
+            var game = state.currentGame;
+            var question = state.currentQuestion;
             headerView.UpdateHeader(game.Name, () =>
             {
                 gameInfo.Hide();
                 Show();
             });
+
+            HandleDisatance(question);
             gameInfo.UpdateInfo(game, () =>
             {
                 GameManager.Instance.NextState();
@@ -119,7 +127,6 @@ namespace Piranest.UI.Menu
             questionView.UpdateInfo(state.currentQuestion, (answerState) =>
             {
                 GameManager.Instance.SubmitAnswer(answerState);
-                
             });
         }
 
@@ -131,7 +138,6 @@ namespace Piranest.UI.Menu
             {
                 GameManager.Instance.NextState();
             });
-
         }
 
         private void OnFinish(GameState state)
@@ -156,6 +162,7 @@ namespace Piranest.UI.Menu
                 headerView.UpdatePage("Game");
                 headerView.HandleBackButton(false);
                 pageHandler.Show();
+                UpdateGameCards();
                 base.Show();
             }
             else
@@ -170,6 +177,8 @@ namespace Piranest.UI.Menu
             gameInfo.Hide();
             chapterView.Hide();
             questionView.Hide();
+            if (calculateDistance != null)
+                StopCoroutine(calculateDistance);
         }
 
         private void CreateGameCards()
@@ -187,11 +196,45 @@ namespace Piranest.UI.Menu
                 });
                 cards.Add(newCard);
             }
-
-
         }
 
 
+        private void UpdateGameCards()
+        {
+            var games = gameData.Games;
+            for (int i = 0; i < games.Count; i++)
+            {
+                var game = games[i];
+                var card = cards[i];
+                card.UpdateCard(game, () =>
+                {
+                    Hide();//must be first
+                    GameManager.Instance.SetGame(game);
+                });
+            }
+        }
+
+
+        private void HandleDisatance(GameChapterQuestion question)
+        {
+            if (calculateDistance != null)
+                StopCoroutine(calculateDistance);
+            calculateDistance = StartCoroutine(HandleDistanceToLocation(question));
+        }
+
+        private IEnumerator HandleDistanceToLocation(GameChapterQuestion question)
+        {
+            while (true)
+            {
+                var gps = GPSLocation.Instance;
+                var tuple = gps.IsNearLocation(question.LocationLat, question.LocationLong, (int)question.LocationRadius);
+
+                string meterValue = tuple.Item1 ? string.Empty : $"Remaining Meter: {tuple.Item2}";
+                gameInfo.HandleBeginButton(tuple.Item1, meterValue);
+
+                yield return new WaitForSeconds(1);
+            }
+        }
 
     }
 }

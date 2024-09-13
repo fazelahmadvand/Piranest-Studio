@@ -52,7 +52,7 @@ namespace Piranest.Model
         public string AnswerMediaUrl { get; set; }
         [field: SerializeField]
         [JsonProperty("location_radius")]
-        public string LocationRadius { get; set; }
+        public float LocationRadius { get; set; }
 
     }
 }
