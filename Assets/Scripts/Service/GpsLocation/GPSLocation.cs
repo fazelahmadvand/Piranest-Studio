@@ -59,7 +59,6 @@ var lastData = Input.location.lastData;
             currentLong = lastData.longitude;
 
             var meter = CalculateDistance(currentLat, currentLong, lat1, lon1);
-            Debug.Log($"Meter :{meter}");
             bool isNear = meter < distanceMeter;
             return (isNear, meter);
 #endif
