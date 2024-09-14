@@ -56,7 +56,7 @@ namespace Piranest.UI
             {
                 item.Hide();
             }
-            Debug.Log("Q: "+questions.Count + " A:" + answers.Count);
+            Debug.Log("Questions: " + questions.Count + " Answers:" + answers.Count);
             for (int i = 0; i < questions.Count; i++)
             {
                 var card = answers[i];
