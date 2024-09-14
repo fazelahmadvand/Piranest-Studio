@@ -117,7 +117,7 @@ namespace Piranest
         {
             var newAccount = new Account()
             {
-                Id = Guid.NewGuid().GetHashCode(),
+                Id = Mathf.Abs(Guid.NewGuid().GetHashCode()),
                 CurrencyId = 1,
                 Earned = 200,
                 Spent = 0,

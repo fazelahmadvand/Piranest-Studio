@@ -52,9 +52,15 @@ namespace Piranest.UI
 
         private void HandleAnswers(List<string> questions)
         {
-            for (int i = 0; i < answers.Count; i++)
+            foreach (var item in answers)
+            {
+                item.Hide();
+            }
+            Debug.Log("Q: "+questions.Count + " A:" + answers.Count);
+            for (int i = 0; i < questions.Count; i++)
             {
                 var card = answers[i];
+                card.Show();
                 var ii = i;
                 var question = questions[i];
                 card.UpdateText(question);
