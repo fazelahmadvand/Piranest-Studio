@@ -35,8 +35,7 @@ namespace Piranest.UI.Menu
         private void OnInitialized()
         {
             HideAll();
-            footerPage[0].view.Show();
-            selectImg.sprite = footerPage[0].selectSprite;
+            ShowPage(FooterPageTypeEnum.Vendor);
         }
 
         private void HideAll()
@@ -50,6 +49,7 @@ namespace Piranest.UI.Menu
             HideAll();
             var footer = footerPage.FirstOrDefault(f => f.type == type);
             footer.view.Show();
+            selectImg.sprite = footer.selectSprite;
         }
 
     }

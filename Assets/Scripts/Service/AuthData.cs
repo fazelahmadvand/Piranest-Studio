@@ -117,6 +117,7 @@ namespace Piranest
         {
             var newAccount = new Account()
             {
+                Id = Guid.NewGuid().GetHashCode(),
                 CurrencyId = 1,
                 Earned = 200,
                 Spent = 0,
@@ -172,7 +173,6 @@ namespace Piranest
                 Debug.LogError($"Get Account:{e.Message}");
             }
         }
-
 
         public async Task GetCoupons(int userId, Action<DynamicPixelsException> OnFail = null)
         {
