@@ -78,6 +78,11 @@ namespace Piranest
                 };
                 foreach (var question in questions)
                 {
+                    if (gameData.HasUserFinishedGame(game.Id))
+                    {
+                        chapterInfo.questionStates.Add(QuestionStateType.NotAnswer);
+                        continue;
+                    }
                     var userInfo = userInfoes.FirstOrDefault(u => u.ChapterId == chapter.Id && u.QuestionId == question.Id);
                     if (userInfo == null)
                     {

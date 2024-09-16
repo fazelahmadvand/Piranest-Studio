@@ -14,7 +14,7 @@ namespace Piranest.UI
         [SerializeField] private TMP_Text resultTxt;
         [SerializeField] private Color successColor, failColor;
         [SerializeField] private string successTitle, failTitle;
-
+        [SerializeField] private TMP_Text descriptionTxt;
         [Space]
         [SerializeField] private Button nextQuestionBtn;
         [SerializeField] private Image nextQuestionLocationImg;
@@ -23,6 +23,7 @@ namespace Piranest.UI
         public void UpdateResult(bool isAnswerTrue, int gemPrize, GameChapterQuestion nextQuestion, Action OnClick)
         {
             Show();
+            descriptionTxt.text = nextQuestion.Description;
             if (isAnswerTrue)
             {
                 resultTxt.text = successTitle;

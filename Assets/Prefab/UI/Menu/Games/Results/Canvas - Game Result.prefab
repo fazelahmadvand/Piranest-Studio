@@ -803,6 +803,7 @@ MonoBehaviour:
   failColor: {r: 0.9882353, g: 0.47058824, b: 0.5176471, a: 1}
   successTitle: Well Done
   failTitle: Oops, you got that one wrong.
+  descriptionTxt: {fileID: 2789880087717337039}
   nextQuestionBtn: {fileID: 1631075604111860356}
   nextQuestionLocationImg: {fileID: 7116539913182727790}
 --- !u!1 &6560144859707081905
