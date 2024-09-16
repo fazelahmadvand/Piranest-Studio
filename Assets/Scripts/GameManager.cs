@@ -138,7 +138,7 @@ namespace Piranest
             {
                 var firstQuestion = gameData.GetQuestions(firstChapter.Id)[0];
                 currentGameState.SetCurrentChapterAndQuestions(gameData, allGameChapters[0], firstQuestion);
-                Debug.LogError("Finished Game");
+                Debug.Log("Finished Game");
                 return;
             }
 
