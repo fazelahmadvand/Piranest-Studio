@@ -1,19 +1,52 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Android;
 
 namespace Piranest
 {
     public class GPSLocation : Singleton<GPSLocation>
     {
 
-        [SerializeField] private float currentLat, currentLong;
+        [SerializeField] private double currentLat, currentLong;
+
+        private event Action OnGetPermission;
 
 
-        private IEnumerator Start()
+        private void Start()
+        {
+            OnGetPermission += InitOnGetPermission;
+        }
+
+        public void Init()
+        {
+            StartCoroutine(HandleGps());
+        }
+
+
+        private void OnDestroy()
+        {
+            OnGetPermission -= InitOnGetPermission;
+        }
+
+        private void InitOnGetPermission()
+        {
+            StartCoroutine(HandleGps());
+        }
+
+        private IEnumerator HandleGps()
         {
             // Check if the user has location service enabled.
             if (!Input.location.isEnabledByUser)
+            {
                 Debug.Log("Location not enabled on device or app does not have permission to access location");
+                if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+                {
+                    Permission.RequestUserPermission(Permission.FineLocation);
+                    OnGetPermission?.Invoke();
+                }
+                yield break;
+            }
 
             // Starts the location service.
             Input.location.Start();
@@ -42,8 +75,7 @@ namespace Piranest
             else
             {
                 // If the connection succeeded, this retrieves the device's current location and displays it in the Console window.
-                var lastData = Input.location.lastData;
-                Debug.Log($"Location: {lastData.latitude} {lastData.longitude} {lastData.altitude} {lastData.horizontalAccuracy} {lastData.timestamp}");
+                Debug.Log("Location Success");
             }
 
         }
@@ -51,36 +83,36 @@ namespace Piranest
 
         public (bool, int) IsNearLocation(float lat1, float lon1, int distanceMeter)
         {
-#if UNITY_EDITOR
-            return (true, 0);
-#else
-var lastData = Input.location.lastData;
+#if UNITY_ANDROID && !UNITY_EDITOR
+            if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation)) return (false, 0);
+            var lastData = Input.location.lastData;
             currentLat = lastData.latitude;
             currentLong = lastData.longitude;
 
-            var meter = CalculateDistance(currentLat, currentLong, lat1, lon1);
+            var meter = (int)CalculateDistance(currentLat, currentLong, lat1, lon1);
             bool isNear = meter < distanceMeter;
-            return (isNear, meter);
+            return (isNear, meter - distanceMeter);
+#elif UNITY_EDITOR
+            return (true, 0);
+#else
+            return (false, 0);
 #endif
-
-
         }
 
-        public static int CalculateDistance(float lat1, float lon1, float lat2, float lon2)
+        public static double CalculateDistance(double lat1, double lon1, double lat2, double lon2)
         {
-            const float R = 6371e3f; // Radius of the Earth in meters
+            double R = 6371000; // Earth's radius in meters
+            double dLat = (lat2 - lat1) * Mathf.Deg2Rad;
+            double dLon = (lon2 - lon1) * Mathf.Deg2Rad;
 
-            float φ1 = lat1 * Mathf.Deg2Rad; // φ in radians
-            float φ2 = lat2 * Mathf.Deg2Rad; // φ in radians
-            float Δφ = (lat2 - lat1) * Mathf.Deg2Rad; // Δφ in radians
-            float Δλ = (lon2 - lon1) * Mathf.Deg2Rad; // Δλ in radians
+            double a = Mathf.Sin((float)(dLat / 2)) * Mathf.Sin((float)(dLat / 2)) +
+                       Mathf.Cos((float)(lat1 * Mathf.Deg2Rad)) * Mathf.Cos((float)(lat2 * Mathf.Deg2Rad)) *
+                       Mathf.Sin((float)(dLon / 2)) * Mathf.Sin((float)(dLon / 2));
 
-            float a = Mathf.Sin(Δφ / 2) * Mathf.Sin(Δφ / 2) +
-                      Mathf.Cos(φ1) * Mathf.Cos(φ2) *
-                      Mathf.Sin(Δλ / 2) * Mathf.Sin(Δλ / 2);
-            float c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a));
+            double c = 2 * Mathf.Atan2(Mathf.Sqrt((float)a), Mathf.Sqrt((float)(1 - a)));
+            double distance = R * c;
 
-            return (int)Mathf.Round(R * c); // Distance in meters
+            return distance;
         }
 
     }

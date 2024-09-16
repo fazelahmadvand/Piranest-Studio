@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Playables;
 
 namespace Piranest
 {
@@ -34,17 +33,16 @@ namespace Piranest
         private const string USER_GAME_CHAPTER_QUESTIONS_TABLE_ID = "66e174b9bb0a7482d5468558";
 
 
-
         public event Action<UserGameInfo> OnUserGameDataInsert;
 
         public List<GameChapter> GetChapters(int gameId)
         {
-            return gameChapters.Where(g => g.GameId == gameId).OrderBy(g => g.Id).ToList();
+            return gameChapters.Where(g => g.GameId == gameId).OrderBy(g => g.SortNumber).ToList();
         }
 
         public List<GameChapterQuestion> GetQuestions(int gameChapterId)
         {
-            return gameChapterQuestions.Where(g => g.GameChapterId == gameChapterId).OrderBy(g => g.Id).ToList();
+            return gameChapterQuestions.Where(g => g.GameChapterId == gameChapterId).OrderBy(g => g.SortNumber).ToList();
         }
 
         public List<UserGameInfo> GetUserGameInfoesByGameId(int gameId)

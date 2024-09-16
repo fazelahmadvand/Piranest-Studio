@@ -34,6 +34,7 @@ namespace Piranest.UI.Menu
             {
                 base.Show();
                 headerView.UpdatePage("Leaderboard");
+                HandleLeaderboard();
             }
             else
             {

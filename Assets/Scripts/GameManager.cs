@@ -45,6 +45,7 @@ namespace Piranest
 
         public void SetGame(Game game)
         {
+            GPSLocation.Instance.Init();
             CurrentGame = game;
             var userInfoes = gameData.GetUserGameInfoesByGameId(game.Id);
             var allGameChapters = gameData.GetChapters(CurrentGame.Id);
@@ -55,7 +56,8 @@ namespace Piranest
                 type = GameStateType.Game,
                 currentGame = CurrentGame,
                 chapters = allGameChapters,
-                chaptersInfo = new()
+                chaptersInfo = new(),
+                chaptersAndQuestions = new()
             };
 
             FillUserGameByLastState(game.Id, userInfoes, allGameChapters);
@@ -64,6 +66,11 @@ namespace Piranest
             {
                 var chapter = allGameChapters[i];
                 var questions = gameData.GetQuestions(chapter.Id);
+                var chapterAndQuestions = new ChapterAndQuestions
+                {
+                    chapter = chapter,
+                    questions = questions,
+                };
                 var chapterInfo = new ChapterInfo()
                 {
                     chapterNumber = i + 1,
@@ -82,6 +89,7 @@ namespace Piranest
                     }
                 }
                 currentGameState.chaptersInfo.Add(chapterInfo);
+                currentGameState.chaptersAndQuestions.Add(chapterAndQuestions);
             }
 
             OnGameStateChange?.Invoke(currentGameState);
@@ -165,14 +173,15 @@ namespace Piranest
     {
         public GameStateType type;
         public Game currentGame;
+        public List<ChapterAndQuestions> chaptersAndQuestions;
         public List<GameChapter> chapters;
         public List<GameChapterQuestion> questions;
         public GameChapterQuestion currentQuestion;
         public GameChapter currentChapter;
         public GameChapterQuestion firstQuestionOfChapter, lastQuestionOfChapter;
         public List<ChapterInfo> chaptersInfo;
-        public int questionIndex;
-        public int chapterIndex;
+        [SerializeField] private int questionIndex;
+        [SerializeField] private int chapterIndex;
         public bool asnwerIsTrue;
 
         public void UpdateQuestionAnswer(QuestionStateType questionState)
@@ -219,6 +228,13 @@ namespace Piranest
         }
 
 
+    }
+
+    [Serializable]
+    public struct ChapterAndQuestions
+    {
+        public GameChapter chapter;
+        public List<GameChapterQuestion> questions;
     }
 
     [Serializable]

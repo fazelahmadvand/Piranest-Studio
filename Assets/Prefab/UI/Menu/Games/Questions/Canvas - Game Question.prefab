@@ -1018,9 +1018,6 @@ MonoBehaviour:
     type: 3}
   selectedAnswerSprite: {fileID: 21300000, guid: 34e5aba9ecbb60f4d88913b40fa49a1d,
     type: 3}
-  changeColorDuration: 1
-  rightAnswer: {r: 0.31346595, g: 1, b: 0, a: 1}
-  wrongAnswer: {r: 1, g: 0, b: 0, a: 1}
   chapterHeaderHolder: {fileID: 6887523069058886839}
   chapterInfo: {fileID: 1725437363160678205, guid: c417637b92eae0a4290db855ea40be17,
     type: 3}

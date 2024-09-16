@@ -41,7 +41,7 @@ namespace Piranest.UI
             HandleAnswers(questions);
             rightAnswerIndex = questions.FindIndex(q => q.Equals(question.RightAnswer));
             questionImg.sprite = textureData.GetSprite(question.MediaUrl);
-            descriptionTxt.text = question.Description;
+            descriptionTxt.text = question.Story;
             whichAnswerTxt.text = question.Question;
 
             submitBtn.SetEvent(() =>
@@ -56,7 +56,7 @@ namespace Piranest.UI
             {
                 item.Hide();
             }
-            Debug.Log("Questions: " + questions.Count + " Answers:" + answers.Count);
+
             for (int i = 0; i < questions.Count; i++)
             {
                 var card = answers[i];

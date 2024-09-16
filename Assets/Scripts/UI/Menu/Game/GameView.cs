@@ -208,7 +208,7 @@ namespace Piranest.UI.Menu
                 var card = cards[i];
                 card.UpdateCard(game, () =>
                 {
-                    Hide();//must be first
+                    Hide();//must call first
                     GameManager.Instance.SetGame(game);
                 });
             }
@@ -228,9 +228,17 @@ namespace Piranest.UI.Menu
             {
                 var gps = GPSLocation.Instance;
                 var tuple = gps.IsNearLocation(question.LocationLat, question.LocationLong, (int)question.LocationRadius);
-
-                string meterValue = tuple.Item1 ? string.Empty : $"Remaining Meter: {tuple.Item2}";
-                gameInfo.HandleBeginButton(tuple.Item1, meterValue);
+                string meterValue;
+                if (!Utility.HasLocationPermission())
+                {
+                    meterValue = "Need Location Permission";
+                    gameInfo.HandleBeginButton(false, meterValue);
+                }
+                else
+                {
+                    meterValue = tuple.Item1 ? string.Empty : $"Remaining Meter: {tuple.Item2}";
+                    gameInfo.HandleBeginButton(tuple.Item1, meterValue);
+                }
 
                 yield return new WaitForSeconds(1);
             }

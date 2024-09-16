@@ -1,4 +1,3 @@
-using Piranest.Model;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -44,6 +43,17 @@ namespace Piranest
             int hertz = (int)Screen.currentResolution.refreshRateRatio.value;
             Application.targetFrameRate = hertz;
         }
+
+        public static bool HasLocationPermission()
+        {
+#if UNITY_ANDROID
+            if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation)) return false;
+#endif
+
+            return true;
+        }
+
+
 
     }
 }

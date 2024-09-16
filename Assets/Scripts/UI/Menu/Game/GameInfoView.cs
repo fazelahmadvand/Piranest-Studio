@@ -25,7 +25,7 @@ namespace Piranest.UI
             Show();
             gameNameTxt.text = game.Name;
             cityNameTxt.text = game.City;
-            timeTxt.text = $"{game.TimeLimit} min";
+            timeTxt.text = $"{game.TimeLimit} sec";
             gameImg.sprite = textureSave.GetSprite(game.CoverImageUrl);
             var chapters = gameData.GetChapters(game.Id);
             storyTxt.text = game.Story;
