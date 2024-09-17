@@ -53,8 +53,7 @@ namespace Piranest.UI.Menu
             foreach (Model.Vendor vendor in vendors)
             {
                 var newCard = Instantiate(vendorCard, vendorHolder);
-                var sprite = textureData.GetSprite(vendor.ImageUrl);
-                newCard.UpdateCard(vendor, sprite, () =>
+                newCard.UpdateCard(vendor, () =>
                 {
                     Hide();
                     vendorInfo.UpdateCard(vendor.Id);

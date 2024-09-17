@@ -1,4 +1,5 @@
 using Piranest.Model;
+using Piranest.UI.Menu;
 using System;
 using TMPro;
 using UnityEngine;
@@ -19,10 +20,17 @@ namespace Piranest.UI
         [SerializeField] private Button nextQuestionBtn;
         [SerializeField] private Image nextQuestionLocationImg;
 
+        [Header("Vendors")]
+        [SerializeField] private VendorCardView vendorCard;
+        [SerializeField] private Transform vendorParent;
+        [SerializeField] private VendorInfoView vendorInfoView;
+        [SerializeField] private ItemData itemData;
+        [SerializeField] private HeaderView headerView;
 
-        public void UpdateResult(bool isAnswerTrue, int gemPrize, GameChapterQuestion nextQuestion, Action OnClick)
+        public void UpdateResult(Game game, bool isAnswerTrue, int gemPrize, GameChapterQuestion nextQuestion, Action OnClick)
         {
             Show();
+            CreateVendorsOfGameCity(game);
             descriptionTxt.text = nextQuestion.Description;
             if (isAnswerTrue)
             {
@@ -39,7 +47,26 @@ namespace Piranest.UI
             nextQuestionBtn.SetEvent(OnClick);
         }
 
+        private void CreateVendorsOfGameCity(Game game)
+        {
+            vendorParent.DestroyChildren();
+            var vendors = itemData.GetVendorsByCity(game.City);
+            foreach (var v in vendors)
+            {
+                var newCard = Instantiate(vendorCard, vendorParent);
+                newCard.UpdateCard(v, () =>
+                {
+                    vendorInfoView.UpdateCard(v.Id);
+                    Hide();
+                    headerView.UpdateHeader("Continue Game", () =>
+                    {
+                        Show();
+                        vendorInfoView.Hide();
+                    });
+                });
+            }
 
+        }
 
     }
 }

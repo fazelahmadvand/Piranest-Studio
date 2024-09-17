@@ -39,6 +39,11 @@ namespace Piranest
             return VendorCoupons.Where(v => v.VendorId == vendorId).ToList();
         }
 
+        public List<Vendor> GetVendorsByCity(string cityName)
+        {
+            return Vendors.Where(v => v.City.Equals(cityName)).ToList();
+        }
+
         public async Task GetItems()
         {
             await FillVendors();

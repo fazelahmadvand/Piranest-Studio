@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.76884, y: 179.79}
-  m_SizeDelta: {x: 1589.5, y: 1004.62}
+  m_AnchoredPosition: {x: -1.3126, y: 147.27063}
+  m_SizeDelta: {x: 1456.6672, y: 810.4622}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7192203695926018572
 CanvasRenderer:
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 6152632271480768879}
   - component: {fileID: 4251760804288284733}
   m_Layer: 5
-  m_Name: VendorCard- Button
+  m_Name: VendorCard- Button-For-Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 949.09, y: -766.915}
-  m_SizeDelta: {x: 1750, y: 1533.83}
+  m_SizeDelta: {x: 1600, y: 1250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8173791136184810284
 MonoBehaviour:
@@ -254,7 +254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1272.22, y: 294}
+  m_AnchoredPosition: {x: 1151, y: 239}
   m_SizeDelta: {x: 103.58, y: 89.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6140171015998697722
@@ -524,7 +524,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 550, y: 300}
+  m_AnchoredPosition: {x: 550, y: 268}
   m_SizeDelta: {x: 915.98, y: 97.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6940755064373213838

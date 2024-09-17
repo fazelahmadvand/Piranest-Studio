@@ -43,6 +43,7 @@ namespace Piranest
                 if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
                 {
                     Permission.RequestUserPermission(Permission.FineLocation);
+                    yield return new WaitUntil(() => Permission.HasUserAuthorizedPermission(Permission.FineLocation));
                     OnGetPermission?.Invoke();
                 }
                 yield break;
@@ -84,6 +85,8 @@ namespace Piranest
         public (bool, int) IsNearLocation(float lat1, float lon1, int distanceMeter)
         {
 #if UNITY_ANDROID && !UNITY_EDITOR
+            if (!Input.location.isEnabledByUser) return (false, 0);
+            if (Input.location.status != LocationServiceStatus.Running) return (false, 0);
             if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation)) return (false, 0);
             var lastData = Input.location.lastData;
             currentLat = lastData.latitude;

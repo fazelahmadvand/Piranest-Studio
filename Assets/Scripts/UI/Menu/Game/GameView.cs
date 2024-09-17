@@ -134,7 +134,7 @@ namespace Piranest.UI.Menu
         {
             bool isTrue = state.asnwerIsTrue;
             int prize = state.currentQuestion.Prize;
-            questionResultView.UpdateResult(isTrue, prize, state.currentQuestion, () =>
+            questionResultView.UpdateResult(state.currentGame, isTrue, prize, state.currentQuestion, () =>
             {
                 GameManager.Instance.NextState();
             });
@@ -145,7 +145,7 @@ namespace Piranest.UI.Menu
             pageHandler.Show();
             headerView.Show();
             Show();
-            finishView.UpdateFinish(state.currentGame.Prize, () =>
+            finishView.UpdateFinish(state.currentGame, state.currentGame.Prize, () =>
             {
                 finishView.Hide();
                 pageHandler.ShowPage(FooterPageTypeEnum.Vendor);
@@ -237,6 +237,7 @@ namespace Piranest.UI.Menu
                 else
                 {
                     meterValue = tuple.Item1 ? string.Empty : $"Remaining Meter: {tuple.Item2}";
+                    if (tuple.Item1 == false && tuple.Item2 == 0) meterValue = $"Calclulating";
                     gameInfo.HandleBeginButton(tuple.Item1, meterValue);
                 }
 
