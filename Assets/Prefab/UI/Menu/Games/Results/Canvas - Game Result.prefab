@@ -357,7 +357,7 @@ MonoBehaviour:
   m_fontSize: 75
   m_fontSizeBase: 75
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -984,6 +984,7 @@ MonoBehaviour:
   vendorParent: {fileID: 1869965071605965407}
   vendorInfoView: {fileID: 0}
   itemData: {fileID: 11400000, guid: e92c7cd44ec02e44abf4c36d9470b2cd, type: 2}
+  headerView: {fileID: 0}
 --- !u!1 &6560144859707081905
 GameObject:
   m_ObjectHideFlags: 0
