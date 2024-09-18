@@ -75,16 +75,16 @@ namespace Piranest
             return userInfo != null;
 
         }
-        public override async Task Init()
+        public override async Task Init(Action<DynamicPixelsException> OnFail)
         {
-            await GetGames();
-            await GetGameChapter();
-            await GetGameChampterQuestion();
-            await GetUserGameInfoes();
+            await GetGames(OnFail);
+            await GetGameChapter(OnFail);
+            await GetGameChampterQuestion(OnFail);
+            await GetUserGameInfoes(OnFail);
 
         }
 
-        private async Task GetGames()
+        private async Task GetGames(Action<DynamicPixelsException> OnFail)
         {
             var findParam = new FindParams()
             {
@@ -97,13 +97,13 @@ namespace Piranest
                 var response = await ServiceHub.Table.Find<Game, FindParams>(findParam);
                 games = response.List;
             }
-            catch (DynamicPixelsException)
+            catch (DynamicPixelsException e)
             {
-                throw;
+                OnFail?.Invoke(e);
             }
         }
 
-        private async Task GetGameChapter()
+        private async Task GetGameChapter(Action<DynamicPixelsException> OnFail)
         {
             var findParam = new FindParams()
             {
@@ -116,13 +116,14 @@ namespace Piranest
                 var response = await ServiceHub.Table.Find<GameChapter, FindParams>(findParam);
                 gameChapters = response.List;
             }
-            catch (DynamicPixelsException)
+            catch (DynamicPixelsException e)
             {
-                throw;
+                OnFail?.Invoke(e);
+
             }
         }
 
-        private async Task GetGameChampterQuestion()
+        private async Task GetGameChampterQuestion(Action<DynamicPixelsException> OnFail)
         {
             var findParam = new FindParams()
             {
@@ -135,13 +136,14 @@ namespace Piranest
                 var response = await ServiceHub.Table.Find<GameChapterQuestion, FindParams>(findParam);
                 gameChapterQuestions = response.List;
             }
-            catch (DynamicPixelsException)
+            catch (DynamicPixelsException e)
             {
-                throw;
+                OnFail?.Invoke(e);
+
             }
         }
 
-        private async Task GetUserGameInfoes()
+        private async Task GetUserGameInfoes(Action<DynamicPixelsException> OnFail)
         {
             var findParam = new FindParams()
             {
@@ -159,7 +161,7 @@ namespace Piranest
             }
             catch (DynamicPixelsException e)
             {
-                Debug.Log($"GetUserGameInfoes: {e.Message}");
+                OnFail?.Invoke(e);
             }
         }
 

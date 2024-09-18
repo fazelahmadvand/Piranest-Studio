@@ -23,6 +23,12 @@ namespace Piranest
             Application.OpenURL(url);
         }
 
+        public static string OnePointGoogleMap(float latitude, float longitude, int width, int height)
+        {
+            return $"https://maps.googleapis.com/maps/api/staticmap?center={latitude},{longitude}&zoom={MAP_ZOOM}&size={width}x{height}&" +
+                $"markers=color:red%7Clabel:C%7C{latitude},{longitude}&key={GOOGLE_MAP_API_KEY}";
+        }
+
         /// <summary>
         /// start x is latitude and y is longtitude
         /// </summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Piranest.UI;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Android;
@@ -12,39 +13,46 @@ namespace Piranest
 
         private event Action OnGetPermission;
 
-
+        public static bool IsLocationActive => Input.location.isEnabledByUser;
         private void Start()
         {
             OnGetPermission += InitOnGetPermission;
         }
-
-        public void Init()
-        {
-            StartCoroutine(HandleGps());
-        }
-
 
         private void OnDestroy()
         {
             OnGetPermission -= InitOnGetPermission;
         }
 
-        private void InitOnGetPermission()
+        public void Init()
         {
-            StartCoroutine(HandleGps());
+            StartCoroutine(InitGps());
         }
 
-        private IEnumerator HandleGps()
+        private void InitOnGetPermission()
+        {
+            StartCoroutine(InitGps());
+        }
+
+        private IEnumerator InitGps()
         {
             // Check if the user has location service enabled.
-            if (!Input.location.isEnabledByUser)
+            if (!IsLocationActive)
             {
                 Debug.Log("Location not enabled on device or app does not have permission to access location");
+
                 if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
                 {
                     Permission.RequestUserPermission(Permission.FineLocation);
                     yield return new WaitUntil(() => Permission.HasUserAuthorizedPermission(Permission.FineLocation));
                     OnGetPermission?.Invoke();
+                }
+                else
+                {
+                    PopUpManager.Instance.Show("Please turn on your location", () =>
+                    {
+                        OnGetPermission?.Invoke();
+                    });
                 }
                 yield break;
             }

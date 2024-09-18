@@ -164,6 +164,7 @@ namespace Piranest.UI.Menu
                 pageHandler.Show();
                 UpdateGameCards();
                 base.Show();
+                HandleLocationTurnOn();
             }
             else
             {
@@ -244,6 +245,15 @@ namespace Piranest.UI.Menu
                 yield return new WaitForSeconds(1);
             }
         }
+
+        private void HandleLocationTurnOn()
+        {
+            if (Utility.HasLocationPermission())
+            {
+                
+            }
+        }
+
 
     }
 }

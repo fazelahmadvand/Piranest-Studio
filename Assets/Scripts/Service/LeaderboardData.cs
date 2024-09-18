@@ -25,9 +25,9 @@ namespace Piranest
 
         public event Action OnGetLeaderboard;
 
-        public override async Task Init()
+        public override async Task Init(Action<DynamicPixelsException> OnFail)
         {
-            await GetLeaderboard();
+            await GetLeaderboard(OnFail);
             authData.OnAccountUpdate += OnAccountUpdate;
         }
 

@@ -24,9 +24,9 @@ namespace Piranest
         private const string VEDNOR_TABLE_ID = "6550d76675e62b435ba7450c";
         private const string VENDOR_COUPON_TABLE_ID = "6558da665762ed93c7f44ee4";
 
-        public async override Task Init()
+        public async override Task Init(Action<DynamicPixelsException> OnFail)
         {
-            await GetItems();
+            await GetItems(OnFail);
         }
 
         public Vendor GetVendor(int id)
@@ -44,15 +44,15 @@ namespace Piranest
             return Vendors.Where(v => v.City.Equals(cityName)).ToList();
         }
 
-        public async Task GetItems()
+        public async Task GetItems(Action<DynamicPixelsException> OnFail)
         {
-            await FillVendors();
-            await FillVendorCoupons();
+            await FillVendors(OnFail);
+            await FillVendorCoupons(OnFail);
             OnLoadItems?.Invoke();
 
         }
 
-        public async Task FillVendorCoupons()
+        public async Task FillVendorCoupons(Action<DynamicPixelsException> OnFail)
         {
             var findParam = new FindParams()
             {
@@ -65,13 +65,13 @@ namespace Piranest
                 var response = await ServiceHub.Table.Find<VendorCoupon, FindParams>(findParam);
                 VendorCoupons = response.List;
             }
-            catch (DynamicPixelsException)
+            catch (DynamicPixelsException e)
             {
-                throw;
+                OnFail?.Invoke(e);
             }
         }
 
-        public async Task FillVendors()
+        public async Task FillVendors(Action<DynamicPixelsException> OnFail)
         {
             var findParam = new FindParams()
             {
@@ -84,9 +84,9 @@ namespace Piranest
                 var response = await ServiceHub.Table.Find<Vendor, FindParams>(findParam);
                 Vendors = response.List;
             }
-            catch (DynamicPixelsException)
+            catch (DynamicPixelsException e)
             {
-                throw;
+                OnFail?.Invoke(e);
             }
         }
 

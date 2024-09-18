@@ -40,7 +40,7 @@ namespace Piranest
 
         public static bool HasUser { get; private set; }
 
-        public override async Task Init()
+        public override async Task Init(Action<DynamicPixelsException> OnFail)
         {
             HasUser = userSaveData.HasUser();
             if (userSaveData.HasUser())
@@ -53,6 +53,7 @@ namespace Piranest
                 };
                 await Login(loginParam, (e) =>
                 {
+                    OnFail?.Invoke(e);
                     Debug.Log($"---->Login Error: {e.Message}");
                 });
             }

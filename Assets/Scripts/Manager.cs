@@ -1,4 +1,5 @@
 using Piranest.SaveSystem;
+using Piranest.UI;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -27,6 +28,8 @@ namespace Piranest
 
         private async void Start()
         {
+            var popUp = PopUpManager.Instance;
+            popUp.Hide();
             var loading = LoadingHandler.Instance;
             loading.Show();
             loading.UpdateText("Initialize View");
@@ -51,7 +54,6 @@ namespace Piranest
             if (userSaveDataes.HasUser())
                 loading.Hide();
             OnInitialized?.Invoke();
-            Debug.Log("Manager OnInitialized");
 
         }
 
@@ -59,8 +61,14 @@ namespace Piranest
         {
             foreach (var data in servicesData)
             {
-                await data.Init();
-                Debug.Log($"Init Service: {data.name}");
+                await data.Init((ex) =>
+                {
+                    PopUpManager.Instance.Show("Get Data Faield", async () =>
+                    {
+                        await GetServerData();
+                    },"Try Again");
+                });
+
             }
         }
 
