@@ -27,11 +27,12 @@ namespace Piranest.UI
         [SerializeField] private ItemData itemData;
         [SerializeField] private HeaderView headerView;
 
-        public void UpdateResult(Game game, bool isAnswerTrue, int gemPrize, GameChapterQuestion nextQuestion, Action OnClick)
+        public void UpdateResult(Game game, bool isAnswerTrue, int gemPrize, GameChapterQuestion currentQuestion, Action OnClick)
         {
             Show();
             CreateVendorsOfGameCity(game);
-            descriptionTxt.text = nextQuestion.Description;
+            descriptionTxt.text = currentQuestion.Description;
+
             if (isAnswerTrue)
             {
                 resultTxt.text = successTitle;

@@ -9,8 +9,6 @@ namespace Piranest
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private Game currentGame;
-        [SerializeField] private GameChapter currentChapter;
-        [SerializeField] private GameChapterQuestion currentQuestion;
 
         [SerializeField] private GameState currentGameState;
 
@@ -27,18 +25,6 @@ namespace Piranest
             }
         }
 
-        public GameChapter CurrentChapter
-        {
-            get => currentChapter;
-            set
-            {
-                if (currentChapter == value) return;
-                currentChapter = value;
-                OnGameChange?.Invoke();
-            }
-        }
-
-
         public event Action<GameState> OnGameStateChange;
 
         public event Action OnGameChange;
@@ -49,18 +35,14 @@ namespace Piranest
             CurrentGame = game;
             var userInfoes = gameData.GetUserGameInfoesByGameId(game.Id);
             var allGameChapters = gameData.GetChapters(CurrentGame.Id);
-            CurrentChapter = allGameChapters[0];
-            var chapterQuestions = gameData.GetQuestions(CurrentChapter.Id);
+
             currentGameState = new()
             {
                 type = GameStateType.Game,
                 currentGame = CurrentGame,
-                chapters = allGameChapters,
                 chaptersInfo = new(),
                 chaptersAndQuestions = new()
             };
-
-            FillUserGameByLastState(game.Id, userInfoes, allGameChapters);
 
             for (int i = 0; i < allGameChapters.Count; i++)
             {
@@ -97,6 +79,7 @@ namespace Piranest
                 currentGameState.chaptersAndQuestions.Add(chapterAndQuestions);
             }
 
+            FillUserGameByLastState(game.Id, userInfoes, allGameChapters);
             OnGameStateChange?.Invoke(currentGameState);
         }
 
@@ -114,7 +97,7 @@ namespace Piranest
                 case GameStateType.Question:
                     break;
                 case GameStateType.QuestionResult:
-                    currentGameState.NextQuestion(gameData);
+                    currentGameState.NextQuestion();
                     break;
             }
 
@@ -128,8 +111,8 @@ namespace Piranest
             OnGameStateChange?.Invoke(currentGameState);
 
             var gameId = currentGameState.currentGame.Id;
-            var chapterId = currentGameState.currentChapter.Id;
-            var question = currentGameState.currentQuestion;
+            var chapterId = currentGameState.CurrentChapter.Id;
+            var question = currentGameState.CurrentQuestion;
             bool isTrue = state == QuestionStateType.Right;
             await gameData.InsertUserGameInfo(gameId, chapterId, question.Id, isTrue);
             if (isTrue)
@@ -150,7 +133,7 @@ namespace Piranest
             if (gameData.HasUserFinishedGame(gameId))//player already finished the game
             {
                 var firstQuestion = gameData.GetQuestions(firstChapter.Id)[0];
-                currentGameState.SetCurrentChapterAndQuestions(gameData, allGameChapters[0], firstQuestion);
+                currentGameState.SetCurrentChapterAndQuestions(allGameChapters[0], firstQuestion);
                 Debug.Log("Finished Game");
                 return;
             }
@@ -163,7 +146,7 @@ namespace Piranest
                     var lastPlayedQuestion = userInfoes.FirstOrDefault(u => u.ChapterId == chapter.Id && u.QuestionId == question.Id);
                     if (lastPlayedQuestion == null)
                     {
-                        currentGameState.SetCurrentChapterAndQuestions(gameData, chapter, question);
+                        currentGameState.SetCurrentChapterAndQuestions(chapter, question);
                         return;
                     }
                 }
@@ -179,10 +162,8 @@ namespace Piranest
         public GameStateType type;
         public Game currentGame;
         public List<ChapterAndQuestions> chaptersAndQuestions;
-        public List<GameChapter> chapters;
-        public List<GameChapterQuestion> questions;
-        public GameChapterQuestion currentQuestion;
-        public GameChapter currentChapter;
+        public GameChapterQuestion CurrentQuestion => chaptersAndQuestions[chapterIndex].questions[questionIndex];
+        public GameChapter CurrentChapter => chaptersAndQuestions[chapterIndex].chapter;
         public GameChapterQuestion firstQuestionOfChapter, lastQuestionOfChapter;
         public List<ChapterInfo> chaptersInfo;
         [SerializeField] private int questionIndex;
@@ -195,41 +176,32 @@ namespace Piranest
             asnwerIsTrue = questionState == QuestionStateType.Right;
         }
 
-        public void NextQuestion(GameData gameData)
+        public void NextQuestion()
         {
             questionIndex++;
-            if (questionIndex > questions.Count - 1)
+            var currentQuestions = chaptersAndQuestions[chapterIndex].questions;
+            if (questionIndex > currentQuestions.Count - 1)
             {
                 type = GameStateType.Chapter;
-                NextChapter(gameData);
+                chapterIndex++;
+                if (chapterIndex > chaptersAndQuestions.Count - 1)
+                {
+                    type = GameStateType.Finished;
+                    return;
+                }
+                questionIndex = 0;
                 return;
             }
-            currentQuestion = questions[questionIndex];
             type = GameStateType.Question;
         }
 
-        public void NextChapter(GameData gameData)
+        public void SetCurrentChapterAndQuestions(GameChapter chapter, GameChapterQuestion question)
         {
-            chapterIndex++;
-            if (chapterIndex > chapters.Count - 1)
-            {
-                type = GameStateType.Finished;
-                return;
-            }
-            currentChapter = chapters[chapterIndex];
-            questionIndex = 0;
-            questions = gameData.GetQuestions(currentChapter.Id);
-        }
-
-        public void SetCurrentChapterAndQuestions(GameData gameData, GameChapter chapter, GameChapterQuestion question)
-        {
-            currentChapter = chapter;
-            chapterIndex = chapters.IndexOf(chapter);
-            questions = gameData.GetQuestions(currentChapter.Id);
-            currentQuestion = question;
-            questionIndex = questions.IndexOf(question);
-            firstQuestionOfChapter = questions[0];
-            lastQuestionOfChapter = questions[^1];
+            chapterIndex = chaptersAndQuestions.Select(c => c.chapter).ToList().IndexOf(chapter);
+            questionIndex = chaptersAndQuestions[chapterIndex].questions.IndexOf(question);
+            var allQuestions = chaptersAndQuestions[chapterIndex].questions;
+            firstQuestionOfChapter = allQuestions[0];
+            lastQuestionOfChapter = allQuestions[^1];
         }
 
 

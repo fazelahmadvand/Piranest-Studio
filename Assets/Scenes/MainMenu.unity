@@ -419,29 +419,6 @@ MonoBehaviour:
     <DetailsImageUrl>k__BackingField: 
     <TotalDistance>k__BackingField: 
     <Prize>k__BackingField: 0
-  currentChapter:
-    <Id>k__BackingField: 0
-    <Title>k__BackingField: 
-    <MediaUrl>k__BackingField: 
-    <SortNumber>k__BackingField: 0
-    <GameId>k__BackingField: 0
-    <Description>k__BackingField: 
-  currentQuestion:
-    <Id>k__BackingField: 0
-    <GameChapterId>k__BackingField: 0
-    <Story>k__BackingField: 
-    <Question>k__BackingField: 
-    <QuestionType>k__BackingField: 
-    <Options>k__BackingField: 
-    <RightAnswer>k__BackingField: 
-    <MediaUrl>k__BackingField: 
-    <Prize>k__BackingField: 0
-    <Description>k__BackingField: 
-    <LocationLong>k__BackingField: 0
-    <LocationLat>k__BackingField: 0
-    <SortNumber>k__BackingField: 0
-    <AnswerMediaUrl>k__BackingField: 
-    <LocationRadius>k__BackingField: 0
   currentGameState:
     type: 0
     currentGame:
@@ -456,31 +433,6 @@ MonoBehaviour:
       <TotalDistance>k__BackingField: 
       <Prize>k__BackingField: 0
     chaptersAndQuestions: []
-    chapters: []
-    questions: []
-    currentQuestion:
-      <Id>k__BackingField: 0
-      <GameChapterId>k__BackingField: 0
-      <Story>k__BackingField: 
-      <Question>k__BackingField: 
-      <QuestionType>k__BackingField: 
-      <Options>k__BackingField: 
-      <RightAnswer>k__BackingField: 
-      <MediaUrl>k__BackingField: 
-      <Prize>k__BackingField: 0
-      <Description>k__BackingField: 
-      <LocationLong>k__BackingField: 0
-      <LocationLat>k__BackingField: 0
-      <SortNumber>k__BackingField: 0
-      <AnswerMediaUrl>k__BackingField: 
-      <LocationRadius>k__BackingField: 0
-    currentChapter:
-      <Id>k__BackingField: 0
-      <Title>k__BackingField: 
-      <MediaUrl>k__BackingField: 
-      <SortNumber>k__BackingField: 0
-      <GameId>k__BackingField: 0
-      <Description>k__BackingField: 
     firstQuestionOfChapter:
       <Id>k__BackingField: 0
       <GameChapterId>k__BackingField: 0

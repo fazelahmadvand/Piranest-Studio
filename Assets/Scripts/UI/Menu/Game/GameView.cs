@@ -68,7 +68,7 @@ namespace Piranest.UI.Menu
             }
             else if (state.type == GameStateType.Chapter)
             {
-                OnChapterChange(state.currentChapter, state.firstQuestionOfChapter, state.lastQuestionOfChapter);
+                OnChapterChange(state.CurrentChapter, state.firstQuestionOfChapter, state.lastQuestionOfChapter);
             }
             else if (state.type == GameStateType.Question)
             {
@@ -91,7 +91,7 @@ namespace Piranest.UI.Menu
         private void OnGameChange(GameState state)
         {
             var game = state.currentGame;
-            var question = state.currentQuestion;
+            var question = state.CurrentQuestion;
             headerView.UpdateHeader(game.Name, () =>
             {
                 gameInfo.Hide();
@@ -124,7 +124,7 @@ namespace Piranest.UI.Menu
             chapterView.Hide();
             pageHandler.Hide();
 
-            questionView.UpdateInfo(state.currentQuestion, (answerState) =>
+            questionView.UpdateInfo(state.CurrentQuestion, (answerState) =>
             {
                 GameManager.Instance.SubmitAnswer(answerState);
             });
@@ -133,8 +133,8 @@ namespace Piranest.UI.Menu
         private void OnQuestionResult(GameState state)
         {
             bool isTrue = state.asnwerIsTrue;
-            int prize = state.currentQuestion.Prize;
-            questionResultView.UpdateResult(state.currentGame, isTrue, prize, state.currentQuestion, () =>
+            int prize = state.CurrentQuestion.Prize;
+            questionResultView.UpdateResult(state.currentGame, isTrue, prize, state.CurrentQuestion, () =>
             {
                 GameManager.Instance.NextState();
             });
