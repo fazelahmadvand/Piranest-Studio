@@ -1,3 +1,4 @@
+using Piranest.HTTP;
 using Piranest.Model;
 using Piranest.UI.Menu;
 using System;
@@ -18,21 +19,25 @@ namespace Piranest.UI
         [SerializeField] private TMP_Text descriptionTxt;
         [Space]
         [SerializeField] private Button nextQuestionBtn;
-        [SerializeField] private Image nextQuestionLocationImg;
+
+        [Space]
+        [SerializeField] private GameObject nextQuestionTitle;
+        [SerializeField] private Button nextQuestionLocationbtn;
+        [SerializeField] private RawImage nextQuestionLocationRawImg;
 
         [Header("Vendors")]
         [SerializeField] private VendorCardView vendorCard;
         [SerializeField] private Transform vendorParent;
         [SerializeField] private VendorInfoView vendorInfoView;
-        [SerializeField] private ItemData itemData;
         [SerializeField] private HeaderView headerView;
+        [SerializeField] private ItemData itemData;
 
-        public void UpdateResult(Game game, bool isAnswerTrue, int gemPrize, GameChapterQuestion currentQuestion, Action OnClick)
+        public void UpdateResult(Game game, bool isAnswerTrue, int gemPrize, GameChapterQuestion currentQuestion, GameChapterQuestion nextQuestion, Action OnClick)
         {
             Show();
             CreateVendorsOfGameCity(game);
             descriptionTxt.text = currentQuestion.Description;
-
+            HandleNextQuestionLocation(nextQuestion);
             if (isAnswerTrue)
             {
                 resultTxt.text = successTitle;
@@ -45,6 +50,7 @@ namespace Piranest.UI
                 resultTxt.color = failColor;
                 gemTxt.text = 0.ToString();
             }
+
             nextQuestionBtn.SetEvent(OnClick);
         }
 
@@ -65,6 +71,37 @@ namespace Piranest.UI
                         vendorInfoView.Hide();
                     });
                 });
+            }
+
+        }
+
+        private void HandleNextQuestionLocation(GameChapterQuestion next)
+        {
+            if (next == null)
+            {
+                nextQuestionLocationbtn.gameObject.SetActive(false);
+                nextQuestionTitle.SetActive(false);
+                nextQuestionLocationRawImg.gameObject.SetActive(false);
+            }
+            else
+            {
+                nextQuestionLocationbtn.gameObject.SetActive(true);
+                nextQuestionLocationRawImg.gameObject.SetActive(true);
+                nextQuestionTitle.SetActive(true);
+
+                nextQuestionLocationbtn.SetEvent(() =>
+                {
+                    Utility.OpenGoogleMap(next.LocationLat, next.LocationLong);
+                });
+                var rect = nextQuestionLocationRawImg.rectTransform.rect;
+                string googleMapUrl = Utility.OnePointGoogleMap(next.LocationLat, next.LocationLong, (int)rect.width, (int)rect.height);
+                StartCoroutine(API.DownloadTexture(googleMapUrl, (tex) =>
+                {
+                    nextQuestionLocationRawImg.texture = tex;
+                }, () =>
+                {
+
+                }));
             }
 
         }

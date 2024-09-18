@@ -32,7 +32,7 @@ namespace Piranest
                 }
                 else
                 {
-                    var tex = await API.API.DownloadTexture(url);
+                    var tex = await HTTP.API.DownloadTexture(url);
                     if (tex != null)
                     {
                         saveData.AddTexture(url, tex);

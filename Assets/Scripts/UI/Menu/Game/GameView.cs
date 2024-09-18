@@ -134,7 +134,7 @@ namespace Piranest.UI.Menu
         {
             bool isTrue = state.asnwerIsTrue;
             int prize = state.CurrentQuestion.Prize;
-            questionResultView.UpdateResult(state.currentGame, isTrue, prize, state.CurrentQuestion, () =>
+            questionResultView.UpdateResult(state.currentGame, isTrue, prize, state.CurrentQuestion, state.GetNextQuestsion(), () =>
             {
                 GameManager.Instance.NextState();
             });
@@ -250,7 +250,7 @@ namespace Piranest.UI.Menu
         {
             if (Utility.HasLocationPermission())
             {
-                
+
             }
         }
 

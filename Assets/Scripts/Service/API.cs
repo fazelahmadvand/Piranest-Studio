@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Piranest.API
+namespace Piranest.HTTP
 {
     public static class API
     {

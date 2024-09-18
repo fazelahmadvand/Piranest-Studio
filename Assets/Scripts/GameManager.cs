@@ -195,6 +195,26 @@ namespace Piranest
             type = GameStateType.Question;
         }
 
+        public GameChapterQuestion GetNextQuestsion()
+        {
+            var nextQuestionIndex = questionIndex + 1;
+            var currentQuestions = chaptersAndQuestions[chapterIndex].questions;
+            if (nextQuestionIndex > currentQuestions.Count - 1)
+            {
+                nextQuestionIndex = 0;
+                var nextChapterIndex = chapterIndex + 1;
+                if (nextChapterIndex > chaptersAndQuestions.Count - 1)
+                {
+                    return null;
+                }
+                return chaptersAndQuestions[nextChapterIndex].questions[nextQuestionIndex];
+            }
+
+            return currentQuestions[nextQuestionIndex];
+
+
+        }
+
         public void SetCurrentChapterAndQuestions(GameChapter chapter, GameChapterQuestion question)
         {
             chapterIndex = chaptersAndQuestions.Select(c => c.chapter).ToList().IndexOf(chapter);

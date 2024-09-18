@@ -43,7 +43,7 @@ namespace Piranest.UI
             int height = (int)mapImg.rectTransform.rect.height;
             string url = Utility.TwoPointsGoogleMap(firstPoint, lastPoint, width, height);
 
-            StartCoroutine(API.API.DownloadTexture(url, (tex) =>
+            StartCoroutine(HTTP.API.DownloadTexture(url, (tex) =>
             {
                 mapImg.texture = tex;
             }));

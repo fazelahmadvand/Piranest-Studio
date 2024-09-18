@@ -51,7 +51,7 @@ namespace Piranest
                   "&markers=color:red%7C" + lat + "," + lon +
                   "&key=" + Utility.GOOGLE_MAP_API_KEY;
 
-            yield return API.API.DownloadTexture(url, (tex) =>
+            yield return HTTP.API.DownloadTexture(url, (tex) =>
             {
                 rawImg.texture = tex;
             }, () =>
