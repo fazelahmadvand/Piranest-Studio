@@ -66,8 +66,8 @@ namespace Piranest
                 var response = await ServiceHub.Authentication.RegisterWithEmail(register);
                 User = response.User;
                 await CreateAccount();
-                OnAuthSuccess?.Invoke(User);
                 HasUser = true;
+                OnAuthSuccess?.Invoke(User);
 
             }
             catch (DynamicPixelsException e)
@@ -84,8 +84,8 @@ namespace Piranest
                 var response = await ServiceHub.Authentication.LoginWithEmail(loginParam);
                 User = response.User;
                 await GetAccount(User.Id);
-                OnAuthSuccess?.Invoke(User);
                 HasUser = true;
+                OnAuthSuccess?.Invoke(User);
 
             }
             catch (DynamicPixelsException e)

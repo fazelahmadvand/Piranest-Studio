@@ -9,6 +9,9 @@ namespace Piranest.UI.Menu
     {
         [SerializeField] private Image selectImg;
         [SerializeField] private List<FooterPage> footerPage;
+        [SerializeField] private FooterPageTypeEnum currentSelectedPage;
+
+        [SerializeField] private AuthData authData;
 
         public override void InitView()
         {
@@ -18,18 +21,22 @@ namespace Piranest.UI.Menu
             {
                 page.btn.onClick.AddListener(() =>
                 {
-                    HideAll();
-                    page.view.Show();
-                    selectImg.sprite = page.selectSprite;
+                    ShowPage(page.type);
                 });
 
             }
             Manager.OnInitialized += OnInitialized;
+            authData.OnAuthSuccess += OnAuthSuccess;
         }
 
         private void OnDestroy()
         {
+            authData.OnAuthSuccess -= OnAuthSuccess;
             Manager.OnInitialized -= OnInitialized;
+        }
+        private void OnAuthSuccess(DynamicPixels.GameService.Services.User.Models.User obj)
+        {
+            ShowPage(currentSelectedPage);
         }
 
         private void OnInitialized()
@@ -50,6 +57,7 @@ namespace Piranest.UI.Menu
             var footer = footerPage.FirstOrDefault(f => f.type == type);
             footer.view.Show();
             selectImg.sprite = footer.selectSprite;
+            currentSelectedPage = type;
         }
 
 

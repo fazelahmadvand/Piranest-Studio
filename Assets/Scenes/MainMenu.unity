@@ -4071,6 +4071,8 @@ MonoBehaviour:
     view: {fileID: 1928767297}
     btn: {fileID: 154416181}
     selectSprite: {fileID: 21300000, guid: 9281217d2651120408e5a034f1ce7d06, type: 3}
+  currentSelectedPage: 0
+  authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
 --- !u!114 &1433408907 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6885889544080099039, guid: b99a4346f89d58640a936a42fd4919f6,
