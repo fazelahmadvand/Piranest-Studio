@@ -18,6 +18,7 @@ namespace Piranest.UI
         [SerializeField] private string successTitle, failTitle;
         [SerializeField] private TMP_Text descriptionTxt;
         [Space]
+        [SerializeField] private Image asnwerImg;
         [SerializeField] private Button nextQuestionBtn;
 
         [Space]
@@ -31,7 +32,7 @@ namespace Piranest.UI
         [SerializeField] private VendorInfoView vendorInfoView;
         [SerializeField] private HeaderView headerView;
         [SerializeField] private ItemData itemData;
-
+        [SerializeField] private TextureSaveData textureSaveData;
         public void UpdateResult(Game game, bool isAnswerTrue, int gemPrize, GameChapterQuestion currentQuestion, GameChapterQuestion nextQuestion, Action OnClick)
         {
             Show();
@@ -50,7 +51,9 @@ namespace Piranest.UI
                 resultTxt.color = failColor;
                 gemTxt.text = 0.ToString();
             }
-
+            var sprite = textureSaveData.GetSprite(currentQuestion.AnswerMediaUrl);
+            asnwerImg.gameObject.SetActive(sprite != null);
+            asnwerImg.sprite = sprite;
             nextQuestionBtn.SetEvent(OnClick);
         }
 
