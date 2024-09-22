@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Text;
 using UnityEngine;
 
 namespace Piranest
@@ -59,7 +60,21 @@ namespace Piranest
             return true;
         }
 
+        public static string GenerateRandomString(int length = 6)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
+            StringBuilder result = new(length);
+            System.Random random = new();
+
+            for (int i = 0; i < length; i++)
+            {
+                int index = random.Next(chars.Length);
+                result.Append(chars[index]);
+            }
+
+            return result.ToString();
+        }
 
     }
 }

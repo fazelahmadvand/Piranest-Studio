@@ -49,7 +49,8 @@ namespace Piranest.UI.Menu
                 var card = Instantiate(couponCard, couponParent);
                 card.UpdateCard($"{coupon.DiscountPercentage}", coupon.PriceAmount, () =>
                 {
-                    Debug.Log("Coupon");
+                    //show pop up to ask user
+
                 });
                 cards.Add(card);
             }

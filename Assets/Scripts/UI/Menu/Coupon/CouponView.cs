@@ -35,8 +35,9 @@ namespace Piranest.UI.Menu
                 card.UpdateCard(coupon);
                 cards.Add(card);
             }
-
         }
+
+
 
     }
 }

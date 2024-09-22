@@ -202,7 +202,6 @@ namespace Piranest
 
         public async Task<User> GetUser(int userId)
         {
-
             var find = new FindByIdParams
             {
                 RowId = userId,
@@ -239,6 +238,36 @@ namespace Piranest
                 Debug.Log($"Update Account: {e.Message}");
             }
         }
+
+        public async Task CreateCoupon(int vendorId, int couponAmount)
+        {
+            var newCoupon = new Coupon()
+            {
+                Id = Mathf.Abs(Guid.NewGuid().GetHashCode()),
+                CurrencyId = 1,
+                UserId = User.Id,
+                Amount = couponAmount,
+                Code = Utility.GenerateRandomString(),
+                VendourCouponId = vendorId,
+
+            };
+            var insertParam = new InsertParams()
+            {
+                Data = newCoupon,
+                TableId = VOUCHER_TABLE_ID,
+            };
+            try
+            {
+                var response = await ServiceHub.Table.Insert<Coupon, InsertParams>(insertParam);
+                Coupons.Add(newCoupon);
+                OnCouponsChange?.Invoke(Coupons);
+            }
+            catch (DynamicPixelsException e)
+            {
+                Debug.Log("Create Coupon: " + e.Message);
+            }
+        }
+
 
     }
 }
