@@ -241,6 +241,7 @@ namespace Piranest
 
         public async Task CreateCoupon(int vendorId, int couponAmount)
         {
+            await UpdateAccount(couponAmount);
             var newCoupon = new Coupon()
             {
                 Id = Mathf.Abs(Guid.NewGuid().GetHashCode()),
