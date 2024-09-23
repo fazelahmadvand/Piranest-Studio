@@ -28,12 +28,12 @@ namespace Piranest
         public override async Task Init(Action<DynamicPixelsException> OnFail)
         {
             await GetLeaderboard(OnFail);
-            authData.OnAccountUpdate += OnAccountUpdate;
+            authData.OnAccountChange += OnAccountUpdate;
         }
 
         private void OnDestroy()
         {
-            authData.OnAccountUpdate -= OnAccountUpdate;
+            authData.OnAccountChange -= OnAccountUpdate;
 
         }
 

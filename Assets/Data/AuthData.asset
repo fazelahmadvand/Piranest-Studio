@@ -13,13 +13,55 @@ MonoBehaviour:
   m_Name: AuthData
   m_EditorClassIdentifier: 
   <Account>k__BackingField:
-    <Id>k__BackingField: 26
+    <Id>k__BackingField: 1744402525
     <Owner>k__BackingField: 0
-    <UserId>k__BackingField: 77
+    <UserId>k__BackingField: 72
     <CurrencyId>k__BackingField: 1
-    <Earned>k__BackingField: 200
+    <Earned>k__BackingField: 1045
     <Spent>k__BackingField: 0
-    <Remaining>k__BackingField: 200
+    <Remaining>k__BackingField: 1045
     <Hashedvalue>k__BackingField: 
-  <Coupons>k__BackingField: []
+  <Coupons>k__BackingField:
+  - <Id>k__BackingField: 1281192534
+    <VendourCouponId>k__BackingField: 2
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: 45
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: 8WLECO
+  - <Id>k__BackingField: 1120407957
+    <VendourCouponId>k__BackingField: 2
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: -45
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: W6WE7K
+  - <Id>k__BackingField: 647482659
+    <VendourCouponId>k__BackingField: 2
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: -45
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: Y1G323
+  - <Id>k__BackingField: 11
+    <VendourCouponId>k__BackingField: 1
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: 45
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: 64UKSF
+  - <Id>k__BackingField: 12
+    <VendourCouponId>k__BackingField: 1
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: 45
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: RDIPXA
+  - <Id>k__BackingField: 13
+    <VendourCouponId>k__BackingField: 1
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: 45
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: 6VG0BI
+  - <Id>k__BackingField: 1481385483
+    <VendourCouponId>k__BackingField: 3
+    <UserId>k__BackingField: 72
+    <Amount>k__BackingField: 90
+    <CurrencyId>k__BackingField: 1
+    <Code>k__BackingField: 65XAHA
   userSaveData: {fileID: 11400000, guid: 0fe1599394bb35242bb84e0d2bfd4dfc, type: 2}

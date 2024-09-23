@@ -409,6 +409,9 @@ MonoBehaviour:
     type: 3}
   itemData: {fileID: 11400000, guid: e92c7cd44ec02e44abf4c36d9470b2cd, type: 2}
   textureSaveData: {fileID: 11400000, guid: 247bc65bb53f63f4eb6f8bc86f579634, type: 2}
+  popUp: {fileID: 0}
+  buySuccess: {fileID: 0}
+  authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
 --- !u!1 &1837417285863955135
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,8 +23,14 @@ namespace Piranest.UI
             root.SetActive(true);
             infoTxt.text = info;
             okTxt.text = btnTxt;
-            OnOkClick += Hide;
-            okBtn.SetEvent(OnOkClick);
+            Action Click = () =>
+            {
+                Hide();
+            };
+            if (OnOkClick != null)
+                Click += OnOkClick;
+
+            okBtn.SetEvent(Click);
 
         }
 

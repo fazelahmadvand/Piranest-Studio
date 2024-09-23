@@ -31,14 +31,20 @@ namespace Piranest
         public event Action<User> OnAuthSuccess;
         public event Action<User> OnUpdateUser;
         public event Action<Account> OnAccountChange;
-        public event Action<Account> OnAccountUpdate;
         public event Action<List<Coupon>> OnCouponsChange;
+        public event Action<string> OnCouponCreate;
 
         private const string ACCOUNT_TABLE_ID = "6550d82e75e62b435ba7451b";
         private const string VOUCHER_TABLE_ID = "6550d82e75e62b435ba7451d";
         private const string USER_TABLE_ID = "652520bbb6aed5393bb0dc8a";
 
         public static bool HasUser { get; private set; }
+
+
+        public bool CanBuy(int costAmount)
+        {
+            return Account.Remaining >= costAmount;
+        }
 
         public override async Task Init(Action<DynamicPixelsException> OnFail)
         {
@@ -231,7 +237,7 @@ namespace Piranest
             try
             {
                 var response = await ServiceHub.Table.FindByIdAndUpdate<Account, FindByIdAndUpdateParams>(findById);
-                OnAccountUpdate?.Invoke(Account);
+                OnAccountChange?.Invoke(Account);
             }
             catch (DynamicPixelsException e)
             {
@@ -242,14 +248,15 @@ namespace Piranest
         public async Task CreateCoupon(int vendorId, int couponAmount)
         {
             await UpdateAccount(couponAmount);
+            string couponCode = Utility.GenerateRandomString();
             var newCoupon = new Coupon()
             {
                 Id = Mathf.Abs(Guid.NewGuid().GetHashCode()),
                 CurrencyId = 1,
                 UserId = User.Id,
-                Amount = couponAmount,
-                Code = Utility.GenerateRandomString(),
-                VendourCouponId = vendorId,
+                Amount = Mathf.Abs(couponAmount),
+                Code = couponCode,
+                VendourCouponId = vendorId.ToString(),
 
             };
             var insertParam = new InsertParams()
@@ -262,6 +269,8 @@ namespace Piranest
                 var response = await ServiceHub.Table.Insert<Coupon, InsertParams>(insertParam);
                 Coupons.Add(newCoupon);
                 OnCouponsChange?.Invoke(Coupons);
+                OnCouponCreate?.Invoke(couponCode);
+
             }
             catch (DynamicPixelsException e)
             {

@@ -13,9 +13,33 @@ namespace Piranest.UI.Menu
 
         [SerializeField] private ItemData itemData;
         [SerializeField] private TextureSaveData textureSaveData;
+        [SerializeField] private VendorCouponPopUpView popUp;
+        [SerializeField] private VendorCouponUnlockView unlockView;
 
+        [Space]
+        [SerializeField] private AuthData authData;
 
         private List<VendorCouponCardView> cards = new();
+
+        public override void InitView()
+        {
+            base.InitView();
+            popUp.InitView();
+            unlockView.InitView();
+            authData.OnCouponCreate += OnCouponCreate;
+        }
+
+        private void OnDestroy()
+        {
+            authData.OnCouponCreate -= OnCouponCreate;
+        }
+
+        public override void Hide()
+        {
+            base.Hide();
+            popUp.Hide();
+            unlockView.Hide();
+        }
 
         public void UpdateCard(int id)
         {
@@ -38,6 +62,11 @@ namespace Piranest.UI.Menu
             CreateCoupons(vendor.Id);
         }
 
+        private void OnCouponCreate(string code)
+        {
+            unlockView.UpdateCard(code);
+            popUp.Hide();
+        }
 
         private void CreateCoupons(int vendorId)
         {
@@ -49,7 +78,17 @@ namespace Piranest.UI.Menu
                 var card = Instantiate(couponCard, couponParent);
                 card.UpdateCard($"{coupon.DiscountPercentage}", coupon.PriceAmount, () =>
                 {
-                    //show pop up to ask user
+                    if (authData.CanBuy(coupon.PriceAmount))
+                    {
+                        popUp.UpdateCard(coupon.DiscountPercentage, coupon.PriceAmount, async () =>
+                        {
+                            await authData.CreateCoupon(vendorId, -coupon.PriceAmount);
+                        });
+                    }
+                    else
+                    {
+                        PopUpManager.Instance.Show("Not enough gem", null);
+                    }
 
                 });
                 cards.Add(card);

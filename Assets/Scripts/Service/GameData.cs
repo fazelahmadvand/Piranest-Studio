@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace Piranest
 {
@@ -77,6 +78,10 @@ namespace Piranest
         }
         public override async Task Init(Action<DynamicPixelsException> OnFail)
         {
+            games = new();
+            gameChapters = new();
+            gameChapterQuestions = new();
+            userGameInfoes = new();
             await GetGames(OnFail);
             await GetGameChapter(OnFail);
             await GetGameChampterQuestion(OnFail);

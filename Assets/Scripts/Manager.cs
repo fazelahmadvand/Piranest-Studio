@@ -61,12 +61,13 @@ namespace Piranest
         {
             foreach (var data in servicesData)
             {
+                Debug.Log(data.name);
                 await data.Init((ex) =>
                 {
                     PopUpManager.Instance.Show("Get Data Faield", async () =>
                     {
                         await GetServerData();
-                    },"Try Again");
+                    }, "Try Again");
                 });
 
             }

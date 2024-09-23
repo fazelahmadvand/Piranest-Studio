@@ -202,6 +202,7 @@ namespace Piranest.UI.Menu
 
         private void UpdateGameCards()
         {
+            if (cards.Count == 0) return;
             var games = gameData.Games;
             for (int i = 0; i < games.Count; i++)
             {

@@ -12,7 +12,7 @@ namespace Piranest.Model
         [field: SerializeField]
         [JsonProperty("owner")] public object Owner { get; set; }
         [field: SerializeField]
-        [JsonProperty("vendour_coupen_id")] public int VendourCouponId { get; set; }
+        [JsonProperty("vendour_coupen_id")] public string VendourCouponId { get; set; }
         [field: SerializeField]
         [JsonProperty("user_id")] public int UserId { get; set; }
         [field: SerializeField]
