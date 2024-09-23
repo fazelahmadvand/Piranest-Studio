@@ -245,7 +245,7 @@ namespace Piranest
             }
         }
 
-        public async Task CreateCoupon(int vendorId, int couponAmount)
+        public async Task CreateCoupon(int vendorId, int couponAmount, Action<DynamicPixelsException> OnFail = null)
         {
             await UpdateAccount(couponAmount);
             string couponCode = Utility.GenerateRandomString();
@@ -275,6 +275,7 @@ namespace Piranest
             catch (DynamicPixelsException e)
             {
                 Debug.Log("Create Coupon: " + e.Message);
+                OnFail?.Invoke(e);
             }
         }
 

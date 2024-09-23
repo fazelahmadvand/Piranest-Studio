@@ -18,11 +18,23 @@ namespace Piranest.UI
             cancelBtn.SetEvent(Hide);
         }
 
+        public override void Hide()
+        {
+            base.Hide();
+            HandleBuyInteractable(true);
+        }
+
         public void UpdateCard(int discount, int gemCost, Action OnBuyClick)
         {
             Show();
             couponCard.UpdateCard(discount.ToString(), gemCost, null);
             buyBtn.SetEvent(OnBuyClick);
         }
+
+        public void HandleBuyInteractable(bool isActive)
+        {
+            buyBtn.interactable = isActive;
+        }
+
     }
 }
