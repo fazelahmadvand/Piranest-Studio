@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Numerics; // Required for BigInteger
-
+using TMPro;
 namespace Piranest.AR
 {
     public class ScoreManager_ARgames : MonoBehaviour
     {
         private BigInteger score = 0; // Using BigInteger to handle large scores
-        [SerializeField] private Text scoreText;
+        [SerializeField] private TMP_Text scoreText;
 
-        // Dictionary to memoize Fibonacci numbers
+        // Variable to keep track of the current Fibonacci index
+        private int currentFibonacciIndex = 1;
+
+        // Dictionary to store calculated Fibonacci numbers for performance optimization
         private Dictionary<int, BigInteger> fibonacciCache = new Dictionary<int, BigInteger>();
 
         private void Start()
         {
-            // Initialize the Fibonacci cache with the first two Fibonacci numbers
+            // Initialize the dictionary with the first two Fibonacci numbers
             fibonacciCache[1] = 1;
             fibonacciCache[2] = 1;
             UpdateScoreText();
         }
 
         /// <summary>
-        /// Calculates the nth Fibonacci number using an iterative approach with memoization.
+        /// Calculates the nth Fibonacci number using an iterative method with memoization.
         /// </summary>
         /// <param name="n">The position in the Fibonacci sequence (1-based).</param>
         /// <returns>The nth Fibonacci number as a BigInteger.</returns>
@@ -40,17 +43,19 @@ namespace Piranest.AR
                 return fibonacciCache[n];
             }
 
-            // Start from the highest cached Fibonacci number
-            int start = fibonacciCache.Count;
-            if (n <= start)
+            // Find the highest cached Fibonacci index
+            int lastCachedIndex = 0;
+            foreach (var key in fibonacciCache.Keys)
             {
-                return fibonacciCache[n];
+                if (key > lastCachedIndex)
+                    lastCachedIndex = key;
             }
 
-            BigInteger a = fibonacciCache[start - 1 > 0 ? start - 1 : 1];
-            BigInteger b = fibonacciCache[start];
+            BigInteger a = fibonacciCache.ContainsKey(lastCachedIndex - 1) ? fibonacciCache[lastCachedIndex - 1] : 1;
+            BigInteger b = fibonacciCache[lastCachedIndex];
 
-            for (int i = start + 1; i <= n; i++)
+            // Calculate Fibonacci numbers from the last cached index + 1 up to n
+            for (int i = lastCachedIndex + 1; i <= n; i++)
             {
                 BigInteger fib = a + b;
                 fibonacciCache[i] = fib;
@@ -62,31 +67,44 @@ namespace Piranest.AR
         }
 
         /// <summary>
-        /// Changes the score by adding the Fibonacci number corresponding to the input x.
+        /// Adds score based on the current Fibonacci number.
+        /// Each call adds the next Fibonacci number in the sequence to the score.
         /// </summary>
-        /// <param name="x">The input number to map to the Fibonacci sequence.</param>
-        public void ChangeScore(int x)
+        public void AddFibonacciScore()
         {
-            BigInteger fibNumber = CalculateFibonacci(x);
-            score += fibNumber;
+            BigInteger fibNumber = CalculateFibonacci(currentFibonacciIndex);
+            score = fibNumber;
             UpdateScoreText();
+
+            Debug.Log($"Added F({currentFibonacciIndex}) = {fibNumber} to score.");
         }
 
         /// <summary>
-        /// Resets the score and clears the Fibonacci cache.
+        /// Changes the score by adding a given value.
+        /// This method is kept for compatibility with the original code.
+        /// </summary>
+        /// <param name="x">The value to add to the score.</param>
+        public void ChangeScore(int x)
+        {
+            currentFibonacciIndex += x;
+            AddFibonacciScore();
+        }
+
+        /// <summary>
+        /// Resets the score and the Fibonacci index.
         /// </summary>
         public void Lose()
         {
-            UpdateScoreText();
             score = 0;
+            currentFibonacciIndex = 1;
             fibonacciCache.Clear();
-            // Reinitialize the Fibonacci cache
             fibonacciCache[1] = 1;
             fibonacciCache[2] = 1;
+            UpdateScoreText();
         }
 
         /// <summary>
-        /// Updates the score text in the UI.
+        /// Updates the score display in the UI.
         /// </summary>
         private void UpdateScoreText()
         {
@@ -94,13 +112,12 @@ namespace Piranest.AR
         }
 
         /// <summary>
-        /// Example usage: Change score when a button is clicked.
-        /// Ensure that the input x is provided appropriately.
+        /// Example usage: Adds a Fibonacci-based score when a button is clicked.
+        /// Ensure that the button is connected to this method in the Inspector.
         /// </summary>
-        /// <param name="x">The input number to map to the Fibonacci sequence.</param>
-        public void OnChangeScoreButtonClicked(int x)
+        public void OnAddFibonacciScoreButtonClicked()
         {
-            ChangeScore(x);
+            AddFibonacciScore();
         }
     }
 }
