@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.dynamicpixels.sdk": {
-      "version": "file:H:/Unity3d-C--SDK-develop/Unity3d-C--SDK-develop",
+      "version": "file:F:/Projects/Dynamic",
       "depth": 0,
       "source": "local",
       "dependencies": {}

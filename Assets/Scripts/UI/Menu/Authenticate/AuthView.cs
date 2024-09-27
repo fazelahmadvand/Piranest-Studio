@@ -19,8 +19,7 @@ namespace Piranest
             Show();
             signView.InitView();
             loginView.InitView();
-
-            Manager.OnInitialized += OnInitialized;
+            OnInitialized();
             authData.OnAuthSuccess += OnLoginSuccess;
             authData.OnAuthSuccess += OnSignUpSuccess;
 
@@ -28,7 +27,6 @@ namespace Piranest
 
         private void OnDestroy()
         {
-            Manager.OnInitialized -= OnInitialized;
             authData.OnAuthSuccess -= OnLoginSuccess;
             authData.OnAuthSuccess -= OnSignUpSuccess;
         }

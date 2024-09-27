@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.dynamicpixels.sdk": "file:H:/Unity3d-C--SDK-develop/Unity3d-C--SDK-develop",
+    "com.dynamicpixels.sdk": "file:F:/Projects/Dynamic",
     "com.unity.collab-proxy": "2.4.4",
     "com.unity.ide.rider": "3.0.28",
     "com.unity.ide.visualstudio": "2.0.22",

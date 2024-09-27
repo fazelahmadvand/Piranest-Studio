@@ -21,7 +21,7 @@ namespace Piranest.UI.Menu
         {
             base.InitView();
             vendorInfo.InitView();
-            Manager.OnInitialized += OnInitialized;
+            OnInitialized();
         }
 
         public override void Show()
@@ -35,11 +35,6 @@ namespace Piranest.UI.Menu
         {
             base.Hide();
             vendorInfo.Hide();
-        }
-
-        private void OnDestroy()
-        {
-            Manager.OnInitialized -= OnInitialized;
         }
 
         private void OnInitialized()

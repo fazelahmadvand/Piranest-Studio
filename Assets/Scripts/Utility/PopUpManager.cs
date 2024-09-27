@@ -16,6 +16,11 @@ namespace Piranest.UI
 
         [SerializeField] private float duration = .5f;
 
+        private void Awake()
+        {
+            SelfSinglton();
+        }
+
         public void Show(string info, Action OnOkClick, string btnTxt = "ok")
         {
             popUpRoot.localScale = Vector3.zero;

@@ -17,5 +17,20 @@ namespace Piranest
             }
         }
 
+
+        protected void SelfSinglton()
+        {
+            if (instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+
+
     }
 }

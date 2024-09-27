@@ -15,10 +15,6 @@ namespace Piranest
         [SerializeField] private UserSaveData userSaveDataes;
         [SerializeField] private TextureSaveData textureSaveData;
 
-        [SerializeField] private List<View> views;
-
-        public static event Action OnInitialized;
-
         private void Awake()
         {
             Utility.FixFrameRate();
@@ -33,10 +29,6 @@ namespace Piranest
             var loading = LoadingHandler.Instance;
             loading.Show();
             loading.UpdateText("Initialize View");
-            foreach (var view in views)
-            {
-                view.InitView();
-            }
 
             await Task.Delay(1000);
             loading.UpdateText("Getting Data From Server");
@@ -53,7 +45,6 @@ namespace Piranest
             await Task.Delay(500);
             if (userSaveDataes.HasUser())
                 loading.Hide();
-            OnInitialized?.Invoke();
 
         }
 

@@ -29,6 +29,7 @@ namespace Piranest.UI.Menu
 
         public override void InitView()
         {
+            CreateGameCards();
             base.InitView();
             gameInfo.InitView();
             chapterView.InitView();
@@ -37,20 +38,13 @@ namespace Piranest.UI.Menu
             finishView.InitView();
             var gm = GameManager.Instance;
             gm.OnGameStateChange += OnGameStateChanged;
-            Manager.OnInitialized += OnInitialized;
         }
 
         private void OnDestroy()
         {
-            Manager.OnInitialized -= OnInitialized;
             var gm = GameManager.Instance;
             if (gm == null) return;
             gm.OnGameStateChange -= OnGameStateChanged;
-        }
-
-        private void OnInitialized()
-        {
-            CreateGameCards();
         }
 
         private void OnGameStateChanged(GameState state)

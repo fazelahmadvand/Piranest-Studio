@@ -25,14 +25,13 @@ namespace Piranest.UI.Menu
                 });
 
             }
-            Manager.OnInitialized += OnInitialized;
+            OnInitialized();
             authData.OnAuthSuccess += OnAuthSuccess;
         }
 
         private void OnDestroy()
         {
             authData.OnAuthSuccess -= OnAuthSuccess;
-            Manager.OnInitialized -= OnInitialized;
         }
         private void OnAuthSuccess(DynamicPixels.GameService.Services.User.Models.User obj)
         {
