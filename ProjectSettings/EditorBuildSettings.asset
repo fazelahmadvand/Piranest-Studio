@@ -8,4 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: b232d5804484dcc4e842aacfd10d7f8b
-  m_configObjects: {}
+  - enabled: 0
+    path: Assets/AR section/EasyAR/Scenes/Menu.unity
+    guid: 2677a2a4c4d256244b34b452a8f098c0
+  - enabled: 0
+    path: Assets/AR section/Puzzile Games/ARMultipleObjects-Puzzles.unity
+    guid: 5a7a0b8d4b665ea4a94256f9b607dfbb
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 7ba4bb9f9aa76ec49818354a49db5a75,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 781a3a15d95f7934997b240b5a4f9a5b,
+      type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 302e9f36808117f4184b07b05ca5bb47,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7b2418dcc5b87d044910a7228982a36c,
+      type: 2}
