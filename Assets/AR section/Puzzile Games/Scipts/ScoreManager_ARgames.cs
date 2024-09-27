@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Numerics; // Required for BigInteger
+using System.Numerics;
+using System.Threading.Tasks; // Required for BigInteger
 using TMPro;
+
 namespace Piranest.AR
 {
     public class ScoreManager_ARgames : MonoBehaviour
     {
         private BigInteger score = 0; // Using BigInteger to handle large scores
         [SerializeField] private TMP_Text scoreText;
+        [SerializeField] private AuthData authData;
 
         // Variable to keep track of the current Fibonacci index
         private int currentFibonacciIndex = 1;
@@ -93,14 +96,16 @@ namespace Piranest.AR
         /// <summary>
         /// Resets the score and the Fibonacci index.
         /// </summary>
-        public void Lose()
+        public async Task Lose()
         {
+            UpdateScoreText();
+            await authData.UpdateAccount((int)score);
+
             score = 0;
             currentFibonacciIndex = 1;
             fibonacciCache.Clear();
             fibonacciCache[1] = 1;
             fibonacciCache[2] = 1;
-            UpdateScoreText();
         }
 
         /// <summary>

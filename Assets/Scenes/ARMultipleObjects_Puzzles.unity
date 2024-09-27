@@ -3524,7 +3524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dbf165225cd78458c21c1a482a7cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1204398119}
+  scoreText: {fileID: 0}
+  authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
 --- !u!114 &1302485991
 MonoBehaviour:
   m_ObjectHideFlags: 0
