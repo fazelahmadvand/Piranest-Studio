@@ -51,16 +51,6 @@ namespace Piranest
             Application.targetFrameRate = hertz;
         }
 
-        public static bool HasInternet()
-        {
-            if (Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork
-                || Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork)
-            {
-                return true;
-            }
-            return false;
-        }
-
         public static bool HasLocationPermission()
         {
 #if UNITY_ANDROID

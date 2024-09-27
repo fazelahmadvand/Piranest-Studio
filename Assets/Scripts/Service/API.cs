@@ -29,16 +29,6 @@ namespace Piranest.HTTP
 
         }
 
-        public static IEnumerator Get(string url, Action OnSuccess, Action OnFail)
-        {
-            var req = UnityWebRequest.Get(url);
-            yield return req.SendWebRequest();
-            if (req.result != UnityWebRequest.Result.Success)
-                OnFail?.Invoke();
-            else
-                OnSuccess?.Invoke();
-        }
-
 
         public static IEnumerator DownloadTexture(string url, Action<Texture2D> OnSuccess, Action OnFail = null)
         {

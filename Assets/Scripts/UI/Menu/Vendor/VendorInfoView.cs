@@ -82,11 +82,7 @@ namespace Piranest.UI.Menu
                     {
                         popUp.UpdateCard(coupon.DiscountPercentage, coupon.PriceAmount, async () =>
                         {
-                            popUp.HandleBuyInteractable(false);
-                            await authData.CreateCoupon(vendorId, -coupon.PriceAmount, (ex) =>
-                            {
-                                popUp.HandleBuyInteractable(true);
-                            });
+                            await authData.CreateCoupon(vendorId, -coupon.PriceAmount);
                         });
                     }
                     else

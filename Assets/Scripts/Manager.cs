@@ -2,7 +2,6 @@ using Piranest.SaveSystem;
 using Piranest.UI;
 using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -65,8 +64,6 @@ namespace Piranest
                 Debug.Log(data.name);
                 await data.Init((ex) =>
                 {
-                    var loading = LoadingHandler.Instance;
-                    loading.Hide();
                     PopUpManager.Instance.Show("Get Data Faield", async () =>
                     {
                         await GetServerData();
@@ -75,13 +72,8 @@ namespace Piranest
 
             }
         }
-        private void Update()
-        {
-            if (!Utility.HasInternet())
-            {
-                PopUpManager.Instance.Show("No Internet", null);
-            }
-        }
+
+
 
     }
 }
