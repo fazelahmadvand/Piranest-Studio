@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 2677a2a4c4d256244b34b452a8f098c0
   - enabled: 1
-    path: Assets/Scenes/ARMultipleObjects-Puzzles.unity
+    path: Assets/Scenes/ARMultipleObjects_Puzzles.unity
     guid: 5a7a0b8d4b665ea4a94256f9b607dfbb
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 7ba4bb9f9aa76ec49818354a49db5a75,

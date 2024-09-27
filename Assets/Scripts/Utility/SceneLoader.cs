@@ -9,15 +9,21 @@ namespace Piranest
     public class SceneLoader
     {
 
-        public static void LoadScene(string sceneName, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public static void LoadScene(SceneName sceneName, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
-            SceneManager.LoadScene(sceneName, loadSceneMode);
+            SceneManager.LoadScene(sceneName.ToString(), loadSceneMode);
         }
 
-        public static IEnumerator LoadScene(string sceneName, Action OnLoad)
+        public static IEnumerator LoadScene(SceneName sceneName, Action OnLoad)
         {
             yield return null;
         }
 
+    }
+
+    public enum SceneName
+    {
+        MainMenu,
+        ARMultipleObjects_Puzzles,
     }
 }
