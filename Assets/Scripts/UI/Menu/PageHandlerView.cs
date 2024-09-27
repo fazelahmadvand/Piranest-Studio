@@ -16,7 +16,7 @@ namespace Piranest.UI.Menu
         public override void InitView()
         {
             Show();
-            HideAll();
+            OnInitialized();
             foreach (var page in footerPage)
             {
                 page.btn.onClick.AddListener(() =>
@@ -25,7 +25,6 @@ namespace Piranest.UI.Menu
                 });
 
             }
-            OnInitialized();
             authData.OnAuthSuccess += OnAuthSuccess;
         }
 

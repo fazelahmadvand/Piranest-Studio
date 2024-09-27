@@ -40,10 +40,16 @@ namespace Piranest
 
         public static bool HasUser { get; private set; }
 
-
         public bool CanBuy(int costAmount)
         {
             return Account.Remaining >= costAmount;
+        }
+
+        public static void FakeLogin()
+        {
+#if UNITY_EDITOR
+            HasUser = true;
+#endif
         }
 
         public override async Task Init(Action<DynamicPixelsException> OnFail)

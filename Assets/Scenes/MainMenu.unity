@@ -6203,7 +6203,7 @@ GameObject:
   - component: {fileID: 2092285815}
   - component: {fileID: 2092285816}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: MenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6247,7 +6247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   views:
-  - {fileID: 1418471635}
   - {fileID: 1362624773}
   - {fileID: 1601209184}
   - {fileID: 821947251}
@@ -6255,6 +6254,7 @@ MonoBehaviour:
   - {fileID: 1928767297}
   - {fileID: 150753908}
   - {fileID: 1478046272}
+  - {fileID: 1418471635}
 --- !u!1 &2129416999 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6711354265756748888, guid: faa7d78c114058b418889b6aba8a9ff4,

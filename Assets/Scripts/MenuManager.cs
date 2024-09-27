@@ -9,10 +9,9 @@ namespace Piranest.UI
 
         [SerializeField] private List<View> views = new();
 
-
-
         private void Start()
         {
+
             foreach (var view in views)
             {
                 view.InitView();

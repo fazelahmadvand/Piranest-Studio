@@ -41,11 +41,9 @@ namespace Piranest
                 loading.UpdateText(text);
             });
 
-            loading.UpdateText($"");
+            loading.UpdateText($"Ready!");
             await Task.Delay(500);
-            if (userSaveDataes.HasUser())
-                loading.Hide();
-
+            SceneLoader.LoadScene(SceneName.MainMenu);
         }
 
         private async Task GetServerData()

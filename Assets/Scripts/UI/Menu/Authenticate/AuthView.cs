@@ -40,7 +40,7 @@ namespace Piranest
             }
             else
             {
-                signView.Show();
+                loginView.Show();
                 LoadingHandler.Instance.Hide();
             }
         }
