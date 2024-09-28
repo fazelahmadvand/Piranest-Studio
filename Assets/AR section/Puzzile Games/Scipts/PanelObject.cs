@@ -51,7 +51,7 @@ namespace Piranest.AR
             failedMenu.gameObject.SetActive(false);
             panel.gameObject.SetActive(true);
             ScoreManager_ARgames gm = FindObjectOfType<ScoreManager_ARgames>();
-            gm.ChangeScore(+1);
+            //gm.ChangeScore(+1);
         }
     }
 }

@@ -38,18 +38,21 @@ namespace Piranest.AR
                     else if(!firstCollide)
                     {
                         Losing();
+                        isCollide = false;
                     }
                 }
-                /*else if (collision.gameObject.tag == "OutSide") 
+                else if (collision.gameObject.tag == "OutSide") 
                 {
                     Losing();
-                }*/
+                    isCollide = false;
+                }
             }
             else
             {
                 if (collision.gameObject.tag == "Plane" && !firstCollide)
                 {
                     Losing();
+                    isCollide = false;
                 }
             }
         }

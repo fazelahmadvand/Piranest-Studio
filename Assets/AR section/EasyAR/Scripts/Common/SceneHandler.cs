@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.SceneManagement;
+using Piranest;
 
 public class SceneHandler : MonoBehaviour
 {
@@ -61,7 +62,9 @@ public class SceneHandler : MonoBehaviour
     public static void ARMultipleObjects_Puzzles()
     {
         LoaderUtility.Initialize();
-        SceneManager.LoadScene("ARMultipleObjects-Puzzles", LoadSceneMode.Single);
+        //SceneManager.LoadScene("ARMultipleObjects-Puzzles", LoadSceneMode.Single);
+        SceneLoader.LoadScene(SceneName.ARMultipleObjects_Puzzles);
+
     }
     /// <summary>
     /// Navigate to AR Configurator scene 
