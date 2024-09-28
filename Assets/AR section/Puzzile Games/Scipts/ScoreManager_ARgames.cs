@@ -15,7 +15,7 @@ namespace Piranest.AR
         [SerializeField] private AuthData authData;
 
         // Variable to keep track of the current Fibonacci index
-        private int currentFibonacciIndex = 1;
+        private int currentFibonacciIndex = -1;
 
         // Dictionary to store calculated Fibonacci numbers for performance optimization
         private Dictionary<int, BigInteger> fibonacciCache = new Dictionary<int, BigInteger>();
@@ -37,7 +37,6 @@ namespace Piranest.AR
         {
             if (n <= 0)
             {
-                Debug.LogError("Fibonacci number is not defined for n <= 0.");
                 return 0;
             }
 
@@ -98,15 +97,17 @@ namespace Piranest.AR
         /// </summary>
         public async Task Lose()
         {
+            currentFibonacciIndex = -1;
+            fibonacciCache[1] = 1;
+            fibonacciCache[2] = 1;
             UpdateScoreText();
             await authData.UpdateAccount((int)score);
 
             score = 0;
-            currentFibonacciIndex = 1;
             fibonacciCache.Clear();
-            fibonacciCache[1] = 1;
-            fibonacciCache[2] = 1;
+            
         }
+        
 
         /// <summary>
         /// Updates the score display in the UI.
