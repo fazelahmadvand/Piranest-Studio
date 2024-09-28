@@ -113,7 +113,7 @@ namespace Piranest.AR
         /// </summary>
         private void UpdateScoreText()
         {
-            scoreText.text = "Your score: " + score.ToString();
+            scoreText.text = score.ToString();
         }
 
         /// <summary>
