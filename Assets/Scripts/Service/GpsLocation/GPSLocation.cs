@@ -49,10 +49,12 @@ namespace Piranest
                 }
                 else
                 {
+#if !UNITY_EDITOR
                     PopUpManager.Instance.Show("Please turn on your location", () =>
                     {
                         OnGetPermission?.Invoke();
                     });
+#endif
                 }
                 yield break;
             }

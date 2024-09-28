@@ -18,8 +18,9 @@ namespace Piranest.UI.Menu
         public override void InitView()
         {
             base.InitView();
+            OnInitialized();
+            OnAccountChange(authData.Account);
             authData.OnAccountChange += OnAccountChange;
-            authData.OnAuthSuccess += OnAuthSuccess;
 
         }
 

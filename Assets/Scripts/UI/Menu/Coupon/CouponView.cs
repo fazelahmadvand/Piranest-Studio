@@ -17,6 +17,7 @@ namespace Piranest.UI.Menu
         public override void InitView()
         {
             base.InitView();
+            CreateCoupons(authData.Coupons);
             authData.OnCouponsChange += CreateCoupons;
         }
 

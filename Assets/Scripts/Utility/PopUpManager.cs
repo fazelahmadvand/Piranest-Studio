@@ -18,7 +18,7 @@ namespace Piranest.UI
 
         private void Awake()
         {
-            SelfSinglton();
+            //SelfSinglton();
         }
 
         public void Show(string info, Action OnOkClick, string btnTxt = "ok")

@@ -20,7 +20,7 @@ namespace Piranest
 
         protected void SelfSinglton()
         {
-            if (instance != this)
+            if (instance != null && instance != this)
             {
                 Destroy(gameObject);
                 return;
