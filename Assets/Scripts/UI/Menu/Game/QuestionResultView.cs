@@ -25,7 +25,8 @@ namespace Piranest.UI
         [SerializeField] private GameObject nextQuestionTitle;
         [SerializeField] private Button nextQuestionLocationbtn;
         [SerializeField] private RawImage nextQuestionLocationRawImg;
-
+        [Space]
+        [SerializeField] private GameData gameData;
         [Header("Vendors")]
         [SerializeField] private VendorCardView vendorCard;
         [SerializeField] private Transform vendorParent;
@@ -33,6 +34,8 @@ namespace Piranest.UI
         [SerializeField] private HeaderView headerView;
         [SerializeField] private ItemData itemData;
         [SerializeField] private TextureSaveData textureSaveData;
+
+
         public void UpdateResult(Game game, bool isAnswerTrue, int gemPrize, GameChapterQuestion currentQuestion, GameChapterQuestion nextQuestion, Action OnClick)
         {
             Show();

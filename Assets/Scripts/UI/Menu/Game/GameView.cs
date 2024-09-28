@@ -127,7 +127,9 @@ namespace Piranest.UI.Menu
         private void OnQuestionResult(GameState state)
         {
             bool isTrue = state.asnwerIsTrue;
-            int prize = state.CurrentQuestion.Prize;
+
+            int prize = gameData.IsAlreadyAnsweredQuations(state.currentGame.Id, state.CurrentChapter.Id, state.CurrentQuestion.Id) ? 0 : state.CurrentQuestion.Prize;
+
             questionResultView.UpdateResult(state.currentGame, isTrue, prize, state.CurrentQuestion, state.GetNextQuestsion(), () =>
             {
                 GameManager.Instance.NextState();

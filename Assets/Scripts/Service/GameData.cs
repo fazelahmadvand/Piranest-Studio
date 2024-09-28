@@ -76,6 +76,13 @@ namespace Piranest
             return userInfo != null;
 
         }
+
+        public bool IsAlreadyAnsweredQuations(int gameId, int chapterId, int questionId)
+        {
+            var answer = UserGameInfoes.Where(g => g.GameId == gameId).Where(g => g.ChapterId == chapterId).FirstOrDefault(g => g.QuestionId == questionId);
+            return answer != null;
+        }
+
         public override async Task Init(Action<DynamicPixelsException> OnFail)
         {
             games = new();

@@ -27,8 +27,6 @@ namespace Piranest
 
         public event Action<GameState> OnGameStateChange;
 
-        public event Action OnGameChange;
-
         public void SetGame(Game game)
         {
             GPSLocation.Instance.Init();
@@ -114,11 +112,14 @@ namespace Piranest
             var chapterId = currentGameState.CurrentChapter.Id;
             var question = currentGameState.CurrentQuestion;
             bool isTrue = state == QuestionStateType.Right;
-            await gameData.InsertUserGameInfo(gameId, chapterId, question.Id, isTrue);
-            if (isTrue)
+            if (!gameData.IsAlreadyAnsweredQuations(gameId, chapterId, question.Id))
             {
-                int prize = question.Prize;
-                await authData.UpdateAccount(prize);
+                await gameData.InsertUserGameInfo(gameId, chapterId, question.Id, isTrue);
+                if (isTrue)
+                {
+                    int prize = question.Prize;
+                    await authData.UpdateAccount(prize);
+                }
             }
 
         }
