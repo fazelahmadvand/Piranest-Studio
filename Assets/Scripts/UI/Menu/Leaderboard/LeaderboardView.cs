@@ -25,6 +25,7 @@ namespace Piranest.UI.Menu
         {
             base.InitView();
             CreateCards();
+            HandleLeaderboard();
             leaderboardData.OnGetLeaderboard += HandleLeaderboard;
         }
 
