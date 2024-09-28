@@ -18,9 +18,13 @@ namespace Piranest.UI.Menu
         public override void InitView()
         {
             base.InitView();
-            OnInitialized();
-            OnAccountChange(authData.Account);
+            if (AuthData.HasUser)
+            {
+                OnInitialized();
+                OnAccountChange(authData.Account);
+            }
             authData.OnAccountChange += OnAccountChange;
+            authData.OnAuthSuccess += OnAuthSuccess;
 
         }
 
@@ -39,6 +43,7 @@ namespace Piranest.UI.Menu
         private void OnAuthSuccess(DynamicPixels.GameService.Services.User.Models.User obj)
         {
             OnInitialized();
+            OnAccountChange(authData.Account);
         }
 
         private void OnInitialized()
