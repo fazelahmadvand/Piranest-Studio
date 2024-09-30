@@ -14,12 +14,14 @@ namespace Piranest
         [Header("Saved Data")]
         [SerializeField] private UserSaveData userSaveDataes;
         [SerializeField] private TextureSaveData textureSaveData;
+        [SerializeField] private TimerSaveData timerSaveData;
 
         private void Awake()
         {
             Utility.FixFrameRate();
             userSaveDataes.Init();
             textureSaveData.Init();
+            timerSaveData.Init();
         }
 
         private async void Start()

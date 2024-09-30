@@ -469,6 +469,7 @@ MonoBehaviour:
     questionIndex: 0
     chapterIndex: 0
     asnwerIsTrue: 0
+  timerSaveData: {fileID: 11400000, guid: ebf8cffb76e78424cb11ca94e8c6fbb9, type: 2}
   gameData: {fileID: 11400000, guid: ea28e4e049889964fac7e5b51c7da643, type: 2}
   authData: {fileID: 11400000, guid: 6fc0876819167a04bb88835e136415bf, type: 2}
 --- !u!4 &104159342

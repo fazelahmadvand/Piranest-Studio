@@ -76,5 +76,19 @@ namespace Piranest
             return result.ToString();
         }
 
+        public static string SecondToTimeString(int timeSeconds)
+        {
+            TimeSpan time = TimeSpan.FromSeconds(timeSeconds);
+
+            // Format the TimeSpan as hour:min:second
+            string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}",
+                                                 time.Hours,
+                                                 time.Minutes,
+                                                 time.Seconds);
+            return formattedTime;
+        }
+
+
+
     }
 }

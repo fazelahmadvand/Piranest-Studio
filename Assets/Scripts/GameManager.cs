@@ -1,4 +1,5 @@
 using Piranest.Model;
+using Piranest.SaveSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace Piranest
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private Game currentGame;
-
         [SerializeField] private GameState currentGameState;
 
+        [SerializeField] private TimerSaveData timerSaveData;
         [SerializeField] private GameData gameData;
         [SerializeField] private AuthData authData;
 

@@ -816,6 +816,7 @@ MonoBehaviour:
   textureDownloader: {fileID: 369737962}
   userSaveDataes: {fileID: 11400000, guid: 0fe1599394bb35242bb84e0d2bfd4dfc, type: 2}
   textureSaveData: {fileID: 11400000, guid: 247bc65bb53f63f4eb6f8bc86f579634, type: 2}
+  timerSaveData: {fileID: 11400000, guid: ebf8cffb76e78424cb11ca94e8c6fbb9, type: 2}
 --- !u!4 &882438748
 Transform:
   m_ObjectHideFlags: 0
