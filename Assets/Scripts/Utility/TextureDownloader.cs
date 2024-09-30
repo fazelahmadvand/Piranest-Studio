@@ -41,7 +41,6 @@ namespace Piranest
                     else
                     {
                         failedCount++;
-                        Debug.Log($"<color=red>Failed To Download Texture: {url}</color>");
                     }
                 }
 

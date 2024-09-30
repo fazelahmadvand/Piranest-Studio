@@ -1,6 +1,5 @@
 using Piranest.SaveSystem;
 using Piranest.UI;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -15,6 +14,7 @@ namespace Piranest
         [SerializeField] private UserSaveData userSaveDataes;
         [SerializeField] private TextureSaveData textureSaveData;
         [SerializeField] private TimerSaveData timerSaveData;
+        [SerializeField] private FinishedGameSaveData finishedGameSaveData;
 
         private void Awake()
         {
@@ -22,6 +22,7 @@ namespace Piranest
             userSaveDataes.Init();
             textureSaveData.Init();
             timerSaveData.Init();
+            finishedGameSaveData.Init();
         }
 
         private async void Start()

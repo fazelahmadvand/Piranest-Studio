@@ -14,6 +14,7 @@ namespace Piranest
         [SerializeField] private TimerHandler timeHandler;
         [Space]
         [SerializeField] private TimerSaveData timerSaveData;
+        [SerializeField] private FinishedGameSaveData finishedGameSaveData;
         [SerializeField] private GameData gameData;
         [SerializeField] private AuthData authData;
 
@@ -22,7 +23,6 @@ namespace Piranest
         public void SetGame(Game game)
         {
             GPSLocation.Instance.Init();
-
 
             var userInfoes = gameData.GetUserGameInfoesByGameId(game.Id);
             var allGameChapters = gameData.GetChapters(game.Id);
@@ -99,7 +99,9 @@ namespace Piranest
             {
                 int gameId = currentGameState.currentGame.Id;
                 int bonus = TimeBonusGem(gameId);
-                await authData.UpdateAccount(bonus);
+                if (bonus != 0)
+                    await authData.UpdateAccount(bonus);
+                finishedGameSaveData.GameFinished(currentGameState.currentGame.Id);
             }
         }
 
@@ -168,9 +170,10 @@ namespace Piranest
 
         public int TimeBonusGem(int gameId)
         {
-            if (gameData.CalculateGameReward(gameId) <= 0) return 0;
+            if (finishedGameSaveData.HasFinishedGame(gameId)) return 0;
             int total = gameData.SumGamePrize(gameId);
-            return total * Utility.TIME_BONUS_PERCENT / 100;
+            int result = total * Utility.TIME_BONUS_PERCENT / 100;
+            return result;
         }
 
     }
