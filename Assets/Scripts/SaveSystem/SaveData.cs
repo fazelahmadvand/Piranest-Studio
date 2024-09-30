@@ -8,13 +8,12 @@ namespace Piranest
     {
         [field: SerializeField] public T Data { get; set; }
 
-
         public event Action<T> OnSaveChange;
         protected abstract string KeyName();
 
-        public void Init()
+        public virtual void Init()
         {
-            if (PlayerPrefs.HasKey(KeyName()))
+            if (HasKey())
             {
                 Load();
             }
@@ -25,7 +24,12 @@ namespace Piranest
             }
         }
 
-        public void Save()
+        protected bool HasKey()
+        {
+            return PlayerPrefs.HasKey(KeyName());
+        }
+
+        public virtual void Save()
         {
             var json = JsonConvert.SerializeObject(Data);
             PlayerPrefs.SetString(KeyName(), json);
@@ -38,7 +42,7 @@ namespace Piranest
             OnSaveChange?.Invoke(Data);
         }
 
-        
+
 
     }
 

@@ -11,6 +11,8 @@ namespace Piranest
         public const string GOOGLE_MAP_API_KEY = "AIzaSyA-Z74y1-7uuNsidlMZUSYGYjkHWk5nVxs";
         public const int MAP_ZOOM = 15;
 
+        public const int TIME_BONUS_PERCENT = 30;
+
         public static IEnumerator DoAfter(float duration, Action OnStart, Action OnEnd)
         {
             OnStart?.Invoke();

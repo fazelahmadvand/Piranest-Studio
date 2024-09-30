@@ -9,36 +9,28 @@ namespace Piranest
 {
     public class GameManager : Singleton<GameManager>
     {
-        [SerializeField] private Game currentGame;
         [SerializeField] private GameState currentGameState;
 
+        [SerializeField] private TimerHandler timeHandler;
+        [Space]
         [SerializeField] private TimerSaveData timerSaveData;
         [SerializeField] private GameData gameData;
         [SerializeField] private AuthData authData;
-
-        public Game CurrentGame
-        {
-            get => currentGame;
-            set
-            {
-                if (currentGame == value) return;
-                currentGame = value;
-            }
-        }
 
         public event Action<GameState> OnGameStateChange;
 
         public void SetGame(Game game)
         {
             GPSLocation.Instance.Init();
-            CurrentGame = game;
+
+
             var userInfoes = gameData.GetUserGameInfoesByGameId(game.Id);
-            var allGameChapters = gameData.GetChapters(CurrentGame.Id);
+            var allGameChapters = gameData.GetChapters(game.Id);
 
             currentGameState = new()
             {
                 type = GameStateType.Game,
-                currentGame = CurrentGame,
+                currentGame = game,
                 chaptersInfo = new(),
                 chaptersAndQuestions = new()
             };
@@ -82,7 +74,7 @@ namespace Piranest
             OnGameStateChange?.Invoke(currentGameState);
         }
 
-        public void NextState()
+        public async void NextState()
         {
             var type = currentGameState.type;
             switch (type)
@@ -92,6 +84,7 @@ namespace Piranest
                     break;
                 case GameStateType.Chapter:
                     currentGameState.type = GameStateType.Question;
+                    StartTime(currentGameState.currentGame);
                     break;
                 case GameStateType.Question:
                     break;
@@ -101,6 +94,13 @@ namespace Piranest
             }
 
             OnGameStateChange?.Invoke(currentGameState);
+
+            if (type == GameStateType.Finished)
+            {
+                int gameId = currentGameState.currentGame.Id;
+                int bonus = TimeBonusGem(gameId);
+                await authData.UpdateAccount(bonus);
+            }
         }
 
         public async void SubmitAnswer(QuestionStateType state)
@@ -153,6 +153,24 @@ namespace Piranest
                     }
                 }
             }
+        }
+
+        private void StartTime(Game game)
+        {
+            if (!timerSaveData.HasGame(game.Id))
+            {
+                int time;
+                time = game.TimeLimit;
+                timerSaveData.AddTime(game.Id, time);
+            }
+            timeHandler.Init(game.Id);
+        }
+
+        public int TimeBonusGem(int gameId)
+        {
+            if (gameData.CalculateGameReward(gameId) <= 0) return 0;
+            int total = gameData.SumGamePrize(gameId);
+            return total * Utility.TIME_BONUS_PERCENT / 100;
         }
 
     }

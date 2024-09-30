@@ -12,6 +12,10 @@ namespace Piranest.UI
     {
         [SerializeField] private TMP_Text whichAnswerTxt, descriptionTxt;
 
+        [Header("Time")]
+        [SerializeField] private GameObject timerRoot;
+        [SerializeField] private TMP_Text timerTxt;
+
         [SerializeField] private List<ButtonView> answers = new();
         [SerializeField] private Image questionImg;
         [SerializeField] private Button submitBtn;
@@ -30,11 +34,19 @@ namespace Piranest.UI
         public override void InitView()
         {
             base.InitView();
+            TimerHandler.TimeUpdate += HandleTime;
+            TimerHandler.TimeEnd += DisableTime;
+        }
 
+        private void OnDestroy()
+        {
+            TimerHandler.TimeUpdate -= HandleTime;
+            TimerHandler.TimeEnd -= DisableTime;
         }
 
         public void UpdateInfo(GameChapterQuestion question, Action<QuestionStateType> OnSubmit)
         {
+            HandleTime();
             Show();
             submitBtn.interactable = false;
             var questions = question.Options.Split(',').ToList();
@@ -78,6 +90,24 @@ namespace Piranest.UI
             }
         }
 
+        private void HandleTime()
+        {
+            if (TimerHandler.HasTime)
+            {
+                timerRoot.SetActive(true);
+                string time = Utility.SecondToTimeString(TimerHandler.Timer);
+                timerTxt.text = $"{time}";
+            }
+            else
+            {
+                DisableTime();
+            }
+        }
+
+        private void DisableTime()
+        {
+            timerRoot.SetActive(false);
+        }
 
         public bool IsRightAnswer()
         {

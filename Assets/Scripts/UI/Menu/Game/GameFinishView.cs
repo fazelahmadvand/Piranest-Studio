@@ -14,7 +14,7 @@ namespace Piranest.UI
 
         [SerializeField] private Button seeAllVendorsBtn, backToGameBtn;
 
-        [SerializeField] private TMP_Text gemTxt;
+        [SerializeField] private TMP_Text gemTxt, extraGemTxt;
 
         [Space]
         [SerializeField] private VendorCardView vendorCard;
@@ -27,6 +27,8 @@ namespace Piranest.UI
         {
             Show();
             gemTxt.text = prize.ToString();
+            int timeBonusGem = TimerHandler.HasTime ? GameManager.Instance.TimeBonusGem(game.Id) : 0;
+            extraGemTxt.text = $"{timeBonusGem}";
             seeAllVendorsBtn.SetEvent(OnSeeAllVendor);
             backToGameBtn.SetEvent(BackToGame);
             CreateVendorsOfGameCity(game);

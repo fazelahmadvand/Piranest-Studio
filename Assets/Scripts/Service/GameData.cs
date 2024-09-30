@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR;
 
 namespace Piranest
@@ -33,8 +34,25 @@ namespace Piranest
         private const string GAME_CHAPTER_QUESTIONS_TABLE_ID = "653803246fd64f40ff22209b";
         private const string USER_GAME_CHAPTER_QUESTIONS_TABLE_ID = "66e174b9bb0a7482d5468558";
 
-
         public event Action<UserGameInfo> OnUserGameDataInsert;
+
+        public override async Task Init(Action<DynamicPixelsException> OnFail)
+        {
+            games = new();
+            gameChapters = new();
+            gameChapterQuestions = new();
+            userGameInfoes = new();
+            await GetGames(OnFail);
+            await GetGameChapter(OnFail);
+            await GetGameChampterQuestion(OnFail);
+            await GetUserGameInfoes(OnFail);
+
+        }
+
+        public Game GetGame(int Id)
+        {
+            return games.FirstOrDefault(g => g.Id == Id);
+        }
 
         public List<GameChapter> GetChapters(int gameId)
         {
@@ -55,6 +73,11 @@ namespace Piranest
         {
             if (HasUserFinishedGame(gameId))
                 return 0;
+            return SumGamePrize(gameId);
+        }
+
+        public int SumGamePrize(int gameId)
+        {
             int sum = 0;
             var chapters = GetChapters(gameId);
             foreach (var chapter in chapters)
@@ -67,6 +90,7 @@ namespace Piranest
             }
             return sum;
         }
+
 
         public bool HasUserFinishedGame(int gameId)
         {
@@ -81,19 +105,6 @@ namespace Piranest
         {
             var answer = UserGameInfoes.Where(g => g.GameId == gameId).Where(g => g.ChapterId == chapterId).FirstOrDefault(g => g.QuestionId == questionId);
             return answer != null;
-        }
-
-        public override async Task Init(Action<DynamicPixelsException> OnFail)
-        {
-            games = new();
-            gameChapters = new();
-            gameChapterQuestions = new();
-            userGameInfoes = new();
-            await GetGames(OnFail);
-            await GetGameChapter(OnFail);
-            await GetGameChampterQuestion(OnFail);
-            await GetUserGameInfoes(OnFail);
-
         }
 
         private async Task GetGames(Action<DynamicPixelsException> OnFail)

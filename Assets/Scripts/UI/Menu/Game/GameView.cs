@@ -140,6 +140,7 @@ namespace Piranest.UI.Menu
         {
             pageHandler.Show();
             headerView.Show();
+            
             finishView.UpdateFinish(state.currentGame, state.currentGame.Prize, () =>
             {
                 finishView.Hide();
