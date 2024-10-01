@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Piranest
 {
@@ -74,7 +75,7 @@ namespace Piranest
             OnGameStateChange?.Invoke(currentGameState);
         }
 
-        public async void NextState()
+        public void NextState()
         {
             var type = currentGameState.type;
             switch (type)
@@ -89,20 +90,18 @@ namespace Piranest
                 case GameStateType.Question:
                     break;
                 case GameStateType.QuestionResult:
-                    currentGameState.NextQuestion();
+                    currentGameState.NextQuestion(async () =>
+                    {
+                        int gameId = currentGameState.currentGame.Id;
+                        int bonus = TimeBonusGem(gameId);
+                        finishedGameSaveData.GameFinished(currentGameState.currentGame.Id);
+                        if (bonus != 0)
+                            await authData.UpdateAccount(bonus);
+                    });
                     break;
             }
 
             OnGameStateChange?.Invoke(currentGameState);
-
-            if (type == GameStateType.Finished)
-            {
-                int gameId = currentGameState.currentGame.Id;
-                int bonus = TimeBonusGem(gameId);
-                if (bonus != 0)
-                    await authData.UpdateAccount(bonus);
-                finishedGameSaveData.GameFinished(currentGameState.currentGame.Id);
-            }
         }
 
         public async void SubmitAnswer(QuestionStateType state)
@@ -138,7 +137,6 @@ namespace Piranest
             {
                 var firstQuestion = gameData.GetQuestions(firstChapter.Id)[0];
                 currentGameState.SetCurrentChapterAndQuestions(allGameChapters[0], firstQuestion);
-                Debug.Log("Finished Game");
                 return;
             }
 
@@ -199,7 +197,7 @@ namespace Piranest
             asnwerIsTrue = questionState == QuestionStateType.Right;
         }
 
-        public void NextQuestion()
+        public void NextQuestion(Action OnFinish)
         {
             questionIndex++;
             var currentQuestions = chaptersAndQuestions[chapterIndex].questions;
@@ -210,6 +208,7 @@ namespace Piranest
                 if (chapterIndex > chaptersAndQuestions.Count - 1)
                 {
                     type = GameStateType.Finished;
+                    OnFinish?.Invoke();
                     return;
                 }
                 questionIndex = 0;

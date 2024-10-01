@@ -16,6 +16,7 @@ namespace Piranest.SaveSystem
         public void GameFinished(int gameId)
         {
             Data.Add(new Map<int, bool>(gameId, true));
+            Debug.Log("Add Game Finished: " + gameId);
             Save();
         }
 
