@@ -35,14 +35,12 @@ namespace Piranest
         {
             if (!HasTexture(url))
             {
-                Debug.Log("Texture Not Found: " + url);
                 return null;
             }
 
             var tex = new Texture2D(2, 2);
             if (!tex.LoadImage(GetValue(url)))
             {
-                Debug.Log("Cant Convert To Image");
                 return null;
             }
             return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));

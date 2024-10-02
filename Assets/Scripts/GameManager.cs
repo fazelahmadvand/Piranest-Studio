@@ -32,7 +32,8 @@ namespace Piranest
                 type = GameStateType.Game,
                 currentGame = game,
                 chaptersInfo = new(),
-                chaptersAndQuestions = new()
+                chaptersAndQuestions = new(),
+                gamePrize = gameData.HasUserFinishedGame(game.Id) ? 0 : game.Prize
             };
 
             for (int i = 0; i < allGameChapters.Count; i++)
@@ -188,6 +189,7 @@ namespace Piranest
         public GameChapterQuestion firstQuestionOfChapter, lastQuestionOfChapter;
         public List<ChapterInfo> chaptersInfo;
         public int timeBonusGem;
+        public int gamePrize;
 
         [SerializeField] private int questionIndex;
         [SerializeField] private int chapterIndex;

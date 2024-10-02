@@ -43,7 +43,6 @@ namespace Piranest.SaveSystem
         public void AddTime(int gameId, int timer)
         {
             var map = new Map<int, int>(gameId, timer);
-            Debug.Log($"Add Game Timer: {gameId} - {timer}");
             Data.times.Add(map);
             Save();
         }
