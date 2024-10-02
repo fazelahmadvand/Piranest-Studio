@@ -40,7 +40,7 @@ namespace Piranest
             await Task.Delay(100);
             await textureDownloader.Download((total, success, fail) =>
             {
-                string text = $"Downloading images {success} / {total} (Success: {success}, Failed: {fail})";
+                string text = $"Downloading images {success} / {total} (Failed: {fail})";
                 loading.UpdateText(text);
             });
 

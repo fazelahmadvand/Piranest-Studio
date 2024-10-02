@@ -1023,8 +1023,8 @@ MonoBehaviour:
   chapterHeaderHolder: {fileID: 6887523069058886839}
   chapterInfo: {fileID: 1725437363160678205, guid: c417637b92eae0a4290db855ea40be17,
     type: 3}
-  gameData: {fileID: 11400000, guid: ea28e4e049889964fac7e5b51c7da643, type: 2}
   textureData: {fileID: 11400000, guid: 247bc65bb53f63f4eb6f8bc86f579634, type: 2}
+  finishedGameSave: {fileID: 11400000, guid: 70f7e01001034e74eb3f39977cff1fcf, type: 2}
 --- !u!1 &4788798437241607693
 GameObject:
   m_ObjectHideFlags: 0

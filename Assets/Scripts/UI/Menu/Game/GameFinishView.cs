@@ -23,11 +23,10 @@ namespace Piranest.UI
         [SerializeField] private ItemData itemData;
         [SerializeField] private HeaderView headerView;
 
-        public void UpdateFinish(Game game, int prize, Action OnSeeAllVendor, Action BackToGame)
+        public void UpdateFinish(Game game, int timeBonusGem, int prize, Action OnSeeAllVendor, Action BackToGame)
         {
             Show();
             gemTxt.text = prize.ToString();
-            int timeBonusGem = TimerHandler.HasTime ? GameManager.Instance.TimeBonusGem(game.Id) : 0;
             extraGemTxt.text = $"{timeBonusGem}";
             seeAllVendorsBtn.SetEvent(OnSeeAllVendor);
             backToGameBtn.SetEvent(BackToGame);

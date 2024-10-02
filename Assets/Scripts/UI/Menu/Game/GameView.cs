@@ -117,8 +117,8 @@ namespace Piranest.UI.Menu
         {
             chapterView.Hide();
             pageHandler.Hide();
-
-            questionView.UpdateInfo(state.CurrentQuestion, (answerState) =>
+            int gameId = state.currentGame.Id;
+            questionView.UpdateInfo(gameId, state.CurrentQuestion, (answerState) =>
             {
                 GameManager.Instance.SubmitAnswer(answerState);
             });
@@ -140,8 +140,8 @@ namespace Piranest.UI.Menu
         {
             pageHandler.Show();
             headerView.Show();
-            
-            finishView.UpdateFinish(state.currentGame, state.currentGame.Prize, () =>
+
+            finishView.UpdateFinish(state.currentGame, state.timeBonusGem, state.currentGame.Prize, () =>
             {
                 finishView.Hide();
                 pageHandler.ShowPage(FooterPageTypeEnum.Vendor);

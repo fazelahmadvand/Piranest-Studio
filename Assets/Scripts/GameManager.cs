@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Piranest
 {
@@ -94,7 +93,8 @@ namespace Piranest
                     {
                         int gameId = currentGameState.currentGame.Id;
                         int bonus = TimeBonusGem(gameId);
-                        finishedGameSaveData.GameFinished(currentGameState.currentGame.Id);
+                        currentGameState.timeBonusGem = bonus;
+                        finishedGameSaveData.AddFinishedGame(currentGameState.currentGame.Id);
                         if (bonus != 0)
                             await authData.UpdateAccount(bonus);
                     });
@@ -187,6 +187,8 @@ namespace Piranest
         public GameChapter CurrentChapter => chaptersAndQuestions[chapterIndex].chapter;
         public GameChapterQuestion firstQuestionOfChapter, lastQuestionOfChapter;
         public List<ChapterInfo> chaptersInfo;
+        public int timeBonusGem;
+
         [SerializeField] private int questionIndex;
         [SerializeField] private int chapterIndex;
         public bool asnwerIsTrue;

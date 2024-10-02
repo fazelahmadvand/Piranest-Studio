@@ -1,4 +1,5 @@
 using Piranest.Model;
+using Piranest.SaveSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +25,12 @@ namespace Piranest.UI
         [Header("Header")]
         [SerializeField] private Transform chapterHeaderHolder;
         [SerializeField] private ChapterHeaderInfo chapterInfo;
-        [SerializeField] private GameData gameData;
         [SerializeField] private TextureSaveData textureData;
-
+        [SerializeField] private FinishedGameSaveData finishedGameSave;
 
         private int index;
         private int rightAnswerIndex;
-
+        private int gameId;
         public override void InitView()
         {
             base.InitView();
@@ -44,8 +44,9 @@ namespace Piranest.UI
             TimerHandler.TimeEnd -= DisableTime;
         }
 
-        public void UpdateInfo(GameChapterQuestion question, Action<QuestionStateType> OnSubmit)
+        public void UpdateInfo(int gameId, GameChapterQuestion question, Action<QuestionStateType> OnSubmit)
         {
+            this.gameId = gameId;
             HandleTime();
             Show();
             submitBtn.interactable = false;
@@ -92,6 +93,12 @@ namespace Piranest.UI
 
         private void HandleTime()
         {
+            if (finishedGameSave.HasFinishedGame(gameId))
+            {
+                DisableTime();
+                return;
+            }
+
             if (TimerHandler.HasTime)
             {
                 timerRoot.SetActive(true);
