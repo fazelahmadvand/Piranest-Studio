@@ -205,8 +205,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1965
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ab061eb4e4cc9a445ba2509ed003d0ba, type: 2}
-  m_sharedMaterial: {fileID: 6694148382803119569, guid: ab061eb4e4cc9a445ba2509ed003d0ba,
+  m_fontAsset: {fileID: 11400000, guid: ef0062043020b6c42930aea2cafba50c, type: 2}
+  m_sharedMaterial: {fileID: 5104766898004976496, guid: ef0062043020b6c42930aea2cafba50c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1294,8 +1294,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1965
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ab061eb4e4cc9a445ba2509ed003d0ba, type: 2}
-  m_sharedMaterial: {fileID: 6694148382803119569, guid: ab061eb4e4cc9a445ba2509ed003d0ba,
+  m_fontAsset: {fileID: 11400000, guid: ef0062043020b6c42930aea2cafba50c, type: 2}
+  m_sharedMaterial: {fileID: 5104766898004976496, guid: ef0062043020b6c42930aea2cafba50c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1429,8 +1429,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1965
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ab061eb4e4cc9a445ba2509ed003d0ba, type: 2}
-  m_sharedMaterial: {fileID: 6694148382803119569, guid: ab061eb4e4cc9a445ba2509ed003d0ba,
+  m_fontAsset: {fileID: 11400000, guid: ef0062043020b6c42930aea2cafba50c, type: 2}
+  m_sharedMaterial: {fileID: 5104766898004976496, guid: ef0062043020b6c42930aea2cafba50c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2346,8 +2346,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1965
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ab061eb4e4cc9a445ba2509ed003d0ba, type: 2}
-  m_sharedMaterial: {fileID: 6694148382803119569, guid: ab061eb4e4cc9a445ba2509ed003d0ba,
+  m_fontAsset: {fileID: 11400000, guid: ef0062043020b6c42930aea2cafba50c, type: 2}
+  m_sharedMaterial: {fileID: 5104766898004976496, guid: ef0062043020b6c42930aea2cafba50c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
