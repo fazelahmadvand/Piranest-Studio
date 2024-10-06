@@ -6,7 +6,6 @@ namespace Piranest.UI.Menu
 {
     public class VendorView : View
     {
-        [SerializeField] private Button loadArScene;
         [SerializeField] private View authView;
         [SerializeField] private VendorCardView vendorCard;
         [SerializeField] private Transform vendorHolder;
@@ -22,10 +21,6 @@ namespace Piranest.UI.Menu
         public override void InitView()
         {
             base.InitView();
-            loadArScene.SetEvent(() =>
-            {
-                SceneLoader.LoadScene(SceneName.ARMultipleObjects_Puzzles);
-            });
             vendorInfo.InitView();
             OnInitialized();
         }
