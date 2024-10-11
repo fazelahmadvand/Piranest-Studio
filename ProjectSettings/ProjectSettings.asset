@@ -141,11 +141,11 @@ PlayerSettings:
   tvOSBundleVersion: 1.0
   bundleVersion: 0.5
   preloadedAssets:
-  - {fileID: -8710227134356223117, guid: 2492ec090826bee4a832776a041c7e6d, type: 2}
+  - {fileID: 4800000, guid: e7c77f6eaab324a819efdc13b8125a39, type: 3}
+  - {fileID: 4800000, guid: 6743a50a812740be8c0aa3fccc46fae9, type: 3}
+  - {fileID: 2446842706557726557, guid: 2492ec090826bee4a832776a041c7e6d, type: 2}
   - {fileID: 11400000, guid: 302e9f36808117f4184b07b05ca5bb47, type: 2}
-  - {fileID: -4474853473124628039, guid: 7b2418dcc5b87d044910a7228982a36c, type: 2}
-  - {fileID: 4800000, guid: c9f956787b1d945e7b36e0516201fc76, type: 3}
-  - {fileID: 4800000, guid: 0945859e5a1034c2cb6dce53cb4fb899, type: 3}
+  - {fileID: -7446878215141526139, guid: 7b2418dcc5b87d044910a7228982a36c, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -560,8 +560,8 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: 
-  locationUsageDescription: 
+  cameraUsageDescription: Need for AR
+  locationUsageDescription: Need for Question Games
   microphoneUsageDescription: 
   bluetoothUsageDescription: 
   macOSTargetOSVersion: 10.13.0
