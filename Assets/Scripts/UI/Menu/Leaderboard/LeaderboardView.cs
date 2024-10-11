@@ -94,6 +94,7 @@ namespace Piranest.UI.Menu
         private async void UpdateTop3()
         {
             var top3 = leaderboardData.GetTop3();
+            if (top3.Count < top3Cards.Count) return;
 
             for (int i = 0; i < top3Cards.Count; i++)
             {

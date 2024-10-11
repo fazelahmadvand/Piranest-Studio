@@ -1,4 +1,5 @@
 using DynamicPixels.GameService.Services.Authentication.Models;
+using Piranest.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +31,10 @@ namespace Piranest.Auth
 
         public async void Login()
         {
+            if (!IsValidate())
+            {
+                return;
+            }
             var login = new LoginWithEmailParams()
             {
                 email = emailTxt.text,
@@ -40,6 +45,21 @@ namespace Piranest.Auth
             {
                 Debug.Log($"login View:{e.Message}", gameObject);
             });
+        }
+
+        private bool IsValidate()
+        {
+            if (string.IsNullOrWhiteSpace(emailTxt.text))
+            {
+                PopUpManager.Instance.Show("Email Is Empty", () => { });
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(passwordTxt.text))
+            {
+                PopUpManager.Instance.Show("Password Is Empty", () => { });
+                return false;
+            }
+            return true;
         }
 
     }
