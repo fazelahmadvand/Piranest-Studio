@@ -1,12 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using System.Collections.Generic;
 using UnityEngine.XR.ARSubsystems;
-using UnityEngine.XR.ARKit;
-using Unity.Collections;
-#if UNITY_IOS && !UNITY_EDITOR
-using UnityEngine.XR.ARKit;
-#endif
 
 [RequireComponent(typeof(ARFace))]
 public class ARKitBlendShapeVisualizerDog : MonoBehaviour
@@ -61,7 +55,7 @@ public class ARKitBlendShapeVisualizerDog : MonoBehaviour
 
 #if UNITY_IOS && !UNITY_EDITOR
             const string strPrefix ="blendShape1.";
-            m_FaceArkitBlendShapeIndexMap = new Dictionary<ARKitBlendShapeLocation, int>();
+            m_FaceArkitBlendShapeIndexMap = new System.Collections.Generic.Dictionary<ARKitBlendShapeLocation, int>();
             m_FaceArkitBlendShapeIndexMap[ARKitBlendShapeLocation.JawOpen             ]   = skinnedMeshRenderer.sharedMesh.GetBlendShapeIndex(strPrefix + "jaw_open");
 #endif
     }

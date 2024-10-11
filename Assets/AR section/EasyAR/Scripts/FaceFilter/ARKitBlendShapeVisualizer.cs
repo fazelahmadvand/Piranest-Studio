@@ -2,11 +2,7 @@
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARKit;
 using UnityEngine.XR.ARSubsystems;
-#if UNITY_IOS && !UNITY_EDITOR
-using UnityEngine.XR.ARKit;
-#endif
 
 [RequireComponent(typeof(ARFace))]
 public class ARKitBlendShapeVisualizer : MonoBehaviour
@@ -36,10 +32,10 @@ public class ARKitBlendShapeVisualizer : MonoBehaviour
         }
     }
 
-//#if UNITY_IOS && !UNITY_EDITOR
-        ARKitFaceSubsystem m_ARKitFaceSubsystem;
-        Dictionary<ARKitBlendShapeLocation, int> m_FaceArkitBlendShapeIndexMap;
-//#endif
+#if UNITY_IOS && !UNITY_EDITOR
+    UnityEngine.XR.ARKit.ARKitFaceSubsystem m_ARKitFaceSubsystem;
+        Dictionary<UnityEngine.XR.ARKit.ARKitBlendShapeLocation, int> m_FaceArkitBlendShapeIndexMap;
+#endif
 
     ARFace m_Face;
 

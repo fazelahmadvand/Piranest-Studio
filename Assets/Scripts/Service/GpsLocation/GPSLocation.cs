@@ -95,7 +95,7 @@ namespace Piranest
 #if UNITY_ANDROID && !UNITY_EDITOR
             if (!Input.location.isEnabledByUser) return (false, 0);
             if (Input.location.status != LocationServiceStatus.Running) return (false, 0);
-            if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation)) return (false, 0);
+            if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation)) return (false, 0);
             var lastData = Input.location.lastData;
             currentLat = lastData.latitude;
             currentLong = lastData.longitude;
