@@ -19,7 +19,7 @@ public class AndroidIOSSwitcher : MonoBehaviour
 #if UNITY_IPHONE
         faceMeshVisualizerAndroid.enabled = false;
         faceMeshVisualizerIOS.enabled = true;
-        m_Renderer.material.SetTexture("_BaseMap", clownTextureIOS);
+        m_Renderer.material.SetTexture("_BaseMap", textureIOS);
 #endif
 #if UNITY_ANDROID
         faceMeshVisualizerAndroid.enabled = true;

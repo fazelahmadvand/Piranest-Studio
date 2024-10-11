@@ -28,7 +28,7 @@ public class AROcclussionQualityController : MonoBehaviour
         bestOptionButton = qualityPanel.transform.Find("Best");
 
 #if UNITY_IOS
-        bestOptionButton.gameObject.GetComponent<Button>().enabled = false;
+        bestOptionButton.gameObject.GetComponent<UnityEngine.UI.Button>().enabled = false;
 #endif
 
         var occlusionDescriptors = new List<XROcclusionSubsystemDescriptor>();

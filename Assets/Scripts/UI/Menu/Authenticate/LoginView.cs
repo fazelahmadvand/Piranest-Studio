@@ -1,6 +1,4 @@
 using DynamicPixels.GameService.Services.Authentication.Models;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,13 +14,9 @@ namespace Piranest.Auth
         public override void InitView()
         {
             base.InitView();
-            confirmBtn.onClick.RemoveAllListeners();
-            confirmBtn.onClick.AddListener(Login);
+            confirmBtn.SetEvent(Login);
 
-
-
-            signUpBtn.onClick.RemoveAllListeners();
-            signUpBtn.onClick.AddListener(() =>
+            signUpBtn.SetEvent(() =>
             {
                 Hide();
                 signUpView.Show();
@@ -41,6 +35,7 @@ namespace Piranest.Auth
                 email = emailTxt.text,
                 password = passwordTxt.text,
             };
+
             await authData.Login(login, (e) =>
             {
                 Debug.Log($"login View:{e.Message}", gameObject);

@@ -1,8 +1,6 @@
-﻿using Piranest.UI;
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Android;
 
 namespace Piranest
 {
@@ -40,11 +38,10 @@ namespace Piranest
             if (!IsLocationActive)
             {
                 Debug.Log("Location not enabled on device or app does not have permission to access location");
-
-                if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+                if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation))
                 {
-                    Permission.RequestUserPermission(Permission.FineLocation);
-                    yield return new WaitUntil(() => Permission.HasUserAuthorizedPermission(Permission.FineLocation));
+                    UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.FineLocation);
+                    yield return new WaitUntil(() => UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation));
                     OnGetPermission?.Invoke();
                 }
                 else
