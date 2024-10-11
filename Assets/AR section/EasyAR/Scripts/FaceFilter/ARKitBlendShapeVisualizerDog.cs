@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using System.Collections.Generic;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.XR.ARKit;
+using Unity.Collections;
 #if UNITY_IOS && !UNITY_EDITOR
 using UnityEngine.XR.ARKit;
 #endif
@@ -34,8 +37,8 @@ public class ARKitBlendShapeVisualizerDog : MonoBehaviour
     }
 
 #if UNITY_IOS && !UNITY_EDITOR
-        ARKitFaceSubsystem m_ARKitFaceSubsystem;
-        Dictionary<ARKitBlendShapeLocation, int> m_FaceArkitBlendShapeIndexMap;
+    UnityEngine.XR.ARKit.ARKitFaceSubsystem m_ARKitFaceSubsystem;
+    System.Collections.Generic.Dictionary<ARKitBlendShapeLocation, int> m_FaceArkitBlendShapeIndexMap;
 #endif
 
     ARFace m_Face;
@@ -122,7 +125,7 @@ public class ARKitBlendShapeVisualizerDog : MonoBehaviour
         }
 
 #if UNITY_IOS && !UNITY_EDITOR
-            using (var blendShapes = m_ARKitFaceSubsystem.GetBlendShapeCoefficients(m_Face.trackableId, Allocator.Temp))
+        using (var blendShapes = m_ARKitFaceSubsystem.GetBlendShapeCoefficients(m_Face.trackableId, Allocator.Temp))
             {
                 foreach (var featureCoefficient in blendShapes)
                 {

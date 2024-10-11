@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Unity.Collections;
+using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARKit;
 using UnityEngine.XR.ARSubsystems;
 #if UNITY_IOS && !UNITY_EDITOR
 using UnityEngine.XR.ARKit;
@@ -33,10 +36,10 @@ public class ARKitBlendShapeVisualizer : MonoBehaviour
         }
     }
 
-#if UNITY_IOS && !UNITY_EDITOR
+//#if UNITY_IOS && !UNITY_EDITOR
         ARKitFaceSubsystem m_ARKitFaceSubsystem;
         Dictionary<ARKitBlendShapeLocation, int> m_FaceArkitBlendShapeIndexMap;
-#endif
+//#endif
 
     ARFace m_Face;
 
