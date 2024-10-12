@@ -32,7 +32,7 @@ public class ARKitBlendShapeVisualizerDog : MonoBehaviour
 
 #if UNITY_IOS && !UNITY_EDITOR
     UnityEngine.XR.ARKit.ARKitFaceSubsystem m_ARKitFaceSubsystem;
-    System.Collections.Generic.Dictionary<ARKitBlendShapeLocation, int> m_FaceArkitBlendShapeIndexMap;
+    System.Collections.Generic.Dictionary<UnityEngine.XR.ARKit.ARKitBlendShapeLocation, int> m_FaceArkitBlendShapeIndexMap;
 #endif
 
     ARFace m_Face;
@@ -55,8 +55,8 @@ public class ARKitBlendShapeVisualizerDog : MonoBehaviour
 
 #if UNITY_IOS && !UNITY_EDITOR
             const string strPrefix ="blendShape1.";
-            m_FaceArkitBlendShapeIndexMap = new System.Collections.Generic.Dictionary<ARKitBlendShapeLocation, int>();
-            m_FaceArkitBlendShapeIndexMap[ARKitBlendShapeLocation.JawOpen             ]   = skinnedMeshRenderer.sharedMesh.GetBlendShapeIndex(strPrefix + "jaw_open");
+            m_FaceArkitBlendShapeIndexMap = new System.Collections.Generic.Dictionary<UnityEngine.XR.ARKit.ARKitBlendShapeLocation, int>();
+            m_FaceArkitBlendShapeIndexMap[UnityEngine.XR.ARKit.ARKitBlendShapeLocation.JawOpen             ]   = skinnedMeshRenderer.sharedMesh.GetBlendShapeIndex(strPrefix + "jaw_open");
 #endif
     }
 
@@ -79,11 +79,11 @@ public class ARKitBlendShapeVisualizerDog : MonoBehaviour
 
     void OnEnable()
     {
-#if UNITY_IOS && !UNITY_EDITOR
+#if UNITY_IOS && !UNITY_EDITOR 
             var faceManager = FindObjectOfType<ARFaceManager>();
             if (faceManager != null)
             {
-                m_ARKitFaceSubsystem = (ARKitFaceSubsystem)faceManager.subsystem;
+                m_ARKitFaceSubsystem = (UnityEngine.XR.ARKit.ARKitFaceSubsystem)faceManager.subsystem;
             }
 #endif
         UpdateVisibility();
@@ -118,8 +118,8 @@ public class ARKitBlendShapeVisualizerDog : MonoBehaviour
             return;
         }
 
-#if UNITY_IOS && !UNITY_EDITOR
-        using (var blendShapes = m_ARKitFaceSubsystem.GetBlendShapeCoefficients(m_Face.trackableId, Allocator.Temp))
+#if UNITY_IOS  && !UNITY_EDITOR 
+        using (var blendShapes = m_ARKitFaceSubsystem.GetBlendShapeCoefficients(m_Face.trackableId, Unity.Collections.Allocator.Temp))
             {
                 foreach (var featureCoefficient in blendShapes)
                 {
