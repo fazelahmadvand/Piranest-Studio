@@ -15,9 +15,10 @@ namespace Piranest.AR
 
         void OnCollisionEnter(Collision collision)
         {
+            AttachPrefab parentScript = FindObjectOfType<AttachPrefab>();
             if (hasCollided) return; // Skip further processing if collision has already been handled
-
-            if (transform.position.y > 0.75)
+            float distanceY = parentScript.gameObject.transform.position.y - transform.position.y;
+            if (distanceY < 0.1)
             {
                 isCollide = false;
                 Losing();
@@ -25,7 +26,6 @@ namespace Piranest.AR
             if (isCollide)
             {
                 // Find the AttachPrefab script in the scene and call InstantiatePrefab
-                AttachPrefab parentScript = FindObjectOfType<AttachPrefab>();
                 if (collision.gameObject.tag == "Puzzle" && puzzlecollide)
                 {
                     if (parentScript != null)
@@ -72,6 +72,8 @@ namespace Piranest.AR
                 else if (collision.gameObject.tag == "OutSide")
                 {
                     // Handle losing scenario
+                    InstantiatePuzzle();
+
                 }
             }
             else
