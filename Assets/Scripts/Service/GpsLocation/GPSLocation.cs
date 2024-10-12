@@ -92,10 +92,15 @@ namespace Piranest
 
         public (bool, int) IsNearLocation(float lat1, float lon1, int distanceMeter)
         {
-#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_EDITOR
+            return (true, 0);
+#endif
             if (!Input.location.isEnabledByUser) return (false, 0);
             if (Input.location.status != LocationServiceStatus.Running) return (false, 0);
+            
+#if UNITY_ANDROID
             if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.FineLocation)) return (false, 0);
+#endif          
             var lastData = Input.location.lastData;
             currentLat = lastData.latitude;
             currentLong = lastData.longitude;
@@ -103,11 +108,6 @@ namespace Piranest
             var meter = (int)CalculateDistance(currentLat, currentLong, lat1, lon1);
             bool isNear = meter < distanceMeter;
             return (isNear, meter - distanceMeter);
-#elif UNITY_EDITOR
-            return (true, 0);
-#else
-            return (false, 0);
-#endif
         }
 
         public static double CalculateDistance(double lat1, double lon1, double lat2, double lon2)

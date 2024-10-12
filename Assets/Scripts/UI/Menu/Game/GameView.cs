@@ -242,7 +242,7 @@ namespace Piranest.UI.Menu
                 else
                 {
                     meterValue = tuple.Item1 ? string.Empty : $"Remaining Meter: {tuple.Item2}";
-                    if (tuple.Item1 == false && tuple.Item2 == 0) meterValue = $"Calclulating";
+                    if (tuple.Item1 == false && tuple.Item2 == 0) meterValue = $"Calculating";
                     gameInfo.HandleBeginButton(tuple.Item1, meterValue);
                 }
 
