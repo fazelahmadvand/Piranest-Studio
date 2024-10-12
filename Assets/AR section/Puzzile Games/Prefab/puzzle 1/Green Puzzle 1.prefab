@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0a46feb4b70f43f88f599f902d3a3a6, type: 2}
+  - {fileID: 2100000, guid: 1990f339ec7c9194999eaf1a3a7a0436, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a74286fa4572cd419c5280db901b665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleNum: 0
+  typeP: 0
 --- !u!1 &4368384254121506104
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0a46feb4b70f43f88f599f902d3a3a6, type: 2}
+  - {fileID: 2100000, guid: 1990f339ec7c9194999eaf1a3a7a0436, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -236,6 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a74286fa4572cd419c5280db901b665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleNum: 0
+  typeP: 0
 --- !u!1 &5776439383984732512
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +303,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0a46feb4b70f43f88f599f902d3a3a6, type: 2}
+  - {fileID: 2100000, guid: 1990f339ec7c9194999eaf1a3a7a0436, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -354,6 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a74286fa4572cd419c5280db901b665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleNum: 0
+  typeP: 0
 --- !u!1 &8688680708992378162
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +372,7 @@ GameObject:
   - component: {fileID: 2744581317616861704}
   - component: {fileID: 7387718780389889127}
   m_Layer: 0
-  m_Name: Puzzle 1
+  m_Name: Green Puzzle 1
   m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,9 +405,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8688680708992378162}
   serializedVersion: 4
-  m_Mass: 35
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 1
+  m_Drag: 2
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -415,8 +421,8 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
+  m_Interpolate: 1
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &7387718780389889127
 MonoBehaviour:
@@ -430,6 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a74286fa4572cd419c5280db901b665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleNum: 0
+  typeP: 1
 --- !u!1 &9085148975463519950
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +501,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0a46feb4b70f43f88f599f902d3a3a6, type: 2}
+  - {fileID: 2100000, guid: 1990f339ec7c9194999eaf1a3a7a0436, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -548,3 +556,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a74286fa4572cd419c5280db901b665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleNum: 0
+  typeP: 0

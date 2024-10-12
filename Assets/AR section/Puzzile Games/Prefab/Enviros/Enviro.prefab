@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 236860718369078601}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.207, y: 0.012, z: 0.20199585}
+  m_LocalPosition: {x: -0.285, y: 0.012, z: 0.20199585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -381,7 +381,7 @@ MonoBehaviour:
   targetA: {fileID: 4728102919654405807}
   targetB: {fileID: 5210083472884879154}
   moveSpeed: 0.23
-  heightAboveBase: 0.44
+  heightAboveBase: 0.88
 --- !u!114 &8330424054817098299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,12 +396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabList:
   - {fileID: 8688680708992378162, guid: 52335312709d00b42b9d7c7a4afca0ea, type: 3}
-  - {fileID: 8688680708992378162, guid: cc058d6a52800df4da9924dab75915ab, type: 3}
-  - {fileID: 8688680708992378162, guid: 8e7bba633b5cd564d94f841cd6779b00, type: 3}
-  - {fileID: 8688680708992378162, guid: 493ecf8f3aca7e94ca29e48e77bc0075, type: 3}
-  - {fileID: 8688680708992378162, guid: c20651578e4061d4f81277fc41d96907, type: 3}
-  - {fileID: 8688680708992378162, guid: cfd763b7c4e3bec41b2f2b9e814291d7, type: 3}
-  - {fileID: 8688680708992378162, guid: acf54dac371920d4282098ced19fbd41, type: 3}
+  - {fileID: 8688680708992378162, guid: 1f1b991035114864db9bdaa0d6a26fb5, type: 3}
+  - {fileID: 8688680708992378162, guid: 530ae3ad7e997834cafcbb7e5567d70a, type: 3}
   movingObject: {fileID: 4547593383405519259}
   isTest: 0
   firstPuzzle: 1
@@ -824,7 +820,7 @@ Transform:
   m_GameObject: {fileID: 4644785865675463829}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.383, y: 0.0119999945, z: 0.202}
+  m_LocalPosition: {x: 0.513, y: 0.0119999945, z: 0.202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

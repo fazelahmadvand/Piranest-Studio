@@ -49,9 +49,9 @@ namespace Piranest.AR
         /// </summary>
         void SetHeightFromBase()
         {
-            Vector3 newPosition = transform.localPosition;
-            newPosition.y = basePosition.localPosition.y + heightAboveBase;
-            transform.localPosition = newPosition;
+            Vector3 newPosition = transform.position;
+            newPosition.y = basePosition.position.y + heightAboveBase;
+            transform.position = newPosition;
         }
 
         /// <summary>
@@ -60,12 +60,12 @@ namespace Piranest.AR
         void MoveTowardsTarget()
         {
             Vector3 targetPosition = new Vector3(
-                currentTarget.localPosition.x,
-                basePosition.localPosition.y + heightAboveBase,
-                currentTarget.localPosition.z
+                currentTarget.position.x,
+                basePosition.position.y + heightAboveBase,
+                currentTarget.position.z
             );
 
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Piranest.AR
         {
             if (height >= 2)
             {
-                heightAboveBase += 0.035f;
+                //heightAboveBase += 0.035f;
                 SetHeightFromBase();
             }
         }
@@ -87,11 +87,11 @@ namespace Piranest.AR
         void CheckForTargetReached()
         {
             float distance = Vector3.Distance(
-                new Vector3(transform.localPosition.x, 0, transform.localPosition.z),
-                new Vector3(currentTarget.localPosition.x, 0, currentTarget.localPosition.z)
+                new Vector3(transform.position.x, 0, transform.position.z),
+                new Vector3(currentTarget.position.x, 0, currentTarget.position.z)
             );
 
-            if (distance < 0.1f)
+            if (distance < 0.01f)
             {
                 ToggleTarget();
             }
