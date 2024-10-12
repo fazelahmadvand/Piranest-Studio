@@ -76,14 +76,14 @@ namespace Piranest.AR
         /// <summary>
         /// Updates each frame to check for user input to drop the last instantiated prefab.
         /// </summary>
-        private void Update()
+        /*private void Update()
         {
             // Check if the Space key is pressed to activate gravity on the last instantiated object
             if (Input.GetKeyDown(KeyCode.Space) && lastInstantiatedObject != null)
             {
                 DropObject();
             }
-        }
+        }*/
 
         /// <summary>
         /// Starts the game by resetting the instantiated object, starting the timer, and instantiating a new prefab.
