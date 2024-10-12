@@ -6460,6 +6460,8 @@ MonoBehaviour:
   - Key: {fileID: 389995968}
     Value: {fileID: 1153687930497168056}
   header: {fileID: 150753908}
+  gameView: {fileID: 1601209184}
+  authView: {fileID: 1362624773}
 --- !u!1 &2092285813
 GameObject:
   m_ObjectHideFlags: 0

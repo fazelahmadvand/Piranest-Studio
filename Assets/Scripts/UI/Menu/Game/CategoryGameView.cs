@@ -9,6 +9,8 @@ namespace Piranest.UI
     {
         [SerializeField] private List<Map<GameMode, Button>> games;
         [SerializeField] private HeaderView header;
+        [SerializeField] private GameView gameView;
+        [SerializeField] private AuthView authView;
 
         public override void InitView()
         {
@@ -28,12 +30,23 @@ namespace Piranest.UI
 
         public override void Show()
         {
-            base.Show();
-            header.UpdatePage("Categories");
-            header.HandleBackButton(false);
+            if (AuthData.HasUser)
+            {
+                header.UpdatePage("Categories");
+                header.HandleBackButton(false);
+                base.Show();
+            }
+            else
+            {
+                authView.Show();
+            }
         }
 
-
+        public override void Hide()
+        {
+            base.Hide();
+            gameView.Hide();
+        }
 
     }
 }

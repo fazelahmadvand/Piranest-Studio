@@ -76,6 +76,7 @@ namespace Piranest.UI.Menu
                 list = all.TakeLast(5).ToList();
             else
                 list = all.Skip(userIndex - 2).Take(5).ToList();
+            if (list.Count < cards.Count) return;
             for (int i = 0; i < cards.Count; i++)
             {
                 var card = cards[i];
