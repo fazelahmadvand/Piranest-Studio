@@ -49,6 +49,7 @@ namespace Piranest.UI.Menu
                 });
             });
             OnGetLeaderboard();
+            OnAccountChange(authData.Account);
             authData.OnAccountChange += OnAccountChange;
             leaderboardData.OnGetLeaderboard += OnGetLeaderboard;
         }

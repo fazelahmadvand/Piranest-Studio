@@ -23,6 +23,7 @@ namespace Piranest.UI.Menu
             cancelBtn.onClick.RemoveAllListeners();
             cancelBtn.onClick.AddListener(() => Hide());
             SetUserName(authData.User);
+            OnUserUpdate(authData.User);
             authData.OnAuthSuccess += SetUserName;
             authData.OnUpdateUser += OnUserUpdate;
         }

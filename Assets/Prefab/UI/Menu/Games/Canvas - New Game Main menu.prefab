@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 6898390811747490252}
   - component: {fileID: 3316058288605148080}
   m_Layer: 5
-  m_Name: Urban Exploration - Button (2)
+  m_Name: Urban Exploration - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1364,8 +1364,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2528732074077882599}
-  - {fileID: 697201733292424785}
   - {fileID: 122700504453765064}
+  - {fileID: 697201733292424785}
   m_Father: {fileID: 6800296065062793828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
