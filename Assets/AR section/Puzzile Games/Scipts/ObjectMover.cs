@@ -21,6 +21,9 @@ namespace Piranest.AR
         [Tooltip("Height above the base position")]
         public float heightAboveBase = 10.0f;
 
+        [Tooltip("Threshold distance to consider target reached")]
+        public float targetThreshold = 0.5f;
+
         private Transform currentTarget;
         private bool movingToA = true; // Toggle to decide which target to move to
 
@@ -65,7 +68,8 @@ namespace Piranest.AR
                 currentTarget.position.z
             );
 
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            
+            transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
 
         /// <summary>
@@ -76,7 +80,7 @@ namespace Piranest.AR
         {
             if (height >= 2)
             {
-                //heightAboveBase += 0.035f;
+                //heightAboveBase += 0.035f; 
                 SetHeightFromBase();
             }
         }
@@ -91,7 +95,7 @@ namespace Piranest.AR
                 new Vector3(currentTarget.position.x, 0, currentTarget.position.z)
             );
 
-            if (distance < 0.01f)
+            if (distance < targetThreshold) 
             {
                 ToggleTarget();
             }
