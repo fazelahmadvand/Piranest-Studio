@@ -22,7 +22,7 @@ namespace Piranest.AR
 
         [HideInInspector] public bool firstPuzzle = true;
 
-        private GameObject lastInstantiatedObject; // Stores the last instantiated object
+        public GameObject lastInstantiatedObject; // Stores the last instantiated object
         private int instantiateCount = 0; // Tracks the number of instantiated prefabs
 
         // Cached references to dependent components
@@ -37,12 +37,6 @@ namespace Piranest.AR
         {
             // Cache reference to ObjectMover
             objectMover = FindObjectOfType<ObjectMover>();
-            if (objectMover == null)
-            {
-                Debug.LogError("ObjectMover not found in the scene.");
-                enabled = false;
-                return;
-            }
 
             if (isTest)
             {
@@ -78,11 +72,7 @@ namespace Piranest.AR
         /// </summary>
         private void Update()
         {
-            // Check if the Space key is pressed to activate gravity on the last instantiated object
-            if (Input.GetKeyDown(KeyCode.Space) && lastInstantiatedObject != null)
-            {
-                DropObject();
-            }
+            
         }
 
         /// <summary>
@@ -126,7 +116,11 @@ namespace Piranest.AR
         /// </summary>
         private void DropObject()
         {
-            Rigidbody rb = lastInstantiatedObject.GetComponent<Rigidbody>();
+            Rigidbody rb = lastInstantiatedObject.AddComponent<Rigidbody>();
+            rb.mass = 1;
+            rb.drag = 2;
+            rb.angularDrag = 0;
+            rb.freezeRotation = true;
             if (rb != null)
             {
                 rb.useGravity = true;
@@ -169,11 +163,10 @@ namespace Piranest.AR
             GameObject selectedPrefab = prefabList[index];
 
             // Instantiate the prefab as a child of the moving object
-            lastInstantiatedObject = Instantiate(selectedPrefab, movingObject.position, movingObject.rotation, movingObject);
-            lastInstantiatedObject.transform.localPosition = Vector3.zero; // Center the prefab relative to the parent
-
+            lastInstantiatedObject = Instantiate(selectedPrefab, Vector3.zero, movingObject.rotation);
+            lastInstantiatedObject.transform.SetParent(transform.parent);
             instantiateCount++;
-            objectMover.IncreaseHeight(instantiateCount);
+            //objectMover.IncreaseHeight(instantiateCount);
         }
     }
 }

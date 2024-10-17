@@ -13,6 +13,19 @@ namespace Piranest.AR
         private bool isBeingDestroyed = false;
         private bool hasCollided = false; // Flag to track if a collision has already been handled
 
+        private void Start()
+        {
+            transform.position = Vector3.zero;
+        }
+        private void Update()
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb == null)
+            {
+                AttachPrefab parentScript = FindObjectOfType<AttachPrefab>();
+                transform.position = parentScript.transform.position;
+            }
+        }
         void OnCollisionEnter(Collision collision)
         {
             AttachPrefab parentScript = FindObjectOfType<AttachPrefab>();
