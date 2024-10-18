@@ -163,7 +163,7 @@ namespace Piranest.AR
             GameObject selectedPrefab = prefabList[index];
 
             // Instantiate the prefab as a child of the moving object
-            lastInstantiatedObject = Instantiate(selectedPrefab, Vector3.zero, movingObject.rotation);
+            lastInstantiatedObject = Instantiate(selectedPrefab, movingObject.position , movingObject.rotation);
             lastInstantiatedObject.transform.SetParent(transform.parent);
             instantiateCount++;
             //objectMover.IncreaseHeight(instantiateCount);

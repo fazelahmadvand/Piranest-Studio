@@ -16,7 +16,6 @@ namespace Piranest.AR
 
         private void Start()
         {
-            transform.position = Vector3.zero;
         }
         private void Update()
         {
@@ -32,7 +31,7 @@ namespace Piranest.AR
             AttachPrefab parentScript = FindObjectOfType<AttachPrefab>();
             if (hasCollided) return; // Skip further processing if collision has already been handled
             float distanceY = parentScript.gameObject.transform.position.y - transform.position.y;
-            if (distanceY < 0.1)
+            if (distanceY < 0.2f)
             {
                 isCollide = false;
                 Losing();
