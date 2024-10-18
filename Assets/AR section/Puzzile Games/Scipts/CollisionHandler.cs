@@ -6,6 +6,7 @@ namespace Piranest.AR
     {
         private bool isCollide = true, puzzlecollide = true, firstCollide = false;
         private GameObject perviousPuzzle;
+        [SerializeField] private GameObject vfx_Particles;
         [HideInInspector] public int puzzleNum = 0;
         public enum PuzzleType { Red, Green, Blue };
         public PuzzleType typeP;
@@ -118,7 +119,7 @@ namespace Piranest.AR
                 {
                     perviousPuzzle.gameObject.GetComponent<CollisionHandler>().DestroyPuzzle();
                 }
-
+                Instantiate(vfx_Particles, transform.position, transform.rotation);
                 Destroy(this.gameObject);
             }
         }

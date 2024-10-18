@@ -19,12 +19,12 @@ public class SceneHandler : MonoBehaviour
     /// </summary>
     public void BackFromCurrentScene()
     {
-        if (Application.CanStreamedLevelBeLoaded("Menu"))
+        if (Application.CanStreamedLevelBeLoaded("MainMenu"))
         {
             PlaceOnPlane.isObjectPlaced = false;
             MultipleObjectPlacement.isObjectPlaced = false;
             Destroy(PlaceOnPlane.spawnedObject);
-            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
             LoaderUtility.Deinitialize();
         }
     }

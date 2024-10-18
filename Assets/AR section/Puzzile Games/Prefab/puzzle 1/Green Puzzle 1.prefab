@@ -363,6 +363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a74286fa4572cd419c5280db901b665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vfx_Particles: {fileID: 2214640701318879305, guid: 54e21a054d25f6f46b393d65e2fa40d9,
+    type: 3}
   puzzleNum: 0
   typeP: 1
 --- !u!1 &9085148975463519950
